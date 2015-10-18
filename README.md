@@ -1,6 +1,6 @@
 # tessel.io website
 
-This is the website codebase for <tessel.io>.
+This is the website codebase for [tessel.io](//tessel.io).
 
 ##Dev
 
