@@ -1,9 +1,10 @@
-# Tessel.io Static Web Pages
+# tessel.io website
 
-This project is currently under revision. We're migrating to gulp, sass, and livereload capabilities.
-
+This is the website codebase for <tessel.io>.
 
 ##Dev
+
+This repo is built on gulp, sass, and livereload.
 
 ### Environment variables
 Environment variables examples can be found in `.env.example`
