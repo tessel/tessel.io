@@ -1,4 +1,4 @@
-# Technical-io Static Web Pages
+# Tessel.io Static Web Pages
 
 This project is currently under revision. We're migrating to gulp, sass, and livereload capabilities.
 
@@ -74,7 +74,7 @@ This document does says it best [Heroku git deploy](https://devcenter.heroku.com
 
 First you must be sure to have [heroku toolbelt](https://toolbelt.heroku.com/) installed.
 
-Make sure that you have these remotes to your local git clone.
+Make sure that you have these remotes to your local git clone (yes, these are legacy URLs).
 
 ```
 git remote add heroku https://git.heroku.com/technical-io.git
@@ -121,8 +121,8 @@ include an aws.json file
 
 ```
 {
-  "accessKeyID": "TM-accessID",
-  "secretAccessKey": "TM-secret-access-key",
+  "accessKeyID": "Tessel-accessID",
+  "secretAccessKey": "Tessel-secret-access-key",
   "bucket": "technicalmachine-assets/launch"
 }
 ```
