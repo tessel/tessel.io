@@ -1,0 +1,14 @@
+nav.top-bar.fixed(data-topbar, role="navigation")
+  ul.title-area
+    li.name
+      h1
+        a(href="/")
+          img.top-bar__logo(src="https://s3.amazonaws.com/technicalmachine-assets/launch/tessel-logo-horizontal.svg", alt="Tessel")
+    li.toggle-topbar.menue-icon
+      a(href="#")
+        span Menu
+  section#top-bar-links.top-bar-section
+    ul.right
+      each val in navbar
+        li(id=val.text)
+          a(href=val.link_url) #{val.text}

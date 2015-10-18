@@ -1,0 +1,13 @@
+mixin moduleEntry(module)
+  tr.js-module-entry(data-price=module.price, data-id=module.id, data-product-id=module.product_id)
+    td
+      h3= module.name
+    td
+      p!=module.description
+    td
+      img(src=module.images[0].url)
+    td= module.price_formatted
+    td
+      input(value=0 min=0 type='number')
+    td.js-unit-total
+      h1 $0.00

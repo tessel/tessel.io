@@ -1,0 +1,68 @@
+extends layout
+meta(name="Description" content="Thanks for buying Tessel 2!")
+
+block append head
+  link(rel="stylesheet", href="/stylesheets/thanks.css")
+
+  // Facebook pixel
+  // https://developers.facebook.com/docs/ads-for-websites/website-custom-audiences/getting-started#install-the-pixel
+  script.
+    (function() {
+      var _fbq = window._fbq || (window._fbq = []);
+      if (!_fbq.loaded) {
+        var fbds = document.createElement('script');
+        fbds.async = true;
+        fbds.src = '//connect.facebook.net/en_US/fbds.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(fbds, s);
+        _fbq.loaded = true;
+      }
+    })();
+    window._fbq = window._fbq || [];
+    window._fbq.push(['track', '6031097268620', {'value':'35.00','currency':'USD'}]);
+  <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6031097268620&amp;cd[value]=35.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+
+  // Twitter pixel
+  // https://ads.twitter.com/accounts/8nito/conversion_tracking/edit_tag?id=l5oc6&type=web
+  script(src="//platform.twitter.com/oct.js", type="text/javascript")
+  script(type="text/javascript").
+    twttr.conversion.trackPid('l5oc6', { tw_sale_amount: 35, tw_order_quantity: 1 });
+  noscript
+    img(height="1", width="1", style="display:none;", alt="", src="https://analytics.twitter.com/i/adsct?txn_id=l5oc6&p_id=Twitter&tw_sale_amount=35&tw_order_quantity=1")
+    img(height="1", width="1", style="display:none;", alt="", src="//t.co/i/adsct?txn_id=l5oc6&p_id=Twitter&tw_sale_amount=35&tw_order_quantity=1")
+
+block content
+  section.thanks__form
+    form(action='/launch_confirmation', method='POST')
+      .row
+        .large-10.columns.large-centered(style="padding-top: 5%")
+          h1 Thanks for pre-ordering!
+          h4 What are you using Tessel 2 for?
+          -var val1 = "Developing a product"
+          -var val2 = "Fun!"
+          -var val3 = "Learning"
+          -var val4 = "Something else"
+          
+          input(type='checkbox', name='entry.956889617', value=val1, role='checkbox', id='group_956889617_1', aria-label=val1)
+          label(for="group_956889617_1") #{val1}
+          input(type='checkbox', name='entry.956889617', value=val2, role='checkbox', id='group_956889617_1', aria-label=val2)
+          label(for="group_956889617_2") #{val2}
+          input(type='checkbox', name='entry.956889617', value=val3, role='checkbox', id='group_956889617_1', aria-label=val3)
+          label(for="group_956889617_3") #{val3}
+          input(type='checkbox', name='entry.956889617', value=val4, role='checkbox', id='group_956889617_1', aria-label=val4)
+          label(for="group_956889617_4") #{val4}
+          textarea#entry_1866908001.ss-q-long(name='entry.1866908001', rows='3', cols='40', dir='auto', placeholder="Here's what I'm building...", aria-label="Here's what I'm building:")
+          
+          //- change link to production
+          input#entry_1269930113.ss-q-short(type='hidden', name='entry.1269930113', value=orderlink)
+          input#entry_1689662361.ss-q-short(type='hidden', name='entry.1689662361', value=email)
+          input(type='hidden', name='draftResponse', value='[,,"-1036821961742057817"]')
+          input(type='hidden', name='pageHistory', value='0')
+          input(type='hidden', name='fbzx', value='-1036821961742057817')
+
+          button.button(type='submit', name='submit', value='Submit') Submit
+          
+          p
+            a(href="http://ctt.ec/avFI6" target="_blank") Tweet about Tessel 2! (Opens in new tab) &rarr;
+          
+          img(src="https://s3.amazonaws.com/technicalmachine-assets/launch/header/IMG_9033+2.JPG")

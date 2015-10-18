@@ -1,0 +1,20 @@
+mixin populateSide(list)
+  ul.sideUl
+    each val in list
+      li
+        a(href='/docs/#{val.link}') #{val.clean}
+        - if (val.link == title)
+          each header in expandedSide
+            li(style="padding-left:10px;")
+              a(href="/docs/#{val.link}##{header.link}") &#9675; #{encoder.htmlDecode(header.text)}
+
+div(class="side-nav")
+
+  h4 API
+  +populateSide(sideBar.API)
+  
+  h4 Tutorials
+  +populateSide(sideBar.tutorials)
+
+  h4 Modules
+  +populateSide(sideBar.module)

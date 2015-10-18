@@ -1,0 +1,287 @@
+{
+  "navbar": [{
+    "text": "Start",
+    "link_url": "/start"
+  }, {
+    "text": "Docs",
+    "link_url": "/docs"
+  }, {
+    "text": "Modules",
+    "link_url": "/modules"
+  }, {
+    "text": "Projects",
+    "link_url": "/projects"
+  }, {
+    "text": "Forums",
+    "link_url": "/forums"
+  }, {
+    "text": "Shop",
+    "link_url": "/shop"
+  }, {
+    "text": "Blog",
+    "link_url": "/blog"
+  }],
+  "footer": [{
+    "text": "Resellers",
+    "link_url": "/resellers"
+  }, {
+    "text": "Community",
+    "link_url": "/community"
+  }, {
+    "text": "About Us",
+    "link_url": "/about"
+  }, {
+    "text": "Jobs",
+    "link_url": "/jobs"
+  }, {
+    "text": "Press",
+    "link_url": "/press"
+  }],
+  "header": [{
+    "link_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/header/img_8999.jpg",
+    "alt": "Tessel is embeddable into products."
+  },{
+    "link_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/header/tessel_glamor_1.jpg",
+    "alt": "Tessel: hardware made easy."
+  },{
+    "link_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/header/img_9002.jpg",
+    "alt": "Tessel is hardware for web developers."
+  }, {
+    "link_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/header/img_9033.jpg",
+    "alt": "Build and scale thousands of embedded devices with the intuitive Tessel platform."
+  },{
+    "link_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/header/img_9015.jpg",
+    "alt": "Tessel supports plug-and-play modules as well as GPIO sensors."
+  },{
+    "link_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/header/img_9037.jpg",
+    "alt": "Build your product with Tessel."
+  }],
+  "modules": [{
+    "name": "Accelerometer",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/accelerometer-logo-200.png",
+    "description": "Detect orientation and movement of your Tessel by measuring gravity / acceleration.",
+    "link_url": "",
+    "alt": "Tessel Accelerometer Module",
+    "type": "sensor"
+  }, {
+    "name": "Ambient",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/ambient-logo-200.png",
+    "description": "Detect ambient light and sound levels. Trigger on loud noises and changes in light level.",
+    "link_url": "",
+    "alt": "Tessel Ambient (Light and Sound) Module",
+    "type": "sensor"
+  }, {
+    "name": "Relay",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/relay-logo-200.png",
+    "description": "Control high-current devices, such as power cords and appliances.",
+    "link_url": "",
+    "alt": "Tessel Relay Module",
+    "type": "sensor"
+  }, {
+    "name": "Climate",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/climate-logo-200.png",
+    "description": "Detect humidity and temperature from your environment.",
+    "link_url": "",
+    "alt": "Tessel Climate Module",
+    "type": "sensor"
+  }, {
+    "name": "Infrared",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/ir-logo-200.png",
+    "description": "Send and detect IR signals. Use a Tessel as a remote for your TV, or radio.",
+    "link_url": "",
+    "alt": "Tessel IR (infrared) Module",
+    "type": "sensor"
+  }, {
+    "name": "Servo",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/servo-logo-200.png",
+    "description": "Make it move! Control up to 16 hobby/RC servo motors.",
+    "link_url": "",
+    "alt": "Tessel Servo Module",
+    "type": "sensor"
+  }, {
+    "name": "RFID",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/rfid-logo-200.png",
+    "description": "Read 13.56MHz RFID cards, including CharlieCards, ClipperCards, and other transit cards, or the card provided.",
+    "link_url": "",
+    "alt": "Tessel RFID (Radio Frequency Identification) Module",
+    "type": "sensor"
+  }, {
+    "name": "BLE",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/ble-logo-200.png",
+    "description": "Allows your tesselation to work as a Bluetooth LE central or peripheral device. Connect to your phone, FitBit, or other device.",
+    "link_url": "",
+    "alt": "Tessel Bluetooth Low Energy (BLE) Module",
+    "type": "usb"
+  }, {
+    "name": "Cellular",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/cellular-logo-200.png",
+    "description": "Connect your Tessel anywhere with support for mobile internet on a GSM-based network.",
+    "link_url": "",
+    "alt": "Tessel GPRS (General Packet Radio Service/SIM Card) Module",
+    "type": "usb"
+  }, {
+    "name": "MicroSD",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/sdcard-logo-200.png",
+    "description": "Read and write microSD cards. Store pictures or other data from your Tessel.",
+    "link_url": "",
+    "alt": "Tessel MicroSD Module",
+    "type": "usb"
+  }, {
+    "name": "Camera",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/camera-logo-200.png",
+    "description": "Add the sense of sight to Tessel! Take pictures of your projects, from your projects.",
+    "link_url": "",
+    "alt": "Tessel Camera Module",
+    "type": "usb"
+  }, {
+    "name": "GPS",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/gps-logo-200.png",
+    "description": "Detect your global position.",
+    "link_url": "",
+    "alt": "Tessel GPS (Global Positioning System) Module",
+    "type": "sensor"
+  }, {
+    "name": "Audio",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/audio-logo-200.png",
+    "description": "Play and record audio.",
+    "link_url": "",
+    "alt": "Tessel Audio Module",
+    "type": "usb"
+  }, {
+    "name": "DIY",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/diy-logo-200.png",
+    "description": "Protoboard to build your own module!",
+    "link_url": "",
+    "alt": "Tessel DIY Module, for easy module prototyping",
+    "type": "sensor"
+  }],
+
+  "community_modules":[{
+    "name": "Distance",
+    "description": "Sense distance in centimeters with the ultrasound proximity sensor.",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/thirdparty-distance-logo-200.png",
+    "link_url": "",
+    "alt": "..."
+  }, {
+    "name": "Color Sensor",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/thirdparty-dropper-logo-200.png",
+    "description": "This RGB Color Sensor is like an eyedropper tool for the real world.",
+    "link_url": "",
+    "alt": "..."
+  }, {
+    "name": "Keypad",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/thirdparty-keypad-logo-200.png",
+    "description": "Read inputs from a small keypad.",
+    "link_url": "",
+    "alt": "..."
+  }, {
+    "name": "Lights/LEDs",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/thirdparty-light-logo-200.png",
+    "description": "Control the color of individually addressable LED lights.",
+    "link_url": "",
+    "alt": "..."
+  }, {
+    "name": "Motion",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/thirdparty-motion-logo-200.png",
+    "description": "Detect motion – know when something's happening.",
+    "link_url": "",
+    "alt": "..."
+  }, {
+    "name": "Motors",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/thirdparty-motor-logo-200.png",
+    "description": "Drive one or two small motors with Tessel.",
+    "link_url": "",
+    "alt": "..."
+  }, {
+    "name": "Pulse",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/thirdparty-pulse-logo-200.png",
+    "description": "Sense your pulse and fire events with each heartbeat.",
+    "link_url": "",
+    "alt": "..."
+  }, {
+    "name": "Screen",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/thirdparty-screen-logo-200.png",
+    "description": "A basic graphic LCD screen, this display lets you add UI to your Tessel project.",
+    "link_url": "",
+    "alt": "..."
+  }, {
+    "name": "Button/Switch",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/images/modules/thirdparty-switch-logo-200.png",
+    "description": "Add a switch or button to your module port.",
+    "link_url": "",
+    "alt": "..."
+  }],
+  "testimonials": [{
+    "name": "Abe Gong",
+    "quote": "The Tessel platform saved us $16k in development costs and cut our timeline in half.",
+    "title": "<a href='http://www.mettasmartware.com/'>CEO, Metta Smartwear</a>",
+    "background_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/testimonials/backgrounds/home.jpg",
+    "photo_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/testimonials/profiles/abe.jpeg",
+    "alt": "Abe Gong, Entrepreneur at Metta Smartwear, uses Tessel"
+  }, {
+    "name": "Craig Cmehil",
+    "quote": "The Tessel platform has proven to be a perfect tool to introduce our developer community to the Internet of Things and its ease at connecting to SAP HANA is just ideal.",
+    "title": "<a href='//sap.com'>Director, Global Developer Relations at SAP AG</a>",
+    "background_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/testimonials/backgrounds/cranes.jpg",
+    "photo_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/testimonials/profiles/craig.jpg",
+    "alt": "Craig Cmeil, Director Global Developer Relations at SAP AG, uses Tessel"
+  }, {
+    "name": "Daniel Imrie-Situnayake",
+    "quote": "Tessel's platform permits rapid iteration of the sensing and control systems that power our novel agricultural systems, using the same skills we use to code our back-end infrastructure.",
+    "title": "<a href='//tiny-farms.com'>Founder, Tiny Farms</a>",
+    "background_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/testimonials/backgrounds/soil.jpg",
+    "photo_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/testimonials/profiles/daniel.jpg",
+    "alt": "Daniel Imrie-Situnayake, Founder of Tiny Farms, uses Tessel"
+  }],
+  "partners": [{
+    "name": "Firebase",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/partners/Firebase.png",
+    "alt": "Firebase is a partner of Tessel",
+    "link_url": "https://www.firebase.com/"
+  }, {
+    "name": "Autodesk",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/partners/Autodesk.png",
+    "alt": "Autodesk is a partner of Tessel",
+    "link_url": "http://www.autodesk.com/"
+  }, {
+    "name": "Microsoft Azure",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/partners/Azure.png",
+    "alt": "Microsoft Azure is a partner of Tessel",
+    "link_url": "http://azure.microsoft.com/en-us/"
+  }, {
+    "name": "Sine-Wave",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/partners/Sine-Wave.png",
+    "alt": "Sine-Wave is a partner of Tessel",
+    "link_url": "http://www.sine-wave.com/"
+  }, {
+    "name": "NPM",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/partners/NPM.png",
+    "alt": "NPM is a partner of Tessel",
+    "link_url": "https://www.npmjs.com/"
+  }, {
+    "name": "Dragon Innovation",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/partners/Dragon-Innovation.png",
+    "alt": "Dragon Innovation is a partner of Tessel",
+    "link_url": "https://www.dragoninnovation.com/"
+  }, {
+    "name": "PubNub",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/partners/PubNub.png",
+    "alt": "PubNub is a partner of Tessel",
+    "link_url": "http://www.pubnub.com/"
+  }, {
+    "name": "Bolt",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/partners/Bolt.png",
+    "alt": "Bolt is a partner of Tessel",
+    "link_url": "https://www.bolt.io/"
+  }, {
+    "name": "Plotly",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/partners/Plotly.png",
+    "alt": "Plotly is a partner of Tessel",
+    "link_url": "https://plot.ly/"
+  }, {
+    "name": "Keen.io",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/partners/Keen-IO.png",
+    "alt": "Keen.io is a partner of Tessel",
+    "link_url": "https://keen.io/"
+  }]
+}

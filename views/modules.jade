@@ -1,0 +1,488 @@
+extends layout
+
+block append head
+  <meta name="Description" content="Tessel boards extend their capabilities by plugging in modules. It's as easy as connect, npm install, and a few lines of code to get started.">
+  link(rel='stylesheet', href='/stylesheets/style.css')
+    
+  style.
+    #module-toc ul { margin: 30px 0; }
+    #module-toc { padding-bottom: 10px; }
+    #module-toc a { display: block; font-size: 20px; padding: 6px 14px;  }
+    #module-toc a::before { content: "↓ "; }
+    #module-toc li { padding: 0; }
+    #module-toc a:hover { background: #dee; }
+    @media (max-width: 768px) {
+      #module-toc a { font-size: 16px; }
+      #module-list h4 { font-size: 26px !important; }
+      #module-list h4 img { height: 36px !important; width: 36px !important; }
+    }
+  
+    .module-rightalign { position: absolute; right: 0; }
+    .module-leftalign { position: absolute; left: 0; }
+  
+    @media (max-width: 768px) {
+      .module-rightalign { position: static; margin-bottom: -200px; }
+    }
+  
+    #module-list > .row, #module-toc { border-bottom: 1px solid #bbb; }
+    #module-list > .row { margin-bottom: 0; padding-top: 60px; padding-bottom: 60px }
+  
+    #module-list .button { font-size: 14px; margin-bottom: 30px; margin-top: -6px; }
+    #module-list a.photo { display: block; margin: 0 auto; }
+    #module-list div.large-4 { text-align: center; }
+    #module-list div.large-4 code { font-weight: normal; cursor: text }
+    #module-list .icon { height: 56px; width: 56px; margin-top: -16px; vertical-align: middle; }
+    #module-list a.photo img { height: 200px; }
+    #module-list .library { display: block; }
+    #module-list .datasheet { margin-top: 24px; display: block; font-size: 0.8em; }
+    #module-list h4 { text-align: left; text-transform: none; padding-top: 20px; font-size: 36px; margin-bottom: 10px; }
+    #module-list p { margin-top: 0; margin-bottom: 8px; color: #666; clear: left; }
+    #module-list ul { margin-top: 0; }
+    #module-list li { color: #666; margin-left: 30px; }
+    #module-list pre code { overflow: auto; font-weight: normal; border-radius: 6px; padding: 14px 18px; line-height: 1.3; font-size: 14px; backgground: #def; }
+  
+    .move-down{ padding-top: 200px }
+    .stretch-photo{ position: relative; top: -200px }
+    .stretch-image{ height: 200; max-width: none;}
+  
+  //- mixin for the left column of module rows. Be careful, not all rows use this
+  mixin module-left(module, package, chip, datasheet, linkname)
+    div.large-4.columns
+      a.photo(href='https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/' + module + '.jpg')
+        img(src='https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/' + module + '.jpg', height='200')
+      a(href="//shop.tessel.io/Modules/#{linkname}", class="button tiny success") Order Now!
+      p
+        code npm install #{package}<br/>
+        a.library(href="https://github.com/tessel/" + package)
+          | View library on Github &rarr;
+        a.datasheet(target="_blank", href=datasheet)
+          |  #{chip} datasheet
+  
+  mixin module-title(module, title)
+    h4
+      object.icon(type="image/svg+xml", data="/images/modules/" + module + ".svg")
+        img.icon(src="https://s3.amazonaws.com/technicalmachine-assets/technical-io/modules/" + module + ".png")
+      | &nbsp;!{title}
+  
+  mixin to-fre(module)
+    h3
+      a(href="http://start.tessel.io/modules/" + module, target="_blank") See how it's used &rarr;
+
+  mixin usb-module(module, title, func, newTitle, primeLink)
+    .large-10.columns.large-centered
+      div.row.module-class-b
+        div.large-4.columns
+          <br/><br/>
+          img(src="https://s3.amazonaws.com/technicalmachine-assets/technical-io/modules/usb.png", style="height: 40; opacity: 0.2")
+          <br/><br/>
+          a(href=primeLink target="_blank").button.tiny.success Amazon Prime
+        div.large-8.columns
+          h4
+            object.icon(type="image/svg+xml", data="/images/modules/" + module + ".svg")
+              img.icon(src="https://s3.amazonaws.com/technicalmachine-assets/technical-io/modules/" + module + ".png")
+            | &nbsp;USB !{newTitle || title}
+          p USB #{newTitle || title} Module for Tessel 2.
+          p
+            b Note that the USB #{newTitle || title} Module is meant to be used with Tessel 2. For #{func} on Tessel 1, use the 
+              a(href="#module-#{module}") #{title} Module.
+
+  mixin use-usb(title, func, usbmodule)
+    p
+      b Note that the #{title} Module will not work with Tessel 2. For #{func} on Tessel 2, use the
+        a(href="#usb")  USB #{ucfirst(usbmodule)} Module.
+  
+  mixin prefer-usb(title, func, usbmodule)
+    p
+      b For #{func} on Tessel 2, the 
+        a(href="#usb")  USB #{ucfirst(usbmodule)} Module 
+        | is preferred.
+  
+block content
+  include ./partials/standard-nav
+  section.block
+    .row#module-toc
+      .large-10.columns.large-centered
+        h2 Modules
+        p Tessel boards extend their capabilities by plugging in modules. It's as easy as connect, <code>npm install</code>, and a few lines of code to get started.
+          | Try combinations of modules to make new devices!
+          
+        p
+          a(href="#tessel-modules")
+            b Ten-pin modules: 
+        ul.small-block-grid-1.large-block-grid-3
+          li
+            a(href="#module-accelerometer")
+              span Accelero&shy;meter
+          li
+            a(href="#module-ambient")
+              span Ambient <small>Light + Sound</small>
+          li
+            a(href="#module-audio")
+              span Audio
+          li
+            a(href="#module-ble")
+              span Bluetooth <small>Low Energy</small>
+          li
+            a(href="#module-camera")
+              span Camera
+          li
+            a(href="#module-climate")
+              span Climate
+          li
+            a(href="#module-diy")
+              span DIY
+          li
+            a(href="#module-gps")
+              span GPS
+          li
+            a(href="#module-gprs")
+              span GPRS
+          li
+            a(href="#module-infrared")
+              span Infrared
+          li
+            a(href="#module-sdcard")
+              span MicroSD Card
+          li
+            a(href="#module-relay")
+              span Relay
+          li
+            a(href="#module-rfid")
+              span RFID
+          li
+            a(href="#module-servo")
+              span Servo
+        p
+          a(href="#usb")
+            b USB modules (Tessel 2):
+        ul.small-block-grid-1.large-block-grid-3
+          each val in moduleData.usb
+            li
+              a(href="#" + val.package)
+                span #{ucfirst(val.name)}
+        p
+          a(href="#third-party")
+            b Community-created modules: 
+        ul.small-block-grid-1.large-block-grid-3
+          each val in moduleData.community
+            li
+              a(href="#" + val.package)
+                span #{ucfirst(val.name)}
+  
+  section.block#module-list(style="background: white;")
+    .row#tessel-modules
+      p
+        b Ten-pin modules: 
+        | Fully supported plug-and-play modules.
+    .row#module-accelerometer
+      .large-10.columns.large-centered
+        div.row.module-class-a
+          +module-left('accelerometer', 'accel-mma84', 'MMA8452Q', 'http://www.freescale.com/files/sensors/doc/data_sheet/MMA8452Q.pdf', 'accelerometer module')
+          div.large-8.columns
+            +module-title('accelerometer', 'Accelerometer')
+            p
+              | Detect orientation and movement of your Tessel by measuring gravity / acceleration.
+            p Control by tilt!
+            ul
+              li 3-Axis Digital Accelerometer
+              li 12-bit resolution
+              li Selectable ±2g/±4g/±8g scales
+            +to-fre('accelerometer')
+
+    .row#module-ambient
+      .large-10.columns.large-centered
+        div.row.module-class-a
+          +module-left('ambient', 'ambient-attx4', 'ATTX4', 'http://www.atmel.com/Images/doc8006.pdf', 'Ambient%20Module%20(Light%20and%20Sound)')
+          div.large-8.columns
+            +module-title('ambient', 'Ambient <small>Light + Sound</small>')
+            p
+              | The Ambient sensor can detect ambient light and sound levels.
+            p Clap to turn on the TV (paired with infrared) or know from a webapp if the lights are on at home.
+            ul
+              li The microphone is optimized for detecting the ambient noise level in a room or building a sound-activated device.
+              li The ambient light sensor and can be used for detecting fine-grain brightness in a room.
+            +to-fre('ambient')
+
+    .row#module-audio
+      .large-10.columns.large-centered
+        div.row.module-class-b
+          div.large-4.columns.move-down
+            a.photo(href="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/audio.jpg", style="position: relative; top: -200px")
+              img.module-rightalign(src="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/audio.jpg", style="height: 200; max-width: none;")
+            a(href="//shop.tessel.io/Modules/audio%20module", class="button tiny success") Order Now!
+            p
+              | <code>npm install audio-vs1053b</code><br>
+              a.library(href="https://github.com/tessel/audio-vs1053b")
+                | View library on Github &rarr;
+              a.datasheet(target="_blank", href="http://www.vlsi.fi/fileadmin/datasheets/vlsi/vs1053.pdf")
+                |  VS1053B datasheet
+          div.large-8.columns
+            +module-title('audio', 'Audio')
+            p Decode audio files or streams and output; record audio.
+            +use-usb('Audio', 'audio', 'Audio')
+            ul
+              li Decodes MP3/AAC/WMA/MIDI/FLAC/Ogg Vorbis files
+              li Supports files and streams
+              li Supports both headphones and line-out
+              li Can record audio through an on-board microphone or line-in jack
+            +to-fre('audio')
+      
+    .row#module-ble
+      .large-10.columns.large-centered
+        div.row.module-class-b
+          +module-left('ble', 'ble-ble113a', 'BLE113', 'http://www.mouser.com/ds/2/52/BLE113_Datasheet-224874.pdf', 'Bluetooth%20Low%20Energy%20Module')
+          div.large-8.columns
+            +module-title('ble', 'Bluetooth <small>Low Energy</small>')
+            p
+              | Allows your tesselation to work as a Bluetooth LE master <i>or</i> slave device.
+            p Connect to your phone, FitBit, or other low-powered device.
+            +prefer-usb('Bluetooth Low Energy', 'BLE', 'Bluetooth Low Energy')
+            ul
+              li Compatible with iOS 5+, Android 4.3+
+              li Supports master mode to connect to other BLE devices and Tessels
+            +to-fre('ble')
+
+    .row#module-camera
+      .large-10.columns.large-centered
+        div.row.module-class-b
+          +module-left('camera', 'camera-vc0706', 'VC0706', 'http://www.southernstars.com/skycube/files/VC0706.pdf', 'camera module')
+          div.large-8.columns
+            +module-title('camera', 'Camera')
+            p
+              | Add the sense of sight to Tessel!<br />Take pictures of your projects, from your projects.
+              +use-usb('Camera', 'camera', 'Camera')
+            ul
+              li Supports 640x480, 320x240, and 160x120
+              li Still image camera.
+            +to-fre('camera')
+
+    .row#module-climate
+      .large-10.columns.large-centered
+        div.row.module-class-a
+          +module-left('climate', 'climate-si7005', 'SI7005', 'http://www.silabs.com/Support%20Documents/TechnicalDocs/Si7005.pdf', 'climate module')
+          div.large-8.columns
+            +module-title('climate', 'Climate')
+            p
+              | Detect humidity and temperature from your environment.
+            p Monitor your plants or exotic pets. Pull weather data from the internet and replicate a climate by hooking up relays to fan/heater/humidifiers.
+            ul
+              li Measure 0 to 70 &deg;C (32 to 160 &deg;F) with &plusmn;1&deg; accuracy
+              li Measure 0% to 80% relative humidity
+            +to-fre('climate')
+    
+    .row#module-diy
+      .large-10.columns.large-centered
+        div.row.module-class-b
+          div.large-4.columns.move-down
+            a.photo(href="https://s3.amazonaws.com/technicalmachine-assets/storefront/products/DIY-pack.jpg", style="position: relative; top: -200px")
+              img.module-rightalign(src="https://s3.amazonaws.com/technicalmachine-assets/storefront/products/DIY-pack.jpg", style="height: 200; max-width: none;")
+            <br/>
+            a(href="//shop.tessel.io/Modules/DIY%20Module%20Kit", class="button tiny success") Order Now!
+            p
+              | <code>npm install diy-module</code><br>
+              a.library(href="https://www.npmjs.org/package/diy-module")
+                | View on npm &rarr;
+          div.large-8.columns
+            +module-title('diy', 'DIY Module')
+            p
+              | Build your own module!
+            p This single- or double-wide module comes with a 
+              a(href="/diy") guide 
+              | showing you how to connect anything to a Tessel.
+            ul
+              li Protoboard module exposes SPI, I2C, UART, and GPIO
+              li Ground and 3.3V rails make it easy to power components
+              li For larger projects, available in a double-wide size (like the RFID module)
+            +to-fre('diy')
+
+    .row#module-gprs
+      .large-10.columns.large-centered
+        div.row.module-class-b
+          div.large-4.columns
+            a.photo(href="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/gprs.jpg")
+              img(src="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/gprs.jpg", height="200")
+            a(href="//shop.tessel.io/Modules/GPRS%2FSIM%20Module", class="button tiny success", style="margin-top:20px") Order Now!
+            p
+              | <code>npm install gprs-sim900</code><br>
+              a.library(href="https://github.com/tessel/gprs-sim900")
+                | View library on Github &rarr;
+              a.datasheet(target="_blank", href="http://www.simcom.us/act_admin/supportfile/SIM900_HD_V1.01(091226).pdf")
+                |  SIM900 datasheet
+          div.large-8.columns
+            +module-title('gprs', 'GPRS <small>2G + Phone/SIM</small>')
+            p
+              | Connect your Tessel anywhere with GPRS/SIM card support for 2G internet!
+            p Make a call on the Tessel phone, or have your Tessel send you texts.
+            +prefer-usb('Cellular', 'cellular', '3G')
+            ul
+              li Max downlink 85.6 kbps
+              li Max uplink 42.8 kbps
+              li Supports SIM cards at 1.8v and 3v
+            +to-fre('gprs')
+
+    .row#module-gps
+      .large-10.columns.large-centered
+        div.row.module-class-b
+          +module-left('gps', 'gps-a2235h', 'FGPMMOPA6C', 'http://www.adafruit.com/datasheets/GlobalTop-FGPMMOPA6C-Datasheet-V0A-Preliminary.pdf', 'GPS Module')
+          div.large-8.columns
+            +module-title('gps', 'GPS')
+            p
+              | Detect your global position.
+            p Helps you figure out where you are– and where you're going!
+            +prefer-usb('GPS', 'GPS', 'gps')
+            ul
+              li Up to 1.8m accuracy
+              li 66 search channels, 22 tracking channels, -165dBM sensitivity
+              li Max 10Hz update rate
+            +to-fre('gps')
+
+    .row#module-infrared
+      .large-10.columns.large-centered
+        div.row.module-class-a
+          +module-left('ir', 'ir-attx4', 'ATTX4', 'http://www.atmel.com/Images/doc8006.pdf', 'Infrared%20Module')
+          div.large-8.columns
+            +module-title('infrared', 'Infrared')
+            p
+              | The Infrared (IR) Module can send and detect IR signals.
+            p Use a Tessel as a remote for your TV, radio, or even another Tessel.
+            ul
+              li Transmits and receives from 30+ feet (line of sight)
+              li Detects max 38kHz
+              li
+                a(href="http://www.vishay.com/docs/82491/tsop382.pdf") IR Receiver
+              li
+                a(href="http://catalog.osram-os.com/catalogue/catalogue.do;jsessionid=7667A78B5A2190F007E2E148FD64A417?act=downloadFile&favOid=0200000200003577000200b6") IR LED
+            +to-fre('ir')
+
+    .row#module-sdcard
+      .large-10.columns.large-centered
+        div.row.module-class-a
+          +module-left('microsd', 'sdcard', 'SD Card standard', 'http://www.circlemud.org/jelson/sdcard/SDCardStandardv1.9.pdf', 'microsd module')
+          div.large-8.columns
+            +module-title('sdcard', 'MicroSD Card')
+            p
+              | Reads high-density media from microSD cards.
+            p Store pictures or other data locally on your Tessel.
+            +prefer-usb('MicroSD Card', 'microSD', 'storage')
+            ul
+              li Reads / writes microSD cards
+              li Module ships with a 1GB card
+            +to-fre('microsd')
+
+    .row#module-relay
+      .large-10.columns.large-centered
+        div.row.module-class-a
+          +module-left('relay', 'relay-mono', 'IM48DGR', 'http://www.mouser.com/ds/2/418/ENG_SS_108-98001_S[1]-205061.pdf', 'relay module')
+          div.large-8.columns
+            +module-title('relay', 'Relay')
+            p
+              | Control high-current devices, such as power cords and appliances.
+            p Turn your coffee maker on when the Ambient module detects light, or based on input from an app.
+            ul
+              li Rated for 240V and 5A
+              li AC or DC current
+              li Secure and remove wires with the help of a ballpoint pen. No more loose wires or screwdrivers.
+            +to-fre('relay')
+
+    .row#module-rfid
+      .large-10.columns.large-centered
+        div
+          a(href="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/rfid.jpg", style="display: block; max-width: 540px")
+            img(src="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/rfid.jpg", style="height: 366px; max-width: none")
+        div.row.module-class-b
+          div.large-4.columns(style="padding-top: 30px")
+            a(href="//shop.tessel.io/Modules/RFID%20Module", data-celery="TEC", class="button tiny success") Order Now!
+            p
+              | <code>npm install rfid-pn532</code><br>
+              a.library(href="https://github.com/tessel/rfid-pn532")
+                | View library on Github &rarr;
+              a.datasheet(target="_blank", href="http://www.adafruit.com/datasheets/pn532ds.pdf")
+                | PN532 datasheet
+          div.large-8.columns
+            +module-title('rfid', 'RFID <small>13.56 MHz</small>')
+            p
+              | Read RFID cards.
+            p Have your pet door automatically open when their RFID-tagged collar approaches, or connect to the unique IDs of your and your friends' public transit cards for customized interactions!
+            ul
+              li 13.56 MHz
+              li Support CharlieCards, ClipperCards, and other metropolitan cards
+              li Comes with an RFID card
+            +to-fre('rfid')
+
+    .row#module-servo
+      .large-10.columns.large-centered
+        div
+          a(href="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/servo.jpg", style="display: block; max-width: 540px")
+            img.module-leftalign(src="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/servo.jpg", style="height: 140px; max-width: none")
+        div.row.module-class-a
+          div.large-4.columns(style="padding-top: 200px")
+            a(href="//shop.tessel.io/Modules/servo%20module", data-celery="TEC", class="button tiny success") Order Now!
+            p
+              | <code>npm install servo-pca9685</code>
+              | <br>
+              a.library(href="https://github.com/tessel/servo-pca9685")
+                | View library on Github &rarr;
+              a.datasheet(target="_blank", href="http://www.adafruit.com/datasheets/PCA9685.pdf")
+                |  PCA9385 datasheet
+          div.large-8.columns
+            +module-title('servo', 'Servo')
+            p
+              | Control up to 16 hobbyist/RC servos.
+            p Make it move! Control locks, wheels, cords, or anything else you can think of.
+            ul
+              li Standard PWM output is compatible with servos of all sizes
+              li Takes a separate barrel jack power connection (included with US shipments)
+              li Comes with an
+                a(href="/datasheets/YinYanES3001.pdf") ES3001 YinYan Servo
+                | and a 5V external power jack (US-style plug)
+              li Can also be used as an LED driver.
+            +to-fre('servo')
+    .row#usb
+      p
+        b USB Modules: 
+        | Tessel 2 runs Node natively, so works with existing Node libraries for off-the-shelf USB components.
+        p Submit a USB module you've discovered or created via pull request to <a href="https://github.com/tessel/hardware-modules/blob/master/modules.json">modules.json</a> in the tessel/hardware-modules repo.
+      
+    each val in moduleData.usb
+      .row              
+        .large-10.columns.large-centered
+          div(id=val.package).row.module-class-b
+            div.large-4.columns
+              <br/><br/>
+              img(src="https://s3.amazonaws.com/technicalmachine-assets/technical-io/modules/usb.png", style="height: 40; opacity: 0.2")
+              <br/><br/>
+              a(href=val.buy[0], target="_blank").button.tiny.success Amazon Prime
+              p
+                code npm install #{val.package}<br/>
+                a.library(href="https://www.npmjs.org/package/" + val.package)
+                  | View on npm &rarr;
+            div.large-8.columns
+              h4 USB #{ucfirst(val.name)}
+              p USB #{ucfirst(val.name)} Module for Tessel 2.
+              p #{val.description}
+
+    .row#third-party
+      p
+        b Community-created modules: 
+        | Community contributed npm libraries for these third-party add-ons make it easy to add capabilities!
+        p Submit a module you've created via pull request to <a href="https://github.com/tessel/hardware-modules/blob/master/modules.json">modules.json</a> in the tessel/hardware-modules repo.
+      
+    each val in moduleData.community
+      .row
+        .large-10.columns.large-centered
+          div(id=val.package).large-4.columns.module-class-a
+            a.photo(href=val.buy[0])
+              img(src=val.image, height='200')
+            <br/><br/>
+            a(href=val.buy[0], target="_blank").button.tiny.success Order Now!
+            p
+              code npm install #{val.package}<br/>
+              a.library(href="https://www.npmjs.org/package/" + val.package)
+                | View on npm &rarr;
+          div.large-8.columns
+            h4(style="margin-top:-30px") #{ucfirst(val.name)}
+            p #{val.description}
+            - var authorLink = "//github.com/" + val.author.github
+            p Author: <a href=#{authorLink} target="_blank">#{val.author.name}</a>
+            h3
+              a(href=val.project, target="_blank") See how it's used &rarr;

@@ -1,0 +1,22 @@
+extends layout
+<meta name="Description" content="Tessel community: hardware + the web.">
+block content
+  include ./partials/standard-nav
+  section.block(style="margin-bottom: 20px")
+    .row
+      .large-12.columns.large-center
+        h1 Welcome to our community.
+
+        h3 Upcoming Events
+        p We keep track of Tessel related 
+          b
+            a(href="https://forums.tessel.io/t/events-with-tessels/1138") upcoming events
+          |  on our forums. These include hack nights, talks, etc.
+
+        h3 Worldwide
+        p Here are some more places we know of where you can find folks hacking on Tessels:
+        
+        p
+          iframe(src="//batchgeo.com/map/d575014750b9bcbd6cc82ef451fbba89" frameborder="0" width="100%" height="550" style="border:1px solid #aaa;border-radius:10px;")
+        p Want to be added to this map? Removed from it? 
+          a(href="mailto:kelsey@technical.io") Let us know!

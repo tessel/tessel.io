@@ -1,0 +1,149 @@
+@import "./settings.foundation.scss";
+// http://csshexagon.com/
+.hexagon {
+  position: relative;
+  width: 300px;
+  height: 173.21px;
+  margin: 86.60px 0;
+  background-size: auto 341.7914px;
+  background-position: center;
+  border-left: solid 2px $red;
+  border-right: solid 2px $red;
+}
+
+.hexTop,
+.hexBottom {
+  position: absolute;
+  z-index: 1;
+  width: 212.13px;
+  height: 212.13px;
+  overflow: hidden;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background: inherit;
+  left: 41.93px;
+}
+
+/*counter transform the bg image on the caps*/
+.hexTop:after,
+.hexBottom:after {
+  content: "";
+  position: absolute;
+  width: 296.0000px;
+  height: 170.89567968012926px;
+  -webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-85.4478px);
+  -ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-85.4478px);
+  transform:          rotate(45deg) scaleY(1.7321) translateY(-85.4478px);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  background: inherit;
+}
+
+.hexTop {
+  top: -106.0660px;
+  border-top: solid 3px $red;
+  border-right: solid 3px $red;
+}
+
+.hexTop:after {
+  background-position: center top;
+}
+
+.hexBottom {
+  bottom: -106.0660px;
+  border-bottom: solid 3px $red;
+  border-left: solid 3px $red;
+}
+
+.hexBottom:after {
+  background-position: center bottom;
+}
+
+.hexagon:after {
+  content: "";
+  position: absolute;
+  top: 1.1547px;
+  left: 0;
+  width: 296.0000px;
+  height: 170.8957px;
+  z-index: 2;
+  background: inherit;
+}
+
+#testimonials {
+  $height: 400px;
+
+  position: relative;
+  height: $height;
+  margin-top: 50px;
+
+  .testimonial {
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+
+    color:$vapor;
+    .testimonial__background {
+      height:100%;
+      background-position: center;
+    }
+    .testimonial__content{
+      > .column{
+        height:100%;
+      }
+      width: 100%;
+      height: $height;
+      position:absolute;
+      top:0;
+      left:1em;
+    }
+    .testimonial__img{
+      // This is a special little snow flake thanks to the hexagon
+      // Normally vertical centering would use 50%
+      top:27%;
+      left:50%;
+      transform: translate(-50%, -50%);
+    }
+    .testimonial__quote{
+      text-align: center;
+      border-left: none;
+      margin-right: 3em;
+      text-align: left;
+      font-size: $h4-font-size;
+      color: $vapor;
+      cite {
+        font-size: $h4-font-size;
+        color: $vapor;
+      }
+    }
+    @media #{$small-only}{
+      .testimonial__quote{
+        text-align: left;
+        margin-right:0;
+        border-left: none;
+        font-size: 1.2em;
+        color: $vapor;
+        cite {
+          font-size: 1.1em;
+          color: $vapor;
+        }
+      }
+    }
+  }
+
+  blockquote cite a {
+    color: #ddd;
+    font-size: 0.8em;
+    
+    &:hover {
+      color: #499CC0;
+    }
+  }
+
+}
+

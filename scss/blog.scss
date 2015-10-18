@@ -1,0 +1,211 @@
+#blog-posts, #blog-posts > li {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+#blog-posts {
+  margin: 2em 0;
+}
+
+#blog-posts > li {
+  margin: 0 0 15em;
+}
+
+#blog-posts + .pagination {
+  margin-top: -13em;
+  margin-bottom: 5em;
+}
+
+#blog-posts h2 a:hover {
+  text-decoration: underline;
+}
+
+#blog-posts .date {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 2em;
+  margin-top: -10px;
+}
+
+#blog-posts .tags {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5em;
+  font-size: 0.8em;
+  color: #ccc;
+}
+
+#blog-posts img {
+  display: block;
+  margin: 0 auto;
+}
+
+.pagination, .pagination li {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination {
+  text-align: center;
+  vertical-align: baseline;
+  line-height: 2em;
+  min-height: 2em;
+}
+
+.pagination ul {
+  overflow: auto;
+  margin: 0.5em 0 0.5em 0.5em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.pagination li {
+  display: inline-block;
+}
+
+.pagination li a,
+.pagination li.active,
+.pagination li.empty {
+  text-align: center;
+  width: 2.5em;
+  height: 2em;
+  line-height: 1.9em;
+  vertical-align: baseline;
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  box-sizing: border-box;
+}
+
+.pagination li.active {
+  background: #ddd;
+}
+
+.pagination li.empty {
+  border: none;
+}
+
+.pagination .bloglink {
+  color: #f44;
+  font-size: 0.8em;
+  margin-right: 2em;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.active {
+    text-decoration: underline;
+    margin-right: 0;
+  }
+}
+
+.pagination li a:hover {
+  border: 1px solid #aaa;
+  background: #cee;
+  text-decoration: underline;
+  box-sizing: border-box;
+}
+
+#blog-sidebar {
+  margin-top: 1em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 0.5em 1em;
+}
+
+#blog-sidebar ul, #blog-sidebar li {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+#blog-sidebar li {
+  font-size: 14px;
+}
+
+#blog-sidebar li div {
+  display: none;
+}
+
+#blog-sidebar h3 {
+  font-size: 16px;
+  margin: 0.5em 0 0.25em;
+}
+
+#blog-sidebar > ul {
+  margin-bottom: 1.5em;
+}
+
+#blog-sidebar li {
+  margin: 0.75em 0;
+  line-height: 14px;
+}
+
+#blog-sidebar h3 {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+#blog-sidebar h3.inactive + ul {
+  display: none;
+}
+
+#blog-sidebar h3::before {
+  content: "\25BE";
+  margin-right: 0.5em;
+  display: inline-block;
+  width: 0.75em;
+  text-align: center;
+  color: #ff4444;
+}
+
+#blog-sidebar h3.inactive::before {
+  content: "\25B8";
+}
+
+.post-body ul {
+  margin-bottom: 1em;
+}
+
+.post-body pre {
+  border-radius: 5px;
+  border: 1px solid #dfdfdf;
+  background: #f8f8f8;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 16px;
+  margin: 0.5em 0 1em;
+}
+
+.post-body h3 {
+  margin-top: 1em;
+}
+
+.post-body {
+  h4, h5 {
+    font-weight: bold;
+  }
+
+  h4:first-of-type, h5:first-of-type {
+    &::before {
+      content: "By";
+      font-size: 16px;
+      margin-right: -0.2em;
+    }
+
+    font-size: 0;
+    a {
+      color: inherit;
+      text-decoration: none !important;
+      font-size: 16px;
+    }
+    font-weight: bold;
+  }
+}

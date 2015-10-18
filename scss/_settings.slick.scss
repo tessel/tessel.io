@@ -1,0 +1,6 @@
+$slick-loader-path: '/stylesheets/';
+$slick-font-path: '/stylesheets/';
+
+@function image-url($url) {
+    @return url("/stylesheets/" + $url);
+}

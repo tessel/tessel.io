@@ -1,0 +1,277 @@
+{
+  "orderDetails": {
+    "meta": {
+        "code": 200
+    },
+    "data": {
+        "locked": false,
+        "order_status": "open",
+        "payment_status": "unpaid",
+        "fulfillment_status": "unfulfilled",
+        "currency": "usd",
+        "notes": null,
+        "type": "card",
+        "number": "101335478",
+        "cancel_url": null,
+        "return_url": null,
+        "shipping_method": null,
+        "deposit": 0,
+        "discount": 0,
+        "balance": 0,
+        "subtotal": 1000,
+        "total": 2075,
+        "paid": 2075,
+        "refunded": 0,
+        "adjustment": 0,
+        "shipping": 1000,
+        "taxes": 75,
+        "linetotal": 1000,
+        "fee": 42,
+        "seller": {
+            "_id": "514a114080feb60200000001",
+            "email": null,
+            "name": null,
+            "paypal_email": null
+        },
+        "buyer": {
+            "sort_name": "brian nguyen",
+            "email": "brian@trycelery.com",
+            "first_name": "Brian",
+            "last_name": "Nguyen",
+            "name": "Brian Nguyen",
+            "phone": null,
+            "company": null,
+            "notes": null
+        },
+        "shipping_address": {
+            "email": "brian@trycelery.com",
+            "first_name": "Brian",
+            "last_name": "Nguyen",
+            "name": "Brian Nguyen",
+            "line1": "123 Main Street",
+            "line2": "Unit 101",
+            "city": "San Francisco",
+            "state": "ca",
+            "zip": "94105",
+            "country": "us",
+            "phone": null,
+            "company": null
+        },
+        "billing_address": {
+            "email": null,
+            "first_name": null,
+            "last_name": null,
+            "name": null,
+            "line1": null,
+            "line2": null,
+            "city": null,
+            "state": null,
+            "zip": null,
+            "country": null,
+            "phone": null
+        },
+        "fulfillment": {
+            "courier": null,
+            "number": null,
+            "created": null,
+            "created_date": null
+        },
+        "payment_source": {
+            "card": {
+                "name": null,
+                "celery_token": "c31310e652f5a7d7254484668c52686d09cd665414c6d3cae04f92660c3d930cad55a378cfa2c76fcbf8dc0b129a4f0baac0e3794c4485510a36cfbef7461c45dfc1d52d6e03a28d03af86f7ec405577f0d1c7c7a0487ca780003f86b595bca0",
+                "exp_month": 11,
+                "exp_year": 20,
+                "last4": "4242",
+                "country": "us",
+                "type": "visa"
+            },
+            "paypal": {
+                "email": null,
+                "preapproval_key": null,
+                "pay_key": null,
+                "redirect_url": null,
+                "ipn": null,
+                "ending": null,
+                "ending_date": null
+            },
+            "affirm": {
+                "checkout_token": null,
+                "charge_id": null
+            },
+            "airbrite": {
+                "customer_token": null,
+                "card_token": null,
+                "fingerprint": null,
+                "name": null,
+                "exp_month": 0,
+                "exp_year": 0,
+                "last4": null,
+                "country": null,
+                "type": null
+            }
+        },
+        "discount_codes": [],
+        "line_items": [
+            {
+                "id": "0fcfa92c-5214-d4bf-ac41-86f26fb9c9b9",
+                "product_id": "531e0b012cf9766885f781b7",
+                "product_name": "koala 10",
+                "variant_id": null,
+                "variant_name": null,
+                "sku": "koala_10",
+                "celery_sku": "531e0b012cf9766885f781b7",
+                "price": 1000,
+                "quantity": 1,
+                "weight": 0.5,
+                "enable_taxes": true
+            }
+        ],
+        "adjustments": [],
+        "discounts": [],
+        "payments": [
+            {
+                "id": "9969f10f-6c29-4d36-ba84-c60abd4bd7ed",
+                "charge_id": "ch_4OrpNFZKd4NOBz",
+                "balance_transaction": "txn_4Orp4IPXvI0QCc",
+                "pay_key": null,
+                "preapproval_key": null,
+                "capture_id": null,
+                "transaction_id": null,
+                "currency": "usd",
+                "amount": 2075,
+                "amount_refunded": 0,
+                "fee": 132,
+                "paid": true,
+                "captured": true,
+                "created": 1405323722000,
+                "created_date": "2014-07-14T07:42:02.000Z",
+                "refunded": null,
+                "refunded_date": null,
+                "card": {
+                    "name": "",
+                    "last4": "4242",
+                    "exp_month": null,
+                    "exp_year": null,
+                    "type": "visa",
+                    "country": "us"
+                }
+            }
+        ],
+        "history": [
+            {
+                "type": "order.created",
+                "body": "Order was created.",
+                "created": 1405323703464,
+                "created_date": "2014-07-14T07:41:43.464Z"
+            },
+            {
+                "type": "order.charge.succeeded",
+                "body": "Order was charged.",
+                "created": 1405323723032,
+                "created_date": "2014-07-14T07:42:03.032Z"
+            }
+        ],
+        "_id": "53c389b7eba65a000061e12f",
+        "user_id": "514a114080feb60200000001",
+        "version": "v2",
+        "created": 1405323701278,
+        "updated": 1405323722893,
+        "created_date": "2014-07-14T07:41:41.278Z",
+        "updated_date": "2014-07-14T07:42:02.893Z",
+        "metadata": {}
+    }
+  },
+  "products" : [
+        {
+            "_id": "546aab7b1657500600a781bc",
+            "slug": "90ca88bd-3830-4ee0-b39f-e5f200d0a489",
+            "name": "Koala 1",
+            "description": "<p>Koala party</p>",
+            "sku": null,
+            "price": 1500,
+            "deposit": 0,
+            "weight": 0,
+            "inventory": 0,
+            "published": true,
+            "flags": {
+                "enable_taxes": true,
+                "enable_options": false,
+                "enable_inventory": false
+            },
+            "images": [{
+                "url":"https://placekitten.com/g/200/200"
+              }],
+            "options": [],
+            "variants": [],
+            "user_id": "54629b565f388707003de6ea",
+            "version": "v2",
+            "created": 1416276859872,
+            "updated": 1416276859970,
+            "created_date": "2014-11-18T02:14:19.872Z",
+            "updated_date": "2014-11-18T02:14:19.970Z",
+            "locked": false,
+            "metadata": {}
+        },
+        {
+            "_id": "546a9d731657500600a781ba",
+            "slug": "12b1f0a1-b18c-407a-9f9c-470f262f1853",
+            "name": "Koala 2",
+            "description": null,
+            "sku": null,
+            "price": 2000,
+            "deposit": 0,
+            "weight": 0,
+            "inventory": 0,
+            "published": true,
+            "flags": {
+                "enable_taxes": true,
+                "enable_options": false,
+                "enable_inventory": false
+            },
+            "images": [{
+                "url":"https://placekitten.com/g/220/220"
+              }],
+            "options": [],
+            "variants": [],
+            "user_id": "54629b565f388707003de6ea",
+            "version": "v2",
+            "created": 1416273267130,
+            "updated": 1416273287831,
+            "created_date": "2014-11-18T01:14:27.130Z",
+            "updated_date": "2014-11-18T01:14:47.831Z",
+            "locked": false,
+            "metadata": {}
+        },
+        {
+            "_id": "546540f2793b4c050015d96c",
+            "slug": "7dc66c4a-99ca-48b2-b584-23de515272c0",
+            "name": "Koala 3",
+            "description": null,
+            "sku": null,
+            "price": 2500,
+            "deposit": 0,
+            "weight": 0,
+            "inventory": 0,
+            "published": true,
+            "flags": {
+                "enable_taxes": true,
+                "enable_options": false,
+                "enable_inventory": false
+            },
+            "images": [{
+                "url":"https://placekitten.com/g/210/200"
+              }],
+            "options": [],
+            "variants": [],
+            "user_id": "54629b565f388707003de6ea",
+            "version": "v2",
+            "created": 1415921906675,
+            "updated": 1415922135705,
+            "created_date": "2014-11-13T23:38:26.675Z",
+            "updated_date": "2014-11-13T23:42:15.705Z",
+            "locked": false,
+            "metadata": {}
+        }
+    ]
+}

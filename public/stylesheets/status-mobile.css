@@ -1,0 +1,37 @@
+.center-text{
+  text-align:center;
+}
+
+.fullScreen{
+	display:none;
+}
+
+.indicator{
+	font-weight: bolder;
+}
+
+.doneText{
+	color: #457a1a;
+}
+
+.progressText{
+	color: #0032D1;
+}
+
+.doneColor{
+	background-color: #7CCF37;
+}
+
+
+.smallIcon{
+	margin-left:auto;
+	margin-right: auto;
+}
+
+img{
+	display:block;
+}
+
+.boldMobile{
+	font-weight: bolder;
+}

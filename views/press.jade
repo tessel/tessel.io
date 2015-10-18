@@ -1,0 +1,77 @@
+block append head
+  link(rel='stylesheet', href='/stylesheets/press.css')
+
+extends layout
+
+block content
+  include ./partials/standard-nav
+  section.block(style="margin-bottom: 60px")
+    .row
+      .large-10.columns.large-centered
+          h2 Press Resources
+          .press-content.row
+            .product-images
+              //.photobox-title
+              h4 Tessel 2 Images
+              ul.small-block-grid-4
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/launch/press-page/tessel2-angle.jpg')
+                    img(src='https://s3.amazonaws.com/technicalmachine-assets/launch/press-page/tessel2-angle-250.jpg')
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/launch/press-page/tessel2-up-front.jpg')
+                    img(src='https://s3.amazonaws.com/technicalmachine-assets/launch/press-page/tessel2-up-front-250.jpg')
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/launch/press-page/tessel2-usb-side.jpg')
+                    img(src='https://s3.amazonaws.com/technicalmachine-assets/launch/press-page/tessel2-usb-side-250.jpg')
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/launch/press-page/tessel2-modules.jpg')
+                    img(src='https://s3.amazonaws.com/technicalmachine-assets/launch/press-page/tessel2-modules-250.jpg')
+
+              h4 Tessel 1 Images
+              
+              ul.small-block-grid-4
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/top.png')
+                    img(src='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/top-250.png')
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/bottom.png')
+                    img(src='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/bottom-250.png')
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/scale.JPG')
+                    img(src='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/scale-250.JPG')
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/plugged-in.png')
+                    img(src='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/plugged-in-250.png')
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/modules-up.JPG')
+                    img(src='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/modules-up-250.png')
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/modules-back.JPG')
+                    img(src='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/modules-back-250.png')
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/ruler.JPG')
+                    img(src='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/ruler-250.png')
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/servo.JPG')
+                    img(src='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/product-images/servo-250.png')
+
+            .branding-images
+              .photobox-title
+              h4 Branding
+              ul.small-block-grid-4
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/branding/tessel-250.png')
+                    img(alt='Technical Machine', src='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/branding/tessel-250.png')
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/branding/tessel-horizontal.png')
+                    img(alt='Tessel Platform', src='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/branding/tessel-horizontal-250.png')
+                li
+                  a(href='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/branding/tessel2-horizontal.png')
+                    img(alt='Tessel 2 Microcontroller', src='https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/branding/tessel2-horizontal-250.png')
+                      
+            .modules
+              .photobox-title
+              h4 Modules
+              p For images of modules, please see the 
+                a(href="/modules") modules 
+                | page.

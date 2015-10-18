@@ -1,0 +1,13 @@
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
+.generic-vertical-align {
+  position: relative;
+  top: 50%;
+  @include vendor-prefix(transform, translateY(-50%));
+}

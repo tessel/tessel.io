@@ -1,0 +1,21 @@
+//- Renders individual docs
+extends layout
+
+block head
+  link(href="/stylesheets/style.css", rel="stylesheet")
+  link(href="/stylesheets/no-footer.css", rel="stylesheet")
+  link(href="/stylesheets/docs.css", rel="stylesheet")
+
+block append scripts
+  script(src="/tracking/active-link.js")
+
+block content
+  include ./partials/standard-nav
+  include _docs-sidebar
+
+  #docs-content
+    .row
+      .large-12.columns
+        i
+          a(href=link) Fork this page on Github
+        | !{ text }

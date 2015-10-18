@@ -1,0 +1,172 @@
+<html>
+<head>
+  <meta http-equiv="Cache-control" content="no-cache">
+  <title>blink</title>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript" src="phosphorframework.js"></script>
+  <style>html, body { margin: 0; padding: 0; overflow: hidden; }</style>
+  <script>
+  function resize () {
+    var w = window.innerWidth;
+    w = window.parent.document.getElementsByTagName('iframe')[0].parentNode.clientWidth - 40;
+    var natch = w / 500;
+    document.body.style.zoom = natch;
+  }
+  window.onresize = resize;
+  setTimeout(resize);
+  </script>
+</head>
+
+
+<body onload="resize()">
+	<img id="anim_target_blink" src="blink.jpg" width="500" height="281" style="display: block; position: absolute; top: 0; left: 0;"/>
+
+  <script>
+
+  var player_blink = null;
+  var player_blink_path = ""; // path to Phosphor files on your server
+  var blink_framecount = 0;
+
+
+  /**
+   * After the page has loaded, we register a callback which will be triggered by the jsonp file.
+   * Once the callback is registered, we inject the jsonp script file into the page's HEAD block.
+   * An alternative method is to use AJAX (getJSON, etc) to load the corresponding json file.  After loading the
+   * data, instantiate the player in the same way.
+   */
+
+   $(document).ready(function(){
+    player_blink = new PhosphorPlayer('anim_target_blink');
+    phosphorCallback_blink = function(data) {
+
+      /**
+       * Instantiate the player.  The player supports a variate of callbacks for deeper integration into your site.
+       */
+
+       blink_framecount = data.frames.length;
+       player_blink.load_animation({
+        imageArray:["blink_atlas000.jpg","blink_atlas001.jpg","blink_atlas002.jpg","blink_atlas003.jpg","blink_atlas004.jpg"],
+        imagePath: player_blink_path,
+        animationData: data,
+        loop: false,
+        onLoad: function() {
+          // player_blink.play();
+
+          /**
+           * If your Phosphor composition was created with the "interactive" mode set, the code below enables that
+           * interation.  Handlers are registered for both mouse drag and touch events.
+           */
+
+           var trappedMouse = false;
+           var trappedXPos;
+
+           var enableInteractivity = false;
+
+           if(enableInteractivity) {
+            $("#anim_target_blink").mousedown(function(e){
+              e.preventDefault();
+              player_blink.stop();
+              trappedMouse = true;
+              trappedXPos = e.pageX;
+              $(document).bind('mousemove',function(event) {
+                if(trappedMouse){
+                  var pos =  (event.pageX - trappedXPos) / 5;
+                  var seekTime = (blink_framecount + player_blink.currentFrameNumber() + parseInt(pos)) % blink_framecount;
+                  player_blink.setCurrentFrameNumber(seekTime);
+                  trappedXPos = event.pageX;
+                }
+
+              });
+
+            });
+
+            $(document).mouseup(function(e){
+              trappedMouse = false;
+              $(document).unbind('mousemove');
+            });
+
+          
+
+            $("#anim_target_blink").bind("touchstart",function(event){
+             var e = event.originalEvent;
+             e.preventDefault();
+             player_blink.stop();
+             trappedMouse = true;
+             trappedXPos = e.pageX;
+             $(document).bind('touchmove', function(e) {
+              if(trappedMouse){
+                var e = e.originalEvent;
+                e.preventDefault();
+                var pos =  (e.pageX - trappedXPos) / 5;
+                var seekTime = (blink_framecount + player_blink.currentFrameNumber() + parseInt(pos)) % blink_framecount;
+                player_blink.setCurrentFrameNumber(seekTime);
+                trappedXPos = e.pageX;
+              }
+             });
+           });
+
+            $("#anim_target_blink").bind("touchend",function(event){
+             var e = event.originalEvent;
+             e.preventDefault();
+             trappedMouse = false;
+             player_blink.play(true);
+             $(document).unbind('touchmove');
+           });
+
+          }
+
+        }
+      });
+     }
+     var jsonpScript = document.createElement("script");
+     jsonpScript.type = "text/javascript";
+     jsonpScript.id = "jsonPinclude_blink";
+     jsonpScript.src = player_blink_path + "blink_animationData.jsonp";
+     document.getElementsByTagName("head")[0].appendChild(jsonpScript);
+
+
+});
+
+  /**
+   * These functions demonstrate some of the ways you can control the Phosphor player.
+   * If you simply wish to play a Phosphor composition on your page, none of these need to be
+   * defined.
+   */
+
+  function toggleDebug(){
+    player_blink.debug(document.getElementById("debugCheckbox").checked);
+  };
+
+  var id = 0;
+
+  function playPhosphor(){
+    player_blink.stop();
+    player_blink.setCurrentFrameNumber(30);
+    clearInterval(id);
+    id = setInterval(function () {
+      player_blink.setCurrentFrameNumber(30);
+    }, 300);
+    player_blink.play(true);
+  };
+
+  function pausePhosphor(){
+    player_blink.stop();
+  };
+
+  function jumpForwardPhosphor(){
+    player_blink.stop();
+
+    var seekTime = (player_blink.currentFrameNumber() + 1) % blink_framecount;
+    player_blink.setCurrentFrameNumber(seekTime);
+  };
+
+  function jumpBackwardPhosphor(){
+    player_blink.stop();
+
+    var seekTime = (blink_framecount + player_blink.currentFrameNumber() - 1) % blink_framecount;
+    player_blink.setCurrentFrameNumber(seekTime);
+  };
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+.center-text{
+  text-align:center;
+}
+
+.row-below>.middle{
+	border-top-style: solid;
+	height: 10px;
+}
+
+.row-below>.done{
+	border-left-color: #5da423;
+	border-top-color: #5da423;
+	border-right-color: #5da423;
+	border-right-style: solid;
+}
+
+.row-below>.inprogress{
+	border-top-color: #5472D3;
+}
+
+.row-below>.unfinished{
+	border-left-color: rgb(151, 151, 151);
+	border-top-color: rgb(151, 151, 151);
+	border-left-style: solid;
+}
+
+.row-below>.start{
+	border-top-style: solid;
+	height: 10px;
+}
+
+.row-below>.truck{
+	height: 80px;
+	margin-top:-20px;
+}
+
+.row>.bar{
+	margin-top:-20px;
+}
+
+.indicator{
+	font-weight: bolder;
+}
+
+.doneText{
+	color: #457a1a;
+}
+
+.progressText{
+	color: #0032D1;
+}
+
+.mobile{
+	display:none;
+}
+
+.working{
+	display:inline;
+	width:25px;
+	height:25px;
+
+}
+
+.tesselHeader{
+	float:left;
+	margin:10px;
+}

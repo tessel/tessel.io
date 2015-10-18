@@ -1,0 +1,36 @@
+mixin addressForm(countries)
+  form(action="/shipping", method="POST").row.js-shipping-form
+    .large-6.columns
+      label First Name
+      input(type="text", name="first_name",value="#{shippingInfo.first_name}", required)
+    .large-6.columns
+      label Last Name
+      input(type="text", name="last_name", value="#{shippingInfo.last_name}", required)
+    .large-12.columns
+      label Company
+      input(type="text", name="company", value="#{shippingInfo.company}")
+    .large-12.columns
+      label Country
+      select(name="country")
+        option(value="#{shippingInfo.country}") United States
+        each country in countries
+          option(value="#{country}")=country
+    .large-12.columns
+      label Street Address 1
+      input(type="text", name="line1", value="#{shippingInfo.line1}", required)
+    .large-12.columns
+      label Street Address 2
+      input(type="text", name="line2", value="#{shippingInfo.line2}")
+    .large-12.columns
+      label City
+      input(type="text", name="city", value="#{shippingInfo.city}", required)
+    .large-6.columns
+      label State
+      input(type="text", name="state", value="#{shippingInfo.state}", required)
+    .large-6.columns
+      label Zipcode
+      input(type="text", name="zip", value="#{shippingInfo.zip}", required)
+    .large-12.columns
+      label Phone number
+      input(type="text", name="phone", value="#{shippingInfo.phone}")
+    block

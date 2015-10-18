@@ -1,0 +1,56 @@
+include ./mixins/address-form
+include ./mixins/module
+block append scripts
+  script(src='/scripts/add-modules.js')
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.5.3/numeral.min.js")
+
+extends layout
+
+block content
+  #update-container
+    .row.js-order#id-holder(data-order= order.number)
+      h2 Your Tessel 2 Pre-Order Is Almost Complete!
+      h3 Step 1: Confirm shipping address
+    .row
+      .large-6.small-12.columns
+        +addressForm(countries, shippingInfo)
+    .row
+      h3 Step 2: Select Modules to add to your order
+    .row
+      h4 10-Pin Modules
+    .row
+      table.large-12.small-12.columns
+        thead
+          tr
+            th Module
+            th Description
+            th Image
+            th Per unit
+            th Quantity
+            th Total
+        tbody.js-module-table
+          for module in modules
+            +moduleEntry(module)
+          tr
+            td(colspan="5") 
+              h3 Modules Total
+            td.js-subtotal $0.00
+    .row.alert-box.secondary
+      h4 USB Modules
+      p
+        | Tessel 2 has the ability to take advantage of inexpensive USB modules. In an effort to keep costs low for you and
+        | ship Tessel on time, we won't be sourcing and marking up USB modules ourselves. Instead, we have a list of compatible modules available on Amazon Prime 
+        | that we have confirmed work with Tessel 2. You can purchase these modules from Amazon as a separate order. These modules include:
+      ul
+        li 
+          a(href='http://www.amazon.com/gp/product/B0092QJRPC/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B0092QJRPC&linkCode=as2&tag=tessproj-20&linkId=FAGL3D4HTK3BLYLY' target="_blank") Video Camera
+        li 
+          a(href='http://www.amazon.com/gp/product/B009ZIILLI/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B009ZIILLI&linkCode=as2&tag=tessproj-20&linkId=WGF2X4G2MWCLND2L' target="_blank") Bluetooth Low Energy
+        li 
+          a(href='http://www.amazon.com/gp/product/B00IRVQ0F8/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00IRVQ0F8&linkCode=as2&tag=tessproj-20&linkId=4GTXEWAVEW5KGE5V' target="_blank") Audio Recording & Playback
+        li 
+          a(href='http://www.amazon.com/gp/product/B00P5UJA0Q/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00P5UJA0Q&linkCode=as2&tag=tessproj-20&linkId=JPLI6S3OUOQOY6WM' target="_blank") 3G Dongle
+        li 
+          a(href='http://www.amazon.com/gp/product/B009CMN3WY/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B009CMN3WY&linkCode=as2&tag=tessproj-20&linkId=KSTREMFFVP2WF466' target="_blank") Flash storage
+    .row
+      input(type="button" value="Update Order").js-submit.button

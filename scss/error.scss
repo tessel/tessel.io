@@ -1,0 +1,11 @@
+@import "./settings.foundation.scss";
+
+#sec-footer{
+  position:absolute;
+  width:100%;
+  bottom:0px;
+  left:0px;
+  @media #{$small-only}{
+    position:relative;
+  }
+}

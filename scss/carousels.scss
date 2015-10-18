@@ -1,0 +1,103 @@
+@mixin custom-carousel($width, $items) {
+  .my-carousel-wrapper-two {
+    width: ((100% / $width) * $items);
+  }
+
+  .my-carousel-wrapper-two > * {
+    width: (100% / $items);
+  }
+}
+
+.my-carousel {
+  $arrwidth: 20px;
+
+  height: 120px;
+  position: relative;
+  margin: 0 (40px + $arrwidth) 0 $arrwidth;
+  box-sizing: content-box;
+
+  overflow: auto;
+  &.loaded {
+    overflow: visible;
+  }
+
+  .my-carousel-wrapper-one {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .my-carousel-wrapper-two {
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+  }
+
+  .my-module {
+    float: left;
+    overflow: hidden;
+    height: 100%;
+    vertical-align: top;
+    text-align: center;
+    a {
+      color: black;
+      text-decoration: none;
+    }
+    img {
+      margin:auto;
+      max-height: 5em;
+    }
+  }
+
+  .my-carousel-left,
+  .my-carousel-right {
+    height: 100px;
+    line-height: 100px;
+    // background: #ddd;
+    vertical-align: middle;
+    padding: 0 5px;
+    width: $arrwidth;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+
+    &.hidden {
+      opacity: 0;
+      cursor: inherit;
+    }
+  }
+
+  .my-carousel-left {
+    left: -$arrwidth;
+  }
+
+  .my-carousel-left::before,
+  .my-carousel-right::before {
+    $arrheight: 30px;
+
+    display: block;
+    content: " ";
+    overflow: hidden;
+    top: 50%;
+    left: 0;
+    position: absolute;
+    height: $arrheight;
+    margin-top: -($arrheight / 2);
+    border-top: ($arrheight / 2) solid transparent;
+    border-bottom: ($arrheight / 2) solid transparent;
+  }  
+
+  .my-carousel-left::before {
+    border-right: 10px solid #999;
+  }
+
+  .my-carousel-right::before {
+    border-left: 10px solid #999;
+  }
+
+  .my-carousel-right {
+    right: -$arrwidth;
+    content: ">"
+  }
+}

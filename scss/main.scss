@@ -1,0 +1,88 @@
+@import "normalize.scss";
+@import "./settings.colors";
+@import "./settings.foundation";
+@import "./base.foundation";
+// Spacing tools from intuit
+@import "./../bower_components/inuit-defaults/settings.defaults.scss";
+@import "./settings.spacing";
+
+html, body{
+  letter-spacing: 0.04em;
+  height: auto;
+}
+
+h1, h2, h3{
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+p {
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+
+nav {
+  font: regular 26px Source Sans Pro, sans-serif;
+  color: #363636;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.navbar{
+  height: 52px;
+}
+
+.top-bar__logo{
+  padding: rem-calc(10);
+  height: 100%;
+}
+.top-bar .title-area{
+  @media #{$medium-only}{
+    min-width:25%;
+  }
+}
+.top-bar-section{
+  li:last-of-type {
+    padding-right:$topbar-height/3;
+  }
+}
+
+#sec-footer{
+  background-color: $tuatara;
+  color: $vapor;
+  padding: 2em 0;
+  * a{
+    color: $vapor;
+    font-style: regular 26px Source Sans Pro, sans-serif;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    padding: 0 1em;
+  }
+}
+
+
+#preorder-header-call {
+  color:$primary-color;
+  border: 1px solid #acc;
+  background: #cff;
+  padding: 5px 10px;
+  float: left;
+  position: absolute;
+  left: 175px;
+  top: 13px;
+  border-radius: 5px;
+  width: 20em;
+  text-align: center;
+  font-size: 14px;
+  &:hover{
+    background: scale-color(#cff, $lightness: -10%) !important;
+
+  }
+}
+
+@media (max-width: 1000px) {
+  #preorder-header-call {
+    position: absolute;
+    left:5px;
+  }
+}

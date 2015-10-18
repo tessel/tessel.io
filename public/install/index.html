@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+ pre.p { font-size: 1em;  background: #eee; padding: 4px 8px; white-space: pre-wrap; color: #a40; }
+.install { margin: 20px 24px 30px; font-size: 1.2em; }
+small { font-style: italic; margin-left: 16px; }
+small::before { content: "! "; color: #a40; font-style: normal; }
+.container { max-width: 800px; }
+.nav a { font-size: 24px; }
+.nav .active a { font-weight: bold; }
+.nav .active a::before { content: "Install Tessel on "; }
+pre.command{ color: #a40;}
+pre.response{ color:#929292;}
+.prereqs { display: none; }
+.prereqtoggle { text-decoration: underline; }
+
+#releases { margin-bottom: 10px; overflow: auto; }
+#releases > div { width: 50%; float: left; }
+#releases > div > p { margin: 10px 10px; border: 1px solid #999; border-radius: 5px; height: 5em; padding: 10px 0; text-align: center; }
+#releases b { font-size: 1.5em; }
+
+.tab-pane {
+border: 1px solid #ddd;
+border-top: none;
+padding: 1px 10px 5px;
+}
+</style>
+
+<script>
+function selectText(node) {
+    if (document.selection) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(node);
+        range.select();
+    } else if (window.getSelection) {
+        var range = document.createRange();
+        range.selectNode(node);
+        window.getSelection().addRange(range);
+    }
+}
+
+$(function () {
+  var isMac = navigator.platform.toUpperCase().indexOf('MAC')!==-1;
+  var isWindows = navigator.platform.toUpperCase().indexOf('WIN')!==-1;
+  var isLinux = navigator.platform.toUpperCase().indexOf('LINUX')!==-1;
+
+  isMac && $('.nav a[href="#tab-osx"]').tab('show');
+  isWindows && $('.nav a[href="#tab-windows"]').tab('show');
+  isLinux && $('.nav a[href="#tab-linux"]').tab('show');
+  $('.nav a[href=' + window.location.hash + ']').tab('show')
+
+  $('.nav a[href]').on('click', function () {
+    window.location.hash = $(this).attr('href');
+  })
+
+  $('pre.p').on('click', function () {
+    selectText($(this)[0]);
+  })
+
+  $('.prereqtoggle').on('click', function () {
+    $('.prereqs').toggle()
+    return false;
+  })
+
+  $.ajax({
+    url: 'https://s3.amazonaws.com/tessel-tools/',
+    dataFormat: 'xml',
+    success: function(data) {
+      var contents = $(data).find('Contents');
+
+      var files = [];
+      for (i = 0; i < contents.length; i++) {
+        files.push(($(contents[i]).find('Key').text()));
+      }
+      
+      var cli = [], firmware = [];
+      files.forEach(function (file) {
+        var m;
+        if (m = file.match(/^cli\/tessel-cli-(\d+\-\d+\-\d+).tar.gz/)) cli.push(m[1]);
+        if (m = file.match(/^firmware\/tessel-firmware-(\d+\-\d+\-\d+).bin/)) firmware.push(m[1])
+      })
+
+      var cli_latest = cli.sort().pop();
+      var firmware_latest = firmware.sort().pop();
+      $('#releases-cli b').text(cli_latest)
+      $('#releases-firmware b').text(firmware_latest)
+    }
+  });
+})
+</script>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Tessel Installation</h1>
+
+<div id="releases">
+<div id="releases-cli" style="background: #def"><p>Latest CLI Release<br><b></b></p></div>
+<div id="releases-firmware" style="background: #fed"><p>Latest Firmware Release<br><b></b></p></div>
+</div>
+
+<p style="margin-bottom: 40px">To install the latest CLI, follow the installation instructions below. To install the latest firmware, follow the <a href="https://github.com/tessel/beta/wiki/Firmware-Upgrade">firmware upgrade instructions</a>.</p>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="install-tabs">
+  <li class="active"><a href="#tab-osx" data-toggle="tab">OS X</a></li>
+  <li><a href="#tab-linux" data-toggle="tab">Linux</a></li>
+  <li><a href="#tab-windows" data-toggle="tab">Windows</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="tab-osx">
+
+<div class="install">
+
+<p><a href="#install-tabs" class="prereqtoggle">After installing Node.js</a>, run this in your terminal:</p>
+<pre class="p"><span>npm install -g https://s3.amazonaws.com/builds.tessel.io/cli/tessel-cli-current.tar.gz</span></pre>
+<!--<small>If this fails, try running <code>curl http://tessel.io/install.sh | sudo sh</code>.</small>-->
+</div>
+
+<div class="prereqs">
+<h3 id="osx-prereqs">OS X Prerequisites</h3>
+
+<p><a href="http://nodejs.org">Node.js</a> is a prerequisite for installing the Tessel command line. <i>We recommend using the <a href="http://nodejs.org">downloadable installer</a> for Node.js.</i> Or you can use <a href="http://brew.sh">brew</a>:</p>
+
+<pre>brew install node</pre>
+</div>
+  	
+  </div>
+  <div class="tab-pane" id="tab-linux">
+
+<div class="install">
+<p><a href="#install-tabs" class="prereqtoggle">After installing Node.js, libudev, and libusb</a>, run this in your terminal:</p>
+<pre class="p"><span>npm install -g https://s3.amazonaws.com/builds.tessel.io/cli/tessel-cli-current.tar.gz</span></pre>
+<!--<small>If this fails, try running <code>curl http://tessel.io/install/linux.sh | sudo sh</code>. </small>-->
+</div>
+<div class="prereqs">
+<h3 id="linux-prereqs">Linux Prerequisites</h3>
+
+<p><a href="http://nodejs.org">Node.js</a>, libudev, and libusb are prerequisites for installing the Tessel command line.</p>
+
+<p>If you are running Ubuntu 12.04 or greater, you can run these commands:</p>
+
+<pre># ubuntu 12.04
+sudo apt-get update
+sudo apt-get install -y python-software-properties python g++ make
+sudo add-apt-repository -y ppa:chris-lea/node.js
+sudo apt-get update
+sudo apt-get install nodejs curl pkg-config libusb-1.0.0-dev libudev-dev</pre>
+</div>
+  	
+  </div>
+  <div class="tab-pane" id="tab-windows">
+
+<div class="install">
+<p><a href="#install-tabs" class="prereqtoggle">After installing Node.js</a>, run this in cmd.exe:</p>
+<pre class="p"><span>npm install -g https://s3.amazonaws.com/builds.tessel.io/cli/tessel-cli-current.tar.gz</span></pre>
+</div>
+
+<div class="prereqs">
+<h3 id="win-prereqs">Windows Prerequisites</h3>
+
+<p><a href="http://nodejs.org">Node.js</a> is prerequisite for installing the Tessel command line. <i>We recommend using the downloadable installer for Node.js.</i></p>
+
+<p>If you are using the <a href="http://chocolatey.org">Chocolatey</a> package manager, you can run these commands:</p>
+
+<pre>cinst nodejs.install</pre>
+</div>
+
+<!--
+run on next boot: http://powergui.org/thread.jspa?messageID=44629
+http://freevps.us/thread-6845.html
+images: http://www.askvg.com/tip-5-easy-ways-to-switch-from-windows-8-to-other-installed-os-in-dual-boot-environment/
+-->
+
+  </div>
+</div>
+
+<div id="postinstall">
+  <h3>
+    Post install check
+  </h3>
+  Run the following on your command line:
+  <pre class="command">tessel version</pre>
+  You should see something like:
+  <pre class="response">v0.2.0</pre>
+
+  Now plug in a Tessel to your computer and run:
+<pre class="command">tessel list</pre>
+
+If you get:
+  <pre class="response">TM-00-03-f0009a30-006a4f59-686d6208</pre>
+
+  Your Tessel is connected and detected!
+
+  Next try:
+<pre class="command">tessel blink</pre>
+
+  Your Tessel should download code and start blinking.
+
+  <p>
+  Congrats, you have installed Tessel. Now <a href="https://github.com/tessel/beta/wiki/Firmware-Upgrade">upgrade your firmware</a> and <a href="https://github.com/tessel/demo">go check out more demos.</a>
+  </p>
+  <p>
+  For more information check out <a href="https://github.com/tessel/docs">Tessel documentation.</a>
+</p>
+</div>
+
+<br><hr><small>Tessel, &copy; Technical Machine</small><br><br>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+// Predefine the variables below in order to alter and enable specific features.
+$inuit-spacing-namespace:               $inuit-namespace;
+
+//TODO: Figure out why this is needed and why the mixin is failing to assign this variable
+$inuit-generate-spacing-alias:          null;
+
+$inuit-margin:                          $inuit-base-spacing-unit;
+$inuit-padding:                         $inuit-base-spacing-unit;
+
+$inuit-enable-margins:                  true;
+$inuit-enable-margins--tiny:            true;
+$inuit-enable-margins--small:           true;
+$inuit-enable-margins--large:           true;
+$inuit-enable-margins--huge:            true;
+
+$inuit-enable-margins--negative:        false;
+$inuit-enable-margins--negative-tiny:   false;
+$inuit-enable-margins--negative-small:  false;
+$inuit-enable-margins--negative-large:  false;
+$inuit-enable-margins--negative-huge:   false;
+
+$inuit-enable-margins--none:            true;
+
+$inuit-enable-paddings:                 true;
+$inuit-enable-paddings--tiny:           true;
+$inuit-enable-paddings--small:          true;
+$inuit-enable-paddings--large:          true;
+$inuit-enable-paddings--huge:           true;
+
+$inuit-enable-paddings--none:           true;
+
+// Predefine the variables below in order to alter and enable specific features.
+$inuit-enable-responsive-margins:                   true;
+$inuit-enable-responsive-margins--tiny:             true;
+$inuit-enable-responsive-margins--small:            true;
+$inuit-enable-responsive-margins--large:            true;
+$inuit-enable-responsive-margins--huge:             true;
+
+$inuit-enable-responsive-margins--negative:         false;
+$inuit-enable-responsive-margins--negative-tiny:    false;
+$inuit-enable-responsive-margins--negative-small:   false;
+$inuit-enable-responsive-margins--negative-large:   false;
+$inuit-enable-responsive-margins--negative-huge:    false;
+
+$inuit-enable-responsive-margins--none:             true;
+
+$inuit-enable-responsive-paddings:                  true;
+$inuit-enable-responsive-paddings--tiny:            true;
+$inuit-enable-responsive-paddings--small:           true;
+$inuit-enable-responsive-paddings--large:           true;
+$inuit-enable-responsive-paddings--huge:            true;
+
+$inuit-enable-responsive-paddings--none:            true;

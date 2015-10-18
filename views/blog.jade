@@ -1,0 +1,73 @@
+extends layout
+
+block append head
+  link(href='/stylesheets/blog.css', rel='stylesheet')
+
+block append scripts
+  script.
+    $(function () {
+      $('#blog-sidebar h3').on('click', function () {
+        $(this).toggleClass('inactive');
+      })
+    })
+
+mixin pagination()
+  - var surround = 2
+  - var ends = 2
+  - var total = Math.ceil(posts.length / pagelength)
+  - if (!onepost)
+    .pagination
+      a.bloglink(href="/blog/") Tessel Blog 
+      ul
+        - if (page > ends + surround)
+          - for (var i = 0; i < ends; i++)
+            li 
+              a(href="/blog/?page=" + (i+1))= i+1
+            | &nbsp;
+          li.empty ...
+          | &nbsp;
+        - for (var i = page <= ends + surround ? 0 : Math.max(0, page - surround); i < (page >= total - ends - surround - 1 ? total : Math.min(total, page + 1 + surround)); i++)
+          - if (i != page)
+            li 
+              a(href="/blog/?page=" + (i+1))= i+1
+            | &nbsp;
+          - else
+            li.active
+              = i+1
+            | &nbsp;
+        - if (page < total - ends - surround - 1)
+          li.empty ...
+          | &nbsp;
+          - for (var i = total - ends; i < total; i++)
+            li 
+              a(href="/blog/?page=" + (i+1))= i+1
+            | &nbsp;
+
+  - else
+    .pagination
+      a.bloglink.active(href="/blog/") &larr; Back to Tessel Blog
+
+block content
+  include ./partials/standard-nav
+  
+  section.block
+    .row
+      .large-9.columns.large-center
+        +pagination()
+        ul#blog-posts
+          each post in onepost ? [onepost] : posts.slice(page*pagelength, (page+1)*pagelength)
+            li
+              h2
+                a(href='/blog/' + post.id + '/' + post.slug)= post.title
+              p.date= new Date(post.timestamp*1000).toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+              div.post-body!= (post.body || '').replace(/(https?:)?(\/\/)?blog\.technical\.io[^'"]+/g, '/blog/')
+              p.tags= '#' + post.tags.join(' #')
+        +pagination()
+      .large-3.columns
+        #blog-sidebar
+          each postgroup, k in postsbymonth
+            h3(class=k.indexOf(new Date().getFullYear().toString()) > -1 ? '' : 'inactive')= k
+            ul
+              each post in postgroup
+                li
+                  a(href='/blog/' + post.id + '/' + post.slug)= post.title

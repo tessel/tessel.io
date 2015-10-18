@@ -1,0 +1,23 @@
+pre {
+  width: 100%;
+  margin: 1em auto;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1em;
+  white-space: pre-wrap;
+  text-wrap:break-word;
+}
+
+pre .string, pre .str, code .str { color: #e7e499; } /* string  - eggyolk gold */
+pre .keyword, pre .kwd, code .kwd { color: #b8c8f5; } /* keyword - LED blue */
+pre .comment, pre .com, code .com { color: #555555; font-style: italic; } /* comment - foundation blue */
+pre .type, pre .typ, code .typ { color: #6ecbcc; } /* type - turq green */
+pre .literal, pre .number, pre .lit, code .lit { color: #fc0c26; } /* literal - red */
+pre .punctuation, pre .pun, code .pun { color: #8B8970; } /* punctuation - lemon chiffon4  */
+pre .class, pre .plaintext, pre .params, pre .pln, code .pln { color: #f0f0f0; } /* plaintext - white */
+pre .tag, pre .tag, code .tag { color: #9c9cff; } /* html/xml tag  (bluey)  */
+pre .html, pre .htm, code .htm { color: #dda0dd; } /* html tag  light purply*/
+pre .xslt, pre .xsl, code .xsl { color: #d0a0d0; } /* xslt tag  light purply*/
+pre .attribute-name, pre .atn, code .atn { color: #46eeee; font-weight: normal;} /* html/xml attribute name  - lt turquoise */
+pre .attribute-value, pre .atv, code .atv { color: #EEB4B4; } /* html/xml attribute value - rosy brown2 */
+pre .decimal, pre .dec, code .dec { color: #3387CC; } /* decimal - blue */

@@ -1,0 +1,13 @@
+$breakpoints: (
+    // small/palm
+    "small"          "screen and (max-width: 44.9375em)",
+    // medium/lap
+    "medium"           "screen and (min-width: 45em) and (max-width: 63.9375em)",
+    "lap-and-up"    "screen and (min-width: 45em)",
+    "portable"      "screen and (max-width: 63.9375em)",
+    // large/desk
+    "large"          "screen and (min-width: 64em)",
+    "retina"        "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"
+);
+
+$inuit-responsive-settings: true;

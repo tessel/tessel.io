@@ -1,0 +1,9 @@
+extends layout
+block append head
+
+block content
+  section.block(style="padding-left:10px;")
+    if err
+        div Something went wrong with the payment. Please try again or contact team@technical.io
+    else
+        div Payment of #{cost} completed for #{reason}.

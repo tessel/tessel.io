@@ -1,0 +1,410 @@
+extends layout
+
+block vars
+  - var prefixedheader=true
+
+block append scripts
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.accordion.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.equalizer.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.reveal.min.js")
+  script(src=isproduction ? "/scripts/landing.min.js" : '/scripts/landing.js')
+
+block append head
+  link(href='/stylesheets/nv.d3.min.css', rel='stylesheet')
+  link(href='/stylesheets/index.css', rel='stylesheet')
+
+mixin drawer(faq, i)
+  li
+    .question #{faq.q}
+    // #[span.question-arrow]
+    .content(id="faq#{i}") !{faq.a}
+
+block content
+  include ./partials/special-navbar
+  .row.header
+    .js-header-carousel
+      for image, i in [{link_url:"https://s3.amazonaws.com/technicalmachine-assets/launch/images/header/tessel_start.jpg"}]
+        .header__background(style="background-image: url(#{image.link_url})")
+    .header__text
+      h1
+        img.header__logo(src="https://s3.amazonaws.com/technicalmachine-assets/launch/tessel-logo.png")
+      h3.header__hook Build your product faster.
+      p Tessel 2 is a development platform you can embed in a product. Build fast with Node.js/io.js, then optimize the hardware and build thousands.
+      button.pre-order__button.button.round.large(data-celery="55a72b38967c9303006e497f" data-celery-version="v2")
+        | PRE-ORDER FOR $35
+        p.ship-date Ships in November
+  .row.full-width#js-animation-area.animation-area
+    .show-for-small-only
+      img.board__image(src="https://s3.amazonaws.com/technicalmachine-assets/launch/tessel2-800x600.jpg")
+    #js-animation-target-one
+      .show-for-large-up.board__container.js-animation-group
+        .board#js-board
+          img.board__image.board__base(src="https://s3.amazonaws.com/technicalmachine-assets/launch/animation-files/tessel2-board-bare.png")
+          img.board__image.board__ethernet(src="https://s3.amazonaws.com/technicalmachine-assets/launch/animation-files/tessel2-board-ethernet.png")
+          img.board__image.board__headers(src="https://s3.amazonaws.com/technicalmachine-assets/launch/animation-files/tessel2-board-headers.png")
+          img.sentry__image(src="https://s3.amazonaws.com/technicalmachine-assets/launch/animation-files/sentry.png")
+          // z
+            p.sentry__desc 
+              | "A Tessel-powered camera intercom for your front door"
+
+        .millions#js-millions
+
+        .board-module
+          img.board-module__image(src="https://s3.amazonaws.com/technicalmachine-assets/launch/animation-files/tessel2-module.png")
+
+        .board-usb
+          img.board-usb__image(src="https://s3.amazonaws.com/technicalmachine-assets/launch/animation-files/tessel2-usb.png")
+
+        .board-usbover
+          img.board-usbover__image(src="https://s3.amazonaws.com/technicalmachine-assets/launch/animation-files/tessel2-usbover.png")
+    .column.small-12.show-for-small-up.hide-for-large-up
+      include ./partials/board
+    .column.large-12.section#features
+      .row.content
+        h2 Tessel 2 Features
+      .row.content
+        h3 Everything you need to get up and running.
+      .row.content
+        .column.large-6
+          ul
+            li.callout.js-callout#module-port 
+              | 2 Tessel Module ports
+              .descriptor add sensors and actuators in one step
+            li.callout.js-callout#usb-port
+              | 2 USB ports
+              .descriptor use peripherals like cameras and 3G/4G dongles
+            li.callout.js-callout#wifi
+              | 802.11bgn Wifi
+              .descriptor connected out of the box and wirelessly programmable
+            li.callout.js-callout#ethernet 
+              | Ethernet
+              .descriptor an ultra-reliable, wired connection
+        .column.large-6
+          ul
+            li.callout.js-callout#mediatek 
+              | 580MHz Mediatek MT7620n
+              .descriptor execute your program faster
+            li.callout.js-callout#ram-flash 
+              | 64 MB DDR2 RAM & 32 MB Flash
+              .descriptor plenty of space for your code
+            li.callout.js-callout#atmel 
+              | 48MHz Atmel SAMD21 coprocessor
+              .descriptor realtime I/O and better power management
+            li.callout.js-callout#micro-usb 
+              | microUSB
+              .descriptor power and tethered programming
+
+    .column.large-12.section#modules
+      .row#js-section-plugandplay
+        a(href="/modules")
+          h2 Plug &amp; Play Module Ecosystem
+        h3 Prototype fast with modular hardware.
+        p Interact with the physical world from sensing to actuation to connecting with other devices. Each module has an open source library on <a href="https://www.npmjs.com/~technicalmachine">NPM</a>, with instructions and tutorials available online. It's literally plug, npm install, and play.
+    .column.small-12.show-for-small-up.hide-for-large-up
+      include ./partials/board
+
+    .column.large-12#js-section-moduleecosystem
+      .module-interactive
+        .row.module-carousel
+          h3 10-Pin Modules
+          // .module-fade
+          .my-carousel.module-carousel-sensors
+            for module in modules
+              if module.type == 'sensor'
+                .my-module(title=module.description)
+                  img(src=module.img_url)
+                  p.text-center= module.name
+
+        .row.module-carousel
+          h3 USB Modules
+          .my-carousel.module-carousel-usb
+            for module in modules
+              if module.type == 'usb'
+                .my-module(title=module.description)
+                  img(src=module.img_url)
+                  p.text-center= module.name
+
+        .row.module-carousel
+          h3 Community-Created Modules
+          // .module-fade
+          .my-carousel.module-carousel-community
+            for module in community_modules
+              .my-module(title=module.description)
+                img(src=module.img_url)
+                p.text-center= module.name
+
+    .column.large-12.section.js-npm-install-trigger
+      .row#js-section-highlevel
+        .column.large-12#example
+          h2 High Level Hardware API<span style="font-size: 0.75em">s</span>
+          h3 Build your application in minutes.
+          p Tessel 2 runs JavaScript and supports NPM (the Node package manager)— that's HTTP, Twitter, web server, color, and async right out of the box.
+          h4.preserve-3d.text--monospace.push__top 
+            .instructional Install 
+            #[span.fa.fa-angle-right.red]  
+            #[span.red.js-npm-install-tessel.cursor-blink.disabled npm install tessel -g]
+          h4.preserve-3d.text--monospace 
+            .instructional Add Library 
+            #[span.fa.fa-angle-right.hide.js-angle.red] 
+            #[span.red.js-npm-install.cursor-blink.disabled npm install ambient-attx4] #[span.red.js-npm-install-module.cursor-blink.disabled]&nbsp;
+          h4.preserve-3d.text--monospace.push__bottom 
+            .instructional Get Online 
+            #[span.fa.fa-angle-right.hide.js-angle-3.red]  
+            #[span.red.js-tessel-wifi.cursor-blink tessel wifi -n [ssid] -p [password]]&nbsp;
+          p Tessel 2 also has the capacity to support multiple languages– see samples of Rust and Python in the tabs below.
+
+        .column.large-11.code-sample.js-code-sample.js-run-example
+          .code-tab.javascript.js-run.active(code="js-js")
+            .text JavaScript
+          .code-tab.python.js-run(code="js-py")
+            .text Python
+          .code-tab.rust.js-run(code="js-rs")
+            .text Rust
+          pre.active(code="js-js")
+            .filename /* ambient.js example */
+            :highlight
+              // this example streams sound data from
+              // the ambient sensor every 0.5 seconds
+              var tessel = require('tessel');
+              var ambientlib = require('ambient-attx4');
+              var WebSocket = require('ws');
+
+              // Connect to our ambient sensor.
+              var ambient = ambientlib.use(tessel.port['A']);
+
+              // Open a websocket to our app.
+              var ws = new WebSocket('ws://awesome-app.com/ambient');
+              // When the connection is established
+              ws.on('open', function () {
+                setInterval(function () {
+                  // read some sound level data
+                  ambient.getSoundLevel(function(err, sdata) {
+                    if (err) throw err;
+                    sdata.pipe(ws);
+                  })
+                }, 500); // The readings will happen every .5 seconds 
+              });
+          pre(code="js-py")
+            .filename ## ambient.py example
+            :highlight
+              import tessel
+              import ambient_attx4
+
+              port = tessel.port('a')
+              ambient = ambient_attx4.Ambient(port)
+
+              for sound_level in ambient:
+                  print "Sound: {}".format(sound_level)
+          pre(code="js-rs")
+            .filename /* ambient.rs example */
+            :highlight
+              extern crate tessel;
+              extern crate ambient_attx4;
+
+              fn main() {
+                  let port = tessel::port("a").unwrap();
+                  let mut ambient = ambient_attx4::Ambient::new(&port).unwrap();
+
+                  loop {
+                      let sound_level = ambient.sound_level().unwrap();
+                      println!("Sound: {}", sound_level);
+                  }
+              }
+
+        .column.large-11.push__ends.js-tessel-run-trigger
+          p Use your favorite text editor and libraries to program Tessel 2, just like any web development environment. Uploading new code is as easy as tessel run!
+          h4.text--monospace 
+            .instructional Run Code 
+            #[span.fa.fa-angle-right.red] #[span.red.js-tessel-run.cursor-blink tessel run ambient.js ]
+
+        .column.large-11.xlarge-6.end.temperature-data.js-data-graph
+          svg
+
+    .column.large-12.section#js-usbsupport
+      .row
+        h3 USB Modules
+        p
+          | Tessel has two USB ports. Plug in USB modules and control them with a simple script.
+    .column.small-12.show-for-small-up.hide-for-large-up
+      include ./partials/board
+    .row
+      .column.large-11.code-sample.js-code-sample.js-run-example
+        .code-tab.javascript.active(code="js-js")
+          .text JavaScript
+        .code-tab.python(code="js-py")
+          .text Python
+        .code-tab.rust(code="js-rs")
+          .text Rust
+        pre.active(code="js-js")
+          .filename
+            | /* ambient-camera.js example */
+          :highlight
+            // this example records video from a camera
+            // when a certain sound level is reached
+            var tessel = require('tessel');
+            var http = require('http');
+            // set up camera
+            var cameralib = require('camera-usb');
+            // set up ambient sensor on port A
+            var ambient = require('ambient-attx4').use(tessel.port['A']);
+
+            // set a sound trigger
+            ambient.setSoundTrigger(0.6);
+
+            cameralib.find(function(camera) {
+              // stream some video when sound is sensed
+              ambient.on('sound-trigger', function(){
+                var req = http.request({
+                  hostname: 'example.com',
+                    path: '/upload',
+                    method: 'POST'
+                  },
+                  function (res) {
+                    res.pipe(process.stdout)
+                  });
+                camera.captureStream(2000, 'mjpg').pipe(req);
+              });
+            });
+        pre(code="js-py")
+          .filename
+            | ## ambient_camera.py example
+          :highlight
+            import camera_usb
+            import requests
+            import tessel
+            import ambient_attx4
+
+            ambient = ambient_attx4.Ambient(tessel.port('a'))
+            camera = camera_usb.find()
+
+            while True:
+              ambient.wait_for_sound_trigger(0.6)
+              video = camera.capture_stream(500, "mjpg")
+              requests.post('http://example.com/upload', data=video)
+
+        pre(code="js-rs")
+          .filename
+            | /* ambient_camera.rs example */
+          :highlight
+            extern crate hyper;
+            extern crate camera_usb;
+            extern crate tessel;
+            extern crate ambient_attx4;
+
+
+            fn main() {
+                let mut camera = camera_usb::find().expect("Could not find camera");
+
+                let port = tessel::port("a").unwrap();
+                let mut ambient = ambient_attx4::Ambient::new(&port).unwrap();
+                let mut client = hyper::Client::new();
+
+                loop {
+                  ambient.wait_for_sound_trigger(0.6);
+                  let mut video = camera.capture_stream(2000, camera_usb::Format::MJPG);
+                  let mut res = client.post("http://example.com/upload")
+                      .body(&mut video).send().unwrap();
+                }
+            }
+  .row.full-width.animation-area#js-animation-end
+    .animation-target#js-animation-target-two
+      .column.large-8.medium-8.small-12.camera-text
+        p.camera-detail-text Combine USB and 10-pin modules and run them with the same script.
+        h4.text--monospace 
+          .instructional(style="{margin-bottom: 20px}") Run Code 
+          #[span.fa.fa-angle-right.red] #[span.red.cursor-blink tessel run ambient-camera.js ]
+
+        a.button.hide-for-small-only#js-clap-on Clap to trigger camera
+
+      .column.large-3.medium-3.small-8.end.hide-for-small-only
+        .camera-gif
+          .record-ring.js-record-ring.hide
+            .record-circle
+            .record-text REC
+          .no-record-text#js-no-record-text Camera is off
+          video.gif-display.hide#js-gif-display(src="https://s3.amazonaws.com/technicalmachine-assets/launch/gifs/Sign.mp4" autoplay)
+
+  .row.full-width.js-testimonial-carousel#testimonials.js-testimonials
+    for testimonial, i in testimonials
+      .testimonial
+        .testimonial__background(style='background-image: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url("#{testimonial.background_url}");')
+        .row.testimonial__content
+          .column.large-6.medium-6.hide-for-small-only
+            .hexagon.testimonial__img(style='background-image: url("#{testimonial.photo_url}");')
+              .hexTop
+              .hexBottom
+          .column.large-6.small-12.medium-6
+            blockquote.testimonial__quote.generic-vertical-align #{testimonial.quote} #[cite #{testimonial.name} #[span !{testimonial.title} ]]
+
+  .row.full-width.partners-section#partners
+    .row.text-center
+      h2 Trusted by 
+    .row.flush
+      ul.partner-grid
+        for partner in partners
+          li.hover-color
+            a(href=partner.link_url, alt=partner.name)
+              img(src=partner.img_url, alt=partner.name, class=partner.name)
+
+  .row.full-width.flush
+    .column.large-8.large-centered.text-center.push__top
+      .row.text-center
+        h2 Open Source
+      .row
+        p Just like the original Tessel, Tessel 2 is 
+          a(href="/opensource") open source software and hardware
+          | . Contributions are welcome!
+      .row.opensourcelogos
+        .column.large-6.small-8.large-push-3.small-push-2
+          .large-4.small-4.columns
+            img(src="https://s3.amazonaws.com/technicalmachine-assets/technical-io/open-source/osi_standard_logo.png")
+          .large-4.small-4.columns
+            img(src="https://s3.amazonaws.com/technicalmachine-assets/technical-io/open-source/oshw-logo-400-px.png")
+
+  .row.full-width.flush#specs
+    .column.large-8.large-centered.text-center.push__top
+      .row
+        .column.large-6
+          h2 The Nitty
+          ul.no-bullet
+            li Programmable in JavaScript
+            li Planned support for Rust and other languages
+            li Tessel Modules for added hardware capabilities
+            li Runs io.js and Node.js
+            li Deploy over USB or remotely by WiFi
+            li CE and FCC certified
+            li MicroUSB programming and power
+            li Supports 10/100 ethernet
+        .column.large-6
+          h2 The Gritty
+          ul.no-bullet
+            li 580MHz Mediatek MT7620n
+            li Linux built on OpenWRT
+            li 802.11bgn WiFi
+            li WEP, WPA, WPA2-PSK, WPA2-Enterprise
+            li 64MB DDR2 RAM
+            li 32MB Flash
+            li 16 pins GPIO, 7 of which support analog in
+            li 2 USB 2.0 ports with per-port power switching
+  .row.full-width.faq-section
+    .column.large-12.large-centered.text-center.push__bottom
+      h2 FAQ
+    .column.large-10.large-centered
+      ul#faq
+        for faq, i in faqs
+          +drawer(faq, i)
+
+  .row.full-width.last-call#lastcall
+    .column.large-centered.text-center
+      button.button.large.round(data-celery="55a72b38967c9303006e497f" data-celery-version="v2") PRE-ORDER FOR $35
+      p.subscribe Keep up to date on our progress. #[a(href="http://eepurl.com/EoMoP") Join our mailing list.]
+  //- This are used in index.js for line animations
+  //- Do not remove
+  #callout-x-1.calloutLineX
+  #callout-y-1.calloutLineY
+  #callout-1.calloutDot
+  #callout-x-2.calloutLineX
+  #callout-y-2.calloutLineY
+  #callout-2.calloutDot
+
+  #js-is-small

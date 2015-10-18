@@ -1,0 +1,30 @@
+extends layout
+<meta name="Description" content="Tessel resellers: hardware + the web.">
+
+mixin reseller(name, region, link, image)
+  div(style="padding-top:10px;")
+    b 
+      a(href="#{link}", target="_blank") #{name}&nbsp;
+    | (#{region})
+    p 
+      a(href="#{link}", target="_blank")
+        img(style="padding:5px", src="https://s3.amazonaws.com/technicalmachine-assets/launch/resellers/#{image}")
+
+block content
+  include ./partials/standard-nav
+  section.block(style="margin-bottom: 20px")
+    .row
+      .large-12.columns.large-center
+        h1 Resellers and Bulk Pricing
+        p Interested in becoming a reseller? <a href="mailto:team@technical.io">Contact us</a>.
+        
+        p
+          +reseller('Switch Science', '日本 Japan', 'https://www.switch-science.com/catalog/list/558/', 'switch_science.gif')
+
+          +reseller('GPIO Australia', 'Australia', 'http://www.gpio.com.au/product-category/tessel/', 'GPIO_Australia.png')
+          
+          +reseller('Seeed Studio', '中国 China/Global', 'http://www.seeedstudio.com/depot/Tessel-m-153.html?ref=pinfo', 'seeed_studio.gif')
+
+        h3 Bulk Pricing
+        
+        p Planning to make a large order? We can make a purchase order and talk to you about bulk discounts. Please <a href="mailto:team@technical.io">send us an email</a>.

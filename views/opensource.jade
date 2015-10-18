@@ -1,0 +1,134 @@
+extends layout
+<meta name="Description" content="Tessel is open source.">
+
+block append head
+  style.
+    h1 { margin-top: 1em; }
+    h2:first-of-type { margin-top: 1.5em; }
+    ul + h3 { margin-top: 1em; }
+    p { margin-bottom: 0.5em; }
+    h2 { margin-top: 0.5em; }
+
+    .multicolumn {
+      -webkit-columns: 2;
+      -moz-columns: 2;
+      columns: 2;
+    }
+    .nobreak {
+      display: inline-block;
+    }
+
+mixin module(name, repo, pdfLink, dtLink, dtLayout, silk, moreText, moreLink)
+  .nobreak
+    h3 #{name}
+    ul
+      li
+        a(href=repo) Code: firmware, docs, examples
+      li
+        a(href=pdfLink) Schematic (PDF)
+      li
+        a(href=dtLink) Schematic (DipTrace)
+      li
+        a(href=dtLayout) Layout (DipTrace)
+      li
+        a(href=silk) Layout support file for silkscreen
+      if(moreText)
+        li
+          a(href=moreLink) #{moreText}
+
+block content
+  include ./partials/standard-nav
+  section.block(style="margin-bottom: 20px")
+    .row
+      .large-12.columns.large-center
+        h1 Tessel is open source. #[img(src="https://s3.amazonaws.com/technicalmachine-assets/technical-io/open-source/osi_standard_logo.png" style="height: 1em")] #[img(src="https://s3.amazonaws.com/technicalmachine-assets/technical-io/open-source/oshw-logo-400-px.png" style="height: 1em")]
+        p The Tessel Project is under  #[a(href="https://github.com/tessel/project") open governance]. Keep up with us on our <a href="/blog">blog</a> and talk to us on the #[a(href="/forums") forums].
+        p Tessel and modules are open source software (OSS) and open source hardware (OSHW).
+
+        h2#tessel2 Tessel 2
+
+        .multicolumn
+          .nobreak
+            h3 Software
+            ul
+              li
+                a(href="https://github.com/tessel/openwrt-tessel") #[strong openwrt-tessel] &mdash; OpenWrt build scripts and package feed
+              li
+                a(href="https://github.com/tessel/v2-firmware") #[strong v2-firmware] &mdash; Firmware for SAMD21 coprocessor and related SoC code
+          .nobreak
+            h3 Hardware
+            ul
+              li
+                a(href="http://design-files.tessel.io/2015-03-03/tm-t2-03.pdf") Preliminary schematic
+              li 
+                a(href="https://github.com/tessel/tessel-v2-hardware") KiCad design files
+
+          .nobreak
+            h3 Datasheets
+            dl
+              dt Processor
+              dd
+                ul
+                  li
+                    a(href="https://wikidevi.com/wiki/MediaTek_MT7620#General") Mediatek MT7620N datasheet and programming guide
+              dt Co-Processor
+              dd
+                ul
+                  li
+                    a(href="http://www.atmel.com/Images/Atmel-42181-SAM-D21_Datasheet.pdf") Atmel SAMD21 datasheet
+
+        h2#modules Modules
+        p Hardware files below are PDF and #[a(href="http://diptrace.com/downloads/download-diptrace/") DipTrace] schematics for Tessel's modules. Board layout files (and supporting files for silkscreen) are provided in DipTrace format.
+        p Hardware files and designs are licensed under CC-BY-SA.
+        p Software files are dual licensed MIT and Apache 2.0.
+
+        .multicolumn
+          +module('Accelerometer', 'https://github.com/tessel/accel-mma84', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Accelerometer/TM-01-02.pdf', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Accelerometer/TM-01-02.dch', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Accelerometer/TM-01-02.dip', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Accelerometer/TM-01-02.dipb2')
+          +module('Ambient', 'https://github.com/tessel/ambient-attx4', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Ambient/TM-08-03.pdf', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Ambient/TM-08-03.dch', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Ambient/TM-08-03.dip','http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Ambient/TM-08-03.dipb2')
+          +module('Audio', 'https://github.com/tessel/audio-vs1053b', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Audio/TM-06-05.pdf', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Audio/TM-06-05.dch', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Audio/TM-06-05.dip', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Audio/TM-06-05.dipb3')
+          +module('BLE', 'https://github.com/tessel/ble-ble113a', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/BLE/TM-07-04.pdf', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/BLE/TM-07-04.dch', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/BLE/TM-07-04.dip', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/BLE/TM-07-04.dipb0')
+          +module('Camera', 'https://github.com/tessel/camera-vc0706', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Camera/TM-12-01.pdf', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Camera/TM-12-01.dch', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Camera/TM-12-01.dip', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Camera/TM-12-01.dipb1')
+          +module('Climate', 'https://github.com/tessel/climate-si7005', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Climate/TM-02-02.pdf', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Climate/TM-02-02.dch', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Climate/TM-02-02.dip', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Climate/TM-02-02.dipb1')
+          +module('GPRS', 'https://github.com/tessel/gprs-sim900', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/GPRS/TM-14-01.pdf', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/GPRS/TM-14-01.dch', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/GPRS/TM-14-01.dip', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/GPRS/TM-14-01.dipb0')
+          +module('GPS', 'https://github.com/tessel/gps-a2235h', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/GPS/TM-09-02.pdf', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/GPS/TM-09-02.dch', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/GPS/TM-09-02.dip', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/GPS/TM-09-02.dipb0')
+          +module('Infrared', 'https://github.com/tessel/ir-attx4', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/IR/TM-11-03.pdf', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/IR/TM-11-03.dch', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/IR/TM-11-03.dip', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/IR/TM-11-03.dipb2')
+          +module('MicroSD', 'https://github.com/tessel/sdcard', 'https://s3.amazonaws.com/design-files.tessel.io/2014.06.06/Modules/MicroSD/TM-05-04.pdf', 'https://s3.amazonaws.com/design-files.tessel.io/2014.06.06/Modules/MicroSD/TM-05-04.dch', 'https://s3.amazonaws.com/design-files.tessel.io/2014.06.06/Modules/MicroSD/TM-05-05.dip', 'https://s3.amazonaws.com/design-files.tessel.io/2014.06.06/Modules/MicroSD/TM-05-05.dipb2')
+          +module('NRF24', 'https://github.com/tessel/rf-nrf24', 'https://s3.amazonaws.com/design-files.tessel.io/2014.06.06/Modules/nRF/TM-13-01.pdf', 'https://s3.amazonaws.com/design-files.tessel.io/2014.06.06/Modules/nRF/TM-13-01.dch', 'https://s3.amazonaws.com/design-files.tessel.io/2014.06.06/Modules/nRF/TM-13-01.dip', 'https://s3.amazonaws.com/design-files.tessel.io/2014.06.06/Modules/nRF/TM-13-01.dipb0')
+          +module('Relay', 'https://github.com/tessel/relay-mono', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Relay/TM-04-04.pdf', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Relay/TM-04-04.dch', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Relay/TM-04-04.dip', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Relay/TM-04-04.dipb2')
+          +module('RFID', 'https://github.com/tessel/rfid-pn532', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/RFID/TM-10-03.pdf', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/RFID/TM-10-03.dch', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/RFID/TM-10-03.dip', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/RFID/TM-10-03.dipb0', 'Additional silksreen support file', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/RFID/TM-10-03.dipb1')
+          +module('Servo', 'https://github.com/tessel/servo-pca9685', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Servo/TM-03-03.pdf', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Servo/TM-03-03.dch', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Servo/TM-03-03.dip', 'http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Modules/Servo/TM-03-03.dipb0')
+
+        h2#tessel1 Tessel 1
+        .multicolumn
+          .nobreak
+            h3 Software
+            p
+              a(href="https://github.com/tessel/contribution-guide") Start here with the Contribution Guide.
+            ul
+              li
+                a(href="https://github.com/tessel/cli") Command Line Interface
+              li
+                a(href="https://github.com/tessel/colony-compiler") Colony Compiler
+              li
+                a(href="https://github.com/tessel/runtime") Runtime
+              li
+                a(href="https://github.com/tessel/firmware") Firmware
+
+          .nobreak
+            h3 Hardware
+            p Below are PDF and #[a(href="http://diptrace.com/downloads/download-diptrace/") DipTrace] schematics for Tessel. Board layout files (and supporting files for silkscreen) are provided in DipTrace format.
+            p All files and designs are licensed under CC-BY-SA.
+            ul
+              li
+                a(href="http://design-files.tessel.io.s3.amazonaws.com/2014.06.06/Tessel/TM-00-04.pdf")
+                  | Schematic (PDF)
+              li
+                a(href="http://design-files.tessel.io.s3.amazonaws.com/TM-00-04-phy.pdf")
+                  | Board (PDF)
+              li
+                a(href="https://s3.amazonaws.com/design-files.tessel.io/2014.06.06/Tessel/TM-00-04_DipTrace.zip")
+                  | DipTrace (ZIP)
+              li
+                a(href="http://design-files.tessel.io.s3.amazonaws.com/tm-00-04.wrl")
+                  | 3D Models* [WRL]
+            p *NOTE: many components on the board lack proper 3D models (we used the closest thing we could find), so don't trust them to more than ~0.5mm. Board dimensions and holes are correct, though.
