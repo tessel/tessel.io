@@ -68,24 +68,6 @@ block append head
     h3
       a(href="http://start.tessel.io/modules/" + module, target="_blank") See how it's used &rarr;
 
-  mixin usb-module(module, title, func, newTitle, primeLink)
-    .large-10.columns.large-centered
-      div.row.module-class-b
-        div.large-4.columns
-          <br/><br/>
-          img(src="https://s3.amazonaws.com/technicalmachine-assets/technical-io/modules/usb.png", style="height: 40; opacity: 0.2")
-          <br/><br/>
-          a(href=primeLink target="_blank").button.tiny.success Amazon Prime
-        div.large-8.columns
-          h4
-            object.icon(type="image/svg+xml", data="/images/modules/" + module + ".svg")
-              img.icon(src="https://s3.amazonaws.com/technicalmachine-assets/technical-io/modules/" + module + ".png")
-            | &nbsp;USB !{newTitle || title}
-          p USB #{newTitle || title} Module for Tessel 2.
-          p
-            b Note that the USB #{newTitle || title} Module is meant to be used with Tessel 2. For #{func} on Tessel 1, use the 
-              a(href="#module-#{module}") #{title} Module.
-
   mixin use-usb(title, func, usbmodule)
     p
       b Note that the #{title} Module will not work with Tessel 2. For #{func} on Tessel 2, use the
@@ -451,7 +433,7 @@ block content
               <br/><br/>
               img(src="https://s3.amazonaws.com/technicalmachine-assets/technical-io/modules/usb.png", style="height: 40; opacity: 0.2")
               <br/><br/>
-              a(href=val.buy[0], target="_blank").button.tiny.success Amazon Prime
+              a(href=val.buy[0].link, target="_blank").button.tiny.success Amazon Prime
               p
                 code npm install #{val.package}<br/>
                 a.library(href="https://www.npmjs.org/package/" + val.package)
