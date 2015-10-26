@@ -261,6 +261,10 @@ app.get('/start', function(req, res) {
   res.redirect('http://start.tessel.io');
 });
 
+app.get('/t2-start', function(req, res) {
+  res.redirect('http://tessel.github.io/t2-start/');
+});
+
 app.get('/install', function(req, res) {
   res.redirect('http://start.tessel.io');
 });
