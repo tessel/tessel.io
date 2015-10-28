@@ -1,8 +1,11 @@
 # tessel.io website
 
-This is the website codebase for [tessel.io](//tessel.io).
+This is the website codebase for [tessel.io](//tessel.io). Contributions welcome.
 
-##Dev
+* [Development](#Development)
+* [Deployment](#Deployment)
+
+## Development
 
 This repo is built on gulp, sass, and livereload.
 
@@ -35,33 +38,34 @@ npm run dev
 
 Be sure to install livereload plug-in to your chrome browser while developing.
 
+### Tools used in this repo
 
-##Gulp
+#### Gulp
 Gulp is a task runner for development. While it can be used in production it's not advisable. Everything should be pre-compiled before it's pushed to heroku when using `npm run dev`
 
-##Sass
+#### Sass
 Syntactically Awesome Style Sheets [docs](http://sass-lang.com/)
 
 We use Foundation, which has scss and JavaScript files in its npm package.
 
-##Jade
+#### Jade
 HTML that sucks less [docs](http://jade-lang.com/)
 
-##Browserify
+#### Browserify
 
 Using browserify to combined and compress js files. [docs](http://browserify.org/)
 
-##data.json, faq.json
+#### data.json, faq.json
 
-Currently using this for a cms. Eventually we should move to something that does that.Gulp will watch for changes in json files so when you update the json the server will reload. This is allows us to use any of these attributes if we load them in as context for jade templates.
+Currently using this for a cms. Eventually we should move to something that does that. Gulp will watch for changes in json files so when you update the json the server will reload. This is allows us to use any of these attributes if we load them in as context for jade templates.
 
 Keep track of the size of these files as they are loaded into memory on server start. Make sure they don't start to get absurdly large.
 
-##aws.json
+#### aws.json
 
 To upload compressed images assets to AWS, fill out `aws.json` in accordance with <https://www.npmjs.com/package/gulp-s3>.
 
-##Celery
+#### Celery
 
 Ensure you have a `.env` file.
 
@@ -69,9 +73,9 @@ In production, set the env variables `CELERY_URL` and `CELERY_TOKEN`.
 
 In development, set the `TEST_CELERY_URL`, `TEST_CELERY_TOKEN`, and `TEST_CELERY_ID` variables.
 
-##Deployment
-###server
-This document does says it best [Heroku git deploy](https://devcenter.heroku.com/articles/git)
+## Deployment
+### Server
+This document does says it best: [Heroku git deploy](https://devcenter.heroku.com/articles/git)
 
 First you must be sure to have [heroku toolbelt](https://toolbelt.heroku.com/) installed.
 
@@ -99,7 +103,6 @@ To deploy to stage:
 git push stage [branch-name]:master
 ```
 
-
 And that's it, Heroku is awesome. (except when it doesn't put node in the environment path)
 
 **Be sure the environment variables are set on the server.**
@@ -112,7 +115,7 @@ NODE_ENV = production
 NPM_CONFIG_PRODUCTION = false
 ```
 
-###Images and Scripts
+### Images and Scripts
 Be sure to install the AWS cli
 [install aws cli](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
 
