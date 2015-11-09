@@ -3,7 +3,7 @@
   "a":"New features on Tessel 2 include extremely reliable WiFi, an ethernet jack, two USB ports, and a system that runs real Node.js/io.js.<p>We’ve also added support for scaling up: board customization options, and services for embedding Tessel in a product.</p>"
   },{
   "q":"When will my Tessel 2 ship?",
-  "a":"Tessel 2 is estimated to start shipping in November of 2015."
+  "a":"Tessel 2 is estimated to start shipping in January of 2016."
   },{
   "q":"What modules are available/compatible?",
   "a":"Check out our <a href='/modules'>modules page!</a>"
