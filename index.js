@@ -71,16 +71,6 @@ if ('development' == app.get('env')) {
   app.locals.pretty = true;
 }
 
-// force https on heroku
-app.configure('production', function() {
-  app.get('*', function(req, res, next) {
-    if (req.headers['x-forwarded-proto'] != 'https')
-      res.redirect('https://' + (req.headers.host || 'tessel.io') + req.url);
-    else
-      next(); /* Continue to other routes if we're not redirecting */
-  });
-});
-
 // Setup cached celery service for pre-order query
 var celeryConfig = {
   baseurl: process.env.CELERY_URL,
