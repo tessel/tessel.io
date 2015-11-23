@@ -1,4 +1,4 @@
-require('d3');
+window.d3 = require('d3');
 require('nvd3');
 
 var Temperature_graph = function(){
