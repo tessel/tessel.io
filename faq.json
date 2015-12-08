@@ -17,6 +17,9 @@
   "q": "Can I use my own USB devices?",
   "a": "Yes. First-party modules will have high-level APIs and be tested to ensure driver support, but you can also add your own USB devices if the drivers are compatible and/or you dive a little deeper into the OpenWrt ecosystem."
 }, {
+  "q": "How can I modify my Tessel 2 order?",
+  "a": "You can access your order <a href='https://legacy.trycelery.com/myorders' target='_blank'>here</a>. You will need your order number and email address to log in. If you signed up to pay with Stripe, you should be able to add or remove modules (and Tessels) from your order. If you used Paypal, unfortunately this is not an option, but you are welcome to cancel your original order and place a new one."
+},{
   "q": "I have more questions! How can I contact you?",
   "a": "For quick questions, we're <a href='//twitter.com/tesselproject'>@tesselproject</a> on Twitter. Longer questions are welcome on our <a href='//tessel.io/forums'>forums</a>, and questions about orders can be sent to <a href='mailto:support@tessel.io'>support at tessel.io</a>.</p>"
 }]
