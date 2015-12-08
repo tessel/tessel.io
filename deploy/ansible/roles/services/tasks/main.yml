@@ -1,0 +1,4 @@
+- include: secrets.yml
+
+- name: install tessel-io service
+  template: src=tessel-io.conf dest=/etc/init/ backup=no

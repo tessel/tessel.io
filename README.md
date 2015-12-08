@@ -33,6 +33,7 @@ heroku config:pull
 
 ```
 npm install
+npm run build
 npm run dev
 ```
 
@@ -73,9 +74,12 @@ In production, set the env variables `CELERY_URL` and `CELERY_TOKEN`.
 
 In development, set the `TEST_CELERY_URL`, `TEST_CELERY_TOKEN`, and `TEST_CELERY_ID` variables.
 
-## Deployment
-### Server
-This document does says it best: [Heroku git deploy](https://devcenter.heroku.com/articles/git)
+##Deployment
+
+### This section is currently out of date as we migrate to other hosting
+
+###Server
+This document does says it best [Heroku git deploy](https://devcenter.heroku.com/articles/git)
 
 First you must be sure to have [heroku toolbelt](https://toolbelt.heroku.com/) installed.
 

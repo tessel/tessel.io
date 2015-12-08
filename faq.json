@@ -3,7 +3,7 @@
   "a":"New features on Tessel 2 include extremely reliable WiFi, an ethernet jack, two USB ports, and a system that runs real Node.js/io.js.<p>We’ve also added support for scaling up: board customization options, and services for embedding Tessel in a product.</p>"
   },{
   "q":"When will my Tessel 2 ship?",
-  "a":"Tessel 2 is estimated to start shipping in November of 2015."
+  "a":"Tessel 2 is estimated to start shipping in January of 2016."
   },{
   "q":"What modules are available/compatible?",
   "a":"Check out our <a href='/modules'>modules page!</a>"
@@ -16,4 +16,7 @@
 }, {
   "q": "Can I use my own USB devices?",
   "a": "Yes. First-party modules will have high-level APIs and be tested to ensure driver support, but you can also add your own USB devices if the drivers are compatible and/or you dive a little deeper into the OpenWrt ecosystem."
+}, {
+  "q": "I have more questions! How can I contact you?",
+  "a": "For quick questions, we're <a href='//twitter.com/tesselproject'>@tesselproject</a> on Twitter. Longer questions are welcome on our <a href='//tessel.io/forums'>forums</a>, and questions about orders can be sent to <a href='mailto:support@tessel.io'>support at tessel.io</a>.</p>"
 }]
