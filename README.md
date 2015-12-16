@@ -76,48 +76,14 @@ In development, set the `TEST_CELERY_URL`, `TEST_CELERY_TOKEN`, and `TEST_CELERY
 
 ##Deployment
 
-### This section is currently out of date as we migrate to other hosting
+### Automated Deployment
 
-###Server
-This document does says it best [Heroku git deploy](https://devcenter.heroku.com/articles/git)
+A Bocoup run [Hookshot](https://github.com/brianloveswords/hookshot) instance is configured to deploy commits taged with `prod-xxx` to production. Where `xxx` is an incrementing version number. You can see the results of a deploy in the [webhook response tab](https://github.com/tessel/tessel.io/settings/hooks/6699959#delivery-response) of this repo.
 
-First you must be sure to have [heroku toolbelt](https://toolbelt.heroku.com/) installed.
+### AWS
 
-Make sure that you have these remotes to your local git clone (yes, these are legacy URLs).
+### Ansible
 
-```
-git remote add heroku https://git.heroku.com/technical-io.git
-git remote add stage https://git.heroku.com/technical-io-stage.git
-```
-
-Login to heroku using the Mitro credentials for heroku
-
-```
-heroku login
-```
-
-**We only ever deploy the master branch to the production server.**
-To deploy to production:
-```
-git push heroku master
-```
-
-To deploy to stage:
-```
-git push stage [branch-name]:master
-```
-
-And that's it, Heroku is awesome. (except when it doesn't put node in the environment path)
-
-**Be sure the environment variables are set on the server.**
-
-Specifically these and everything in .env.example
-
-```
-PATH = bin:node_modules/.bin:/usr/local/bin:/usr/bin:/bin
-NODE_ENV = production
-NPM_CONFIG_PRODUCTION = false
-```
 
 ### Images and Scripts
 Be sure to install the AWS cli
