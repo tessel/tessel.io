@@ -191,7 +191,7 @@ block content
           div.large-4.columns.move-down
             a.photo(href="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/audio.jpg", style="position: relative; top: -200px")
               img.module-rightalign(src="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/audio.jpg", style="height: 200; max-width: none;")
-            a(href="//shop.tessel.io/Modules/audio%20module", class="button tiny success") Order Now!
+            a(href="http://www.seeedstudio.com/depot/Tessel-Audio-Module-p-2232.html", class="button tiny success") Order Now!
             p
               | <code>npm install audio-vs1053b</code><br>
               a.library(href="https://github.com/tessel/audio-vs1053b")
@@ -277,35 +277,10 @@ block content
               li For larger projects, available in a double-wide size (like the RFID module)
             +to-fre('diy')
 
-    .row#module-gprs
-      .large-10.columns.large-centered
-        div.row.module-class-b
-          div.large-4.columns
-            a.photo(href="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/gprs.jpg")
-              img(src="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/gprs.jpg", height="200")
-            a(href="//shop.tessel.io/Modules/GPRS%2FSIM%20Module", class="button tiny success", style="margin-top:20px") Order Now!
-            p
-              | <code>npm install gprs-sim900</code><br>
-              a.library(href="https://github.com/tessel/gprs-sim900")
-                | View library on Github &rarr;
-              a.datasheet(target="_blank", href="http://www.simcom.us/act_admin/supportfile/SIM900_HD_V1.01(091226).pdf")
-                |  SIM900 datasheet
-          div.large-8.columns
-            +module-title('gprs', 'GPRS <small>2G + Phone/SIM</small>')
-            p
-              | Connect your Tessel anywhere with GPRS/SIM card support for 2G internet!
-            p Make a call on the Tessel phone, or have your Tessel send you texts.
-            +prefer-usb('Cellular', 'cellular', '3G')
-            ul
-              li Max downlink 85.6 kbps
-              li Max uplink 42.8 kbps
-              li Supports SIM cards at 1.8v and 3v
-            +to-fre('gprs')
-
     .row#module-gps
       .large-10.columns.large-centered
         div.row.module-class-b
-          +module-left('gps', 'gps-a2235h', 'FGPMMOPA6C', 'http://www.adafruit.com/datasheets/GlobalTop-FGPMMOPA6C-Datasheet-V0A-Preliminary.pdf', 'GPS Module')
+          +module-left('gps', 'gps-a2235h', 'FGPMMOPA6C', 'http://www.adafruit.com/datasheets/GlobalTop-FGPMMOPA6C-Datasheet-V0A-Preliminary.pdf', 'https://shop.tessel.io/Modules/GPS%20Module')
           div.large-8.columns
             +module-title('gps', 'GPS')
             p
