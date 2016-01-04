@@ -46,11 +46,24 @@ block append head
     .stretch-image{ height: 200; max-width: none;}
   
   //- mixin for the left column of module rows. Be careful, not all rows use this
-  mixin module-left(module, package, chip, datasheet, linkname)
+  mixin module-left(module, package, chip, datasheet, shoplink)
     div.large-4.columns
       a.photo(href='https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/' + module + '.jpg')
         img(src='https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/' + module + '.jpg', height='200')
-      a(href="//shop.tessel.io/Modules/#{linkname}", class="button tiny success") Order Now!
+      a(href=shoplink, class="button tiny success") Order Now!
+      p
+        code npm install #{package}<br/>
+        a.library(href="https://github.com/tessel/" + package)
+          | View library on Github &rarr;
+        a.datasheet(target="_blank", href=datasheet)
+          |  #{chip} datasheet
+  
+  //- temporary mixin while Seeed puts up links for GPS and DIY modules        
+  mixin module-left-unavailable(module, package, chip, datasheet)
+    div.large-4.columns
+      a.photo(href='https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/' + module + '.jpg')
+        img(src='https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/' + module + '.jpg', height='200')
+      a(class="button tiny secondary") Temporarily unavailable
       p
         code npm install #{package}<br/>
         a.library(href="https://github.com/tessel/" + package)
@@ -159,7 +172,7 @@ block content
     .row#module-accelerometer
       .large-10.columns.large-centered
         div.row.module-class-a
-          +module-left('accelerometer', 'accel-mma84', 'MMA8452Q', 'http://www.freescale.com/files/sensors/doc/data_sheet/MMA8452Q.pdf', 'accelerometer module')
+          +module-left('accelerometer', 'accel-mma84', 'MMA8452Q', 'http://www.freescale.com/files/sensors/doc/data_sheet/MMA8452Q.pdf', 'http://www.seeedstudio.com/depot/Tessel-Accelerometer-Module-p-2223.html')
           div.large-8.columns
             +module-title('accelerometer', 'Accelerometer')
             p
@@ -174,7 +187,7 @@ block content
     .row#module-ambient
       .large-10.columns.large-centered
         div.row.module-class-a
-          +module-left('ambient', 'ambient-attx4', 'ATTX4', 'http://www.atmel.com/Images/doc8006.pdf', 'Ambient%20Module%20(Light%20and%20Sound)')
+          +module-left('ambient', 'ambient-attx4', 'ATTX4', 'http://www.atmel.com/Images/doc8006.pdf', 'http://www.seeedstudio.com/depot/Tessel-Ambient-Module-p-2220.html')
           div.large-8.columns
             +module-title('ambient', 'Ambient <small>Light + Sound</small>')
             p
@@ -191,7 +204,7 @@ block content
           div.large-4.columns.move-down
             a.photo(href="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/audio.jpg", style="position: relative; top: -200px")
               img.module-rightalign(src="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/audio.jpg", style="height: 200; max-width: none;")
-            a(href="//shop.tessel.io/Modules/audio%20module", class="button tiny success") Order Now!
+            a(href="http://www.seeedstudio.com/depot/Tessel-Audio-Module-p-2232.html", class="button tiny success") Order Now!
             p
               | <code>npm install audio-vs1053b</code><br>
               a.library(href="https://github.com/tessel/audio-vs1053b")
@@ -212,7 +225,7 @@ block content
     .row#module-ble
       .large-10.columns.large-centered
         div.row.module-class-b
-          +module-left('ble', 'ble-ble113a', 'BLE113', 'http://www.mouser.com/ds/2/52/BLE113_Datasheet-224874.pdf', 'Bluetooth%20Low%20Energy%20Module')
+          +module-left('ble', 'ble-ble113a', 'BLE113', 'http://www.mouser.com/ds/2/52/BLE113_Datasheet-224874.pdf', 'http://www.seeedstudio.com/depot/Tessel-BLE-Module-p-2230.html')
           div.large-8.columns
             +module-title('ble', 'Bluetooth <small>Low Energy</small>')
             p
@@ -227,7 +240,7 @@ block content
     .row#module-camera
       .large-10.columns.large-centered
         div.row.module-class-b
-          +module-left('camera', 'camera-vc0706', 'VC0706', 'http://www.southernstars.com/skycube/files/VC0706.pdf', 'camera module')
+          +module-left('camera', 'camera-vc0706', 'VC0706', 'http://www.southernstars.com/skycube/files/VC0706.pdf', 'http://www.seeedstudio.com/depot/Tessel-Camera-Module-p-2229.html')
           div.large-8.columns
             +module-title('camera', 'Camera')
             p
@@ -241,7 +254,7 @@ block content
     .row#module-climate
       .large-10.columns.large-centered
         div.row.module-class-a
-          +module-left('climate', 'climate-si7005', 'SI7005', 'http://www.silabs.com/Support%20Documents/TechnicalDocs/Si7005.pdf', 'climate module')
+          +module-left('climate', 'climate-si7005', 'SI7005', 'http://www.silabs.com/Support%20Documents/TechnicalDocs/Si7005.pdf', 'http://www.seeedstudio.com/depot/Tessel-Climate-Module-p-2225.html')
           div.large-8.columns
             +module-title('climate', 'Climate')
             p
@@ -259,7 +272,7 @@ block content
             a.photo(href="https://s3.amazonaws.com/technicalmachine-assets/storefront/products/DIY-pack.jpg", style="position: relative; top: -200px")
               img.module-rightalign(src="https://s3.amazonaws.com/technicalmachine-assets/storefront/products/DIY-pack.jpg", style="height: 200; max-width: none;")
             <br/>
-            a(href="//shop.tessel.io/Modules/DIY%20Module%20Kit", class="button tiny success") Order Now!
+            a(class="button tiny secondary") Temporarily unavailable
             p
               | <code>npm install diy-module</code><br>
               a.library(href="https://www.npmjs.org/package/diy-module")
@@ -277,35 +290,10 @@ block content
               li For larger projects, available in a double-wide size (like the RFID module)
             +to-fre('diy')
 
-    .row#module-gprs
-      .large-10.columns.large-centered
-        div.row.module-class-b
-          div.large-4.columns
-            a.photo(href="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/gprs.jpg")
-              img(src="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/gprs.jpg", height="200")
-            a(href="//shop.tessel.io/Modules/GPRS%2FSIM%20Module", class="button tiny success", style="margin-top:20px") Order Now!
-            p
-              | <code>npm install gprs-sim900</code><br>
-              a.library(href="https://github.com/tessel/gprs-sim900")
-                | View library on Github &rarr;
-              a.datasheet(target="_blank", href="http://www.simcom.us/act_admin/supportfile/SIM900_HD_V1.01(091226).pdf")
-                |  SIM900 datasheet
-          div.large-8.columns
-            +module-title('gprs', 'GPRS <small>2G + Phone/SIM</small>')
-            p
-              | Connect your Tessel anywhere with GPRS/SIM card support for 2G internet!
-            p Make a call on the Tessel phone, or have your Tessel send you texts.
-            +prefer-usb('Cellular', 'cellular', '3G')
-            ul
-              li Max downlink 85.6 kbps
-              li Max uplink 42.8 kbps
-              li Supports SIM cards at 1.8v and 3v
-            +to-fre('gprs')
-
     .row#module-gps
       .large-10.columns.large-centered
         div.row.module-class-b
-          +module-left('gps', 'gps-a2235h', 'FGPMMOPA6C', 'http://www.adafruit.com/datasheets/GlobalTop-FGPMMOPA6C-Datasheet-V0A-Preliminary.pdf', 'GPS Module')
+          +module-left-unavailable('gps', 'gps-a2235h', 'FGPMMOPA6C', 'http://www.adafruit.com/datasheets/GlobalTop-FGPMMOPA6C-Datasheet-V0A-Preliminary.pdf')
           div.large-8.columns
             +module-title('gps', 'GPS')
             p
@@ -321,7 +309,7 @@ block content
     .row#module-infrared
       .large-10.columns.large-centered
         div.row.module-class-a
-          +module-left('ir', 'ir-attx4', 'ATTX4', 'http://www.atmel.com/Images/doc8006.pdf', 'Infrared%20Module')
+          +module-left('ir', 'ir-attx4', 'ATTX4', 'http://www.atmel.com/Images/doc8006.pdf', 'http://www.seeedstudio.com/depot/Tessel-IR-Module-p-2224.html')
           div.large-8.columns
             +module-title('infrared', 'Infrared')
             p
@@ -339,7 +327,7 @@ block content
     .row#module-sdcard
       .large-10.columns.large-centered
         div.row.module-class-a
-          +module-left('microsd', 'sdcard', 'SD Card standard', 'http://www.circlemud.org/jelson/sdcard/SDCardStandardv1.9.pdf', 'microsd module')
+          +module-left('microsd', 'sdcard', 'SD Card standard', 'http://www.circlemud.org/jelson/sdcard/SDCardStandardv1.9.pdf', 'http://www.seeedstudio.com/depot/Tessel-MicroSD-Module-p-2310.html')
           div.large-8.columns
             +module-title('sdcard', 'MicroSD Card')
             p
@@ -354,7 +342,7 @@ block content
     .row#module-relay
       .large-10.columns.large-centered
         div.row.module-class-a
-          +module-left('relay', 'relay-mono', 'IM48DGR', 'http://www.mouser.com/ds/2/418/ENG_SS_108-98001_S[1]-205061.pdf', 'relay module')
+          +module-left('relay', 'relay-mono', 'IM48DGR', 'http://www.mouser.com/ds/2/418/ENG_SS_108-98001_S[1]-205061.pdf', 'http://www.seeedstudio.com/depot/Tessel-Relay-Module-p-2309.html')
           div.large-8.columns
             +module-title('relay', 'Relay')
             p
@@ -373,7 +361,7 @@ block content
             img(src="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/rfid.jpg", style="height: 366px; max-width: none")
         div.row.module-class-b
           div.large-4.columns(style="padding-top: 30px")
-            a(href="//shop.tessel.io/Modules/RFID%20Module", data-celery="TEC", class="button tiny success") Order Now!
+            a(href="http://www.seeedstudio.com/depot/Tessel-RFID-Module-p-2228.html", class="button tiny success") Order Now!
             p
               | <code>npm install rfid-pn532</code><br>
               a.library(href="https://github.com/tessel/rfid-pn532")
@@ -398,7 +386,7 @@ block content
             img.module-leftalign(src="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/servo.jpg", style="height: 140px; max-width: none")
         div.row.module-class-a
           div.large-4.columns(style="padding-top: 200px")
-            a(href="//shop.tessel.io/Modules/servo%20module", data-celery="TEC", class="button tiny success") Order Now!
+            a(href="http://www.seeedstudio.com/depot/Tessel-Servo-Module-p-2311.html", class="button tiny success") Order Now!
             p
               | <code>npm install servo-pca9685</code>
               | <br>
