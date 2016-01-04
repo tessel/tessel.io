@@ -264,11 +264,11 @@ app.get('/docs', function(req, res) {
 });
 
 app.get('/shop', function(req, res) {
-  res.redirect('http://www.seeedstudio.com/depot/Tessel-m-153.html?ref=pinfo');
+  res.redirect('http://www.seeedstudio.com/depot/Tessel-m-153.html');
 });
 
 app.get('/store', function(req, res) {
-  res.redirect('https://shop.tessel.io');
+  res.redirect('http://www.seeedstudio.com/depot/Tessel-m-153.html');
 });
 
 app.get('/projects', function(req, res) {
