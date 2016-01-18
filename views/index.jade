@@ -30,9 +30,9 @@ block content
         img.header__logo(src="https://s3.amazonaws.com/technicalmachine-assets/launch/tessel-logo.png")
       h3.header__hook Build your product faster.
       p Tessel 2 is a development platform you can embed in a product. Build fast with Node.js/io.js, then optimize the hardware and build thousands.
-      button.pre-order__button.button.round.large(data-celery="55a72b38967c9303006e497f" data-celery-version="v2")
-        | PRE-ORDER FOR $35
-        p.ship-date Currently in manufacturing
+      button.pre-order__button.button.round.large.disabled
+        | Currently backordered
+        p.ship-date Expected availability in February.
   .row.full-width#js-animation-area.animation-area
     .show-for-small-only
       img.board__image(src="https://s3.amazonaws.com/technicalmachine-assets/launch/tessel2-800x600.jpg")
@@ -44,7 +44,7 @@ block content
           img.board__image.board__headers(src="https://s3.amazonaws.com/technicalmachine-assets/launch/animation-files/tessel2-board-headers.png")
           img.sentry__image(src="https://s3.amazonaws.com/technicalmachine-assets/launch/animation-files/sentry.png")
           // z
-            p.sentry__desc 
+            p.sentry__desc
               | "A Tessel-powered camera intercom for your front door"
 
         .millions#js-millions
@@ -67,7 +67,7 @@ block content
       .row.content
         .column.large-6
           ul
-            li.callout.js-callout#module-port 
+            li.callout.js-callout#module-port
               | 2 Tessel Module ports
               .descriptor add sensors and actuators in one step
             li.callout.js-callout#usb-port
@@ -76,21 +76,21 @@ block content
             li.callout.js-callout#wifi
               | 802.11bgn Wifi
               .descriptor connected out of the box and wirelessly programmable
-            li.callout.js-callout#ethernet 
+            li.callout.js-callout#ethernet
               | Ethernet
               .descriptor an ultra-reliable, wired connection
         .column.large-6
           ul
-            li.callout.js-callout#mediatek 
+            li.callout.js-callout#mediatek
               | 580MHz Mediatek MT7620n
               .descriptor execute your program faster
-            li.callout.js-callout#ram-flash 
+            li.callout.js-callout#ram-flash
               | 64 MB DDR2 RAM & 32 MB Flash
               .descriptor plenty of space for your code
-            li.callout.js-callout#atmel 
+            li.callout.js-callout#atmel
               | 48MHz Atmel SAMD21 coprocessor
               .descriptor realtime I/O and better power management
-            li.callout.js-callout#micro-usb 
+            li.callout.js-callout#micro-usb
               | microUSB
               .descriptor power and tethered programming
 
@@ -139,17 +139,17 @@ block content
           h2 High Level Hardware API<span style="font-size: 0.75em">s</span>
           h3 Build your application in minutes.
           p Tessel 2 runs JavaScript and supports NPM (the Node package manager)— that's HTTP, Twitter, web server, color, and async right out of the box.
-          h4.preserve-3d.text--monospace.push__top 
-            .instructional Install 
-            #[span.fa.fa-angle-right.red]  
+          h4.preserve-3d.text--monospace.push__top
+            .instructional Install
+            #[span.fa.fa-angle-right.red]
             #[span.red.js-npm-install-tessel.cursor-blink.disabled npm install tessel -g]
-          h4.preserve-3d.text--monospace 
-            .instructional Add Library 
-            #[span.fa.fa-angle-right.hide.js-angle.red] 
+          h4.preserve-3d.text--monospace
+            .instructional Add Library
+            #[span.fa.fa-angle-right.hide.js-angle.red]
             #[span.red.js-npm-install.cursor-blink.disabled npm install ambient-attx4] #[span.red.js-npm-install-module.cursor-blink.disabled]&nbsp;
-          h4.preserve-3d.text--monospace.push__bottom 
-            .instructional Get Online 
-            #[span.fa.fa-angle-right.hide.js-angle-3.red]  
+          h4.preserve-3d.text--monospace.push__bottom
+            .instructional Get Online
+            #[span.fa.fa-angle-right.hide.js-angle-3.red]
             #[span.red.js-tessel-wifi.cursor-blink tessel wifi -n [ssid] -p [password]]&nbsp;
           p Tessel 2 also has the capacity to support multiple languages– see samples of Rust and Python in the tabs below.
 
@@ -182,7 +182,7 @@ block content
                     if (err) throw err;
                     sdata.pipe(ws);
                   })
-                }, 500); // The readings will happen every .5 seconds 
+                }, 500); // The readings will happen every .5 seconds
               });
           pre(code="js-py")
             .filename ## ambient.py example
@@ -213,8 +213,8 @@ block content
 
         .column.large-11.push__ends.js-tessel-run-trigger
           p Use your favorite text editor and libraries to program Tessel 2, just like any web development environment. Uploading new code is as easy as tessel run!
-          h4.text--monospace 
-            .instructional Run Code 
+          h4.text--monospace
+            .instructional Run Code
             #[span.fa.fa-angle-right.red] #[span.red.js-tessel-run.cursor-blink tessel run ambient.js ]
 
         .column.large-11.xlarge-6.end.temperature-data.js-data-graph
@@ -310,8 +310,8 @@ block content
     .animation-target#js-animation-target-two
       .column.large-8.medium-8.small-12.camera-text
         p.camera-detail-text Combine USB and 10-pin modules and run them with the same script.
-        h4.text--monospace 
-          .instructional(style="{margin-bottom: 20px}") Run Code 
+        h4.text--monospace
+          .instructional(style="{margin-bottom: 20px}") Run Code
           #[span.fa.fa-angle-right.red] #[span.red.cursor-blink tessel run ambient-camera.js ]
 
         a.button.hide-for-small-only#js-clap-on Clap to trigger camera
@@ -338,7 +338,7 @@ block content
 
   .row.full-width.partners-section#partners
     .row.text-center
-      h2 Trusted by 
+      h2 Trusted by
     .row.flush
       ul.partner-grid
         for partner in partners
@@ -351,7 +351,7 @@ block content
       .row.text-center
         h2 Open Source
       .row
-        p Just like the original Tessel, Tessel 2 is 
+        p Just like the original Tessel, Tessel 2 is
           a(href="/opensource") open source software and hardware
           | . Contributions are welcome!
       .row.opensourcelogos
@@ -396,7 +396,7 @@ block content
 
   .row.full-width.last-call#lastcall
     .column.large-centered.text-center
-      button.button.large.round(data-celery="55a72b38967c9303006e497f" data-celery-version="v2") PRE-ORDER FOR $35
+      button.button.large.round.disabled Currently backordered.
       p.subscribe Keep up to date on our progress. #[a(href="http://eepurl.com/EoMoP") Join our mailing list.]
   //- This are used in index.js for line animations
   //- Do not remove
