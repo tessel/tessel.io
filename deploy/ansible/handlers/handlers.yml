@@ -2,5 +2,7 @@
   service: name=nginx state=restarted
 - name: restart sshd
   command: service ssh restart
+- name: restart tessel-io
+  command: service tessel-io restart
   # https://github.com/ansible/ansible-modules-core/pull/999
   # service: name=ssh state=restarted
