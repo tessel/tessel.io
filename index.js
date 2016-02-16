@@ -248,7 +248,7 @@ app.get('/opensource', function(req, res) {
 });
 
 app.get('/start', function(req, res) {
-  res.redirect('http://start.tessel.io');
+  res.redirect('http://tessel.github.io/t2-start/');
 });
 
 app.get('/t2-start', function(req, res) {
