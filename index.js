@@ -297,6 +297,10 @@ app.get('/diy', function(req, res) {
   res.redirect('/docs/DIYModule');
 });
 
+app.get('/slack', function(req, res) {
+  res.redirect('https://tessel-slack.herokuapp.com/');
+});
+
 // Pull the docs from GitHub
 var rawDocs = {
   home: {
