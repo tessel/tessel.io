@@ -58,7 +58,7 @@ Typist.prototype.run_tessel_typist = function() {
   return function(){
     return new Promise(function(resolve, reject){
       self.tessel_typist
-          .type('npm install tessel -g').pause()
+          .type('npm install t2-cli -g').pause()
           .call(function() {
             // Propagate cursor styling
             self.tessel_el.classList.add("disabled");
@@ -124,7 +124,7 @@ Typist.prototype.run_wifi_typist = function(){
   return function(){
     return new Promise(function(resolve, reject){
       self.tessel_wifi_typist
-          .type('tessel wifi -n [ssid] -p [password]')
+          .type('t2 wifi -n [ssid] -p [password]')
           .pause()
           .call(function() {
             // Remove cursor
@@ -138,10 +138,10 @@ Typist.prototype.run_wifi_typist = function(){
 Typist.prototype.get_tessel_run_text = function(){
   // swap with rs or py code depending on which tab is rendered
   var activeType = $('.js-run.active').attr('code').split('-')[1];
-  var typistText = "tessel run ambient."+activeType;
+  var typistText = "t2 run ambient."+activeType;
 
   if (activeType == "rs") {
-    typistText = "tessel run .";
+    typistText = "t2 run .";
   }
 
   return typistText;
@@ -151,7 +151,6 @@ Typist.prototype.run_tessel_run_typist = function(){
   var self = this;
   return function(){
     return new Promise(function(resolve, reject){
-      
       self.tessel_run_el.classList.remove("disabled");
       self.tessel_run_typist
           .type(self.get_tessel_run_text()).pause()
