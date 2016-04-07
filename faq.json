@@ -3,7 +3,7 @@
   "a":"New features on Tessel 2 include extremely reliable WiFi, an ethernet jack, two USB ports, and a system that runs real Node.js/io.js.<p>We’ve also added support for scaling up: board customization options, and services for embedding Tessel in a product.</p>"
   },{
   "q":"When will my Tessel 2 ship?",
-  "a":"Tessel 2 is currently in manufacturing. See the latest updates on the <a href='/blog'>blog</a>."
+  "a":"Tessel 2 is currently shipping! You can order T2s for immediate delivery from <a href='http://www.seeedstudio.com/depot/Tessel-m-153.html'>Seeed</a>."
   },{
   "q":"What modules are available/compatible?",
   "a":"Check out our <a href='/modules'>modules page!</a>"
@@ -12,7 +12,7 @@
   "a": "Tessel 2 is designed for the fastest possible path to production. Plug and play modules and high-level APIs set it apart from most other development boards. Tessel doesn't expect you to set up and maintain a Linux system or track down pinout diagrams to wire up sensors (though the root shell and GPIO access are available should you desire them)."
 }, {
   "q": "Can I try out the Tessel platform?",
-  "a": "Absolutely! You can find in-person communities hacking on Tessels on our <a href='/community'>Community</a> page.<p>Those communities will have original Tessels, not Tessel 2's yet, but the developer experience is very similar.</p>"
+  "a": "Absolutely! You can find in-person communities hacking on Tessels on our <a href='/community'>Community</a> page."
 }, {
   "q": "Can I use my own USB devices?",
   "a": "Yes. First-party modules will have high-level APIs and be tested to ensure driver support, but you can also add your own USB devices if the drivers are compatible and/or you dive a little deeper into the OpenWrt ecosystem."
