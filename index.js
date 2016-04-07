@@ -423,7 +423,7 @@ var rawDocs = {
   communicationProtocols: {
     type: 'tutorials',
     clean: 'Communication Protocols',
-    url: 'https://raw.githubusercontent.com/tessel/docs/master/tutorials/communication-protocols.md',
+    url: 'https://raw.githubusercontent.com/tessel/t2-docs/master/tutorials/communication-protocols.md',
     text: '',
     updated: null,
     newlink: '/docs/communicationProtocols'
@@ -431,26 +431,10 @@ var rawDocs = {
   DIYModule: {
     type: 'tutorials',
     clean: 'Making a DIY Module',
-    url: 'https://raw.githubusercontent.com/tessel/docs/master/tutorials/diy_module_creation.md',
+    url: 'https://raw.githubusercontent.com/tessel/t2-docs/master/tutorials/diy-module.md',
     text: '',
     updated: null,
     newlink: '/docs/DIYModule'
-  },
-  multiModule: {
-    type: 'tutorials',
-    clean: "Multiple Modules",
-    url: 'https://raw.githubusercontent.com/tessel/docs/master/tutorials/multi-module.md',
-    text: '',
-    updated: null,
-    newlink: '/docs/multiModule'
-  },
-  untethered: {
-    type: 'tutorials',
-    clean: "Untethering Tessel",
-    url: 'https://raw.githubusercontent.com/tessel/docs/master/tutorials/untethered.md',
-    text: '',
-    updated: null,
-    newlink: '/docs/untethered'
   }
 };
 
