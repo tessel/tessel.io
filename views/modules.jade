@@ -73,7 +73,7 @@ block append head
   
   mixin module-title(module, title)
     h4
-      object.icon(type="image/svg+xml", data="/images/modules/" + module + ".svg")
+      object
         img.icon(src="https://s3.amazonaws.com/technicalmachine-assets/technical-io/modules/" + module + ".png")
       | &nbsp;!{title}
   
