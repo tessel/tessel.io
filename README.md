@@ -12,24 +12,11 @@ This repo is built on gulp, sass, and livereload.
 ### Environment variables
 Environment variables examples can be found in `.env.example`
 
-You can also use the heroku plugin for config to pull down the environment variables from the server
-
-Install the plug in using:
-
-```
-heroku plugins:install git://github.com/ddollar/heroku-config.git
-```
-
-Pull down the environment variables with:
-
-```
-heroku config:pull
-```
-
 `npm run dev` will automatically use the .env file you have locally. You can also export the variables to your environment manually with `export $(cat .env | xargs)`.
 
-### Running the server locally
+Production env is stored in the password management. It should live in `/mnt/secrets/tessel-env.json` on the server the currently used keys are set in the .env.example file.
 
+### Running the server locally
 
 ```
 npm install
