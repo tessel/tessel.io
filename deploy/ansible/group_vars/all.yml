@@ -33,9 +33,9 @@ apt_keys:
 # version codename, if necessary):
 # Git latest:     ppa:git-core/ppa
 # Node.js 4.2.x (LTS): deb https://deb.nodesource.com/node_4.x trusty main
-# Node.js 5.x.x: deb https://deb.nodesource.com/node_5.x trusty main
+# Node.js 5.x.x: deb https://deb.nodesource.com/node_4.x trusty main
 apt_ppas:
-  - "deb https://deb.nodesource.com/node_0.12 trusty main"
+  - "deb https://deb.nodesource.com/node_4.x trusty main"
   - "ppa:git-core/ppa"
 
 # Any apt packages to install. Apt package versions may be specified like
@@ -124,6 +124,13 @@ keep_n_most_recent: 3
 # the timestamp, commit, sha, and a few other useful values will be generated
 # after the build has completed. This file is relative to your project root.
 build_info_path: "public/build.txt"
+
+# If these variables are uncommented, add swap space to the machine when the
+# configure playbook is run. The swap configuration controlled by this is
+# meant to address installation problems on machines with minimal ram (e.g.
+# npm bails during install because it runs out of memory)
+swap_file_path: /swap
+swap_file_size: 2GB
 
 ###################
 # DEPLOY EXTRA VARS
