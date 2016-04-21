@@ -8,6 +8,12 @@ if (typeof jQuery != 'undefined') {
         var el = jQuery(this);
         var track = true;
         var href = (typeof(el.attr('href')) != 'undefined' ) ? el.attr('href') : '';
+        // if tracking fails just goto the link after 300ms
+        if (href) {
+          setTimeout(function(){
+            window.location.href = href;
+          }, 300);
+        }
         var isThisDomain = href.match(document.domain.split('.').reverse()[1] + '.' + document.domain.split('.').reverse()[0]);
         if (!href.match(/^javascript:/i)) {
             var elEv = []; elEv.value=0, elEv.non_i=false;
