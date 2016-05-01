@@ -323,6 +323,14 @@ var rawDocs = {
     updated: null,
     newlink: '/docs/hardwareAPI'
   },
+  networkAPI: {
+    type: 'API',
+    clean: "Network API",
+    url: 'https://raw.githubusercontent.com/tessel/t2-docs/master/network-api.md',
+    text: '',
+    updated: null,
+    newlink: '/docs/networkAPI'
+  },
   modules: {
     type: 'API',
     clean: "Modules",
