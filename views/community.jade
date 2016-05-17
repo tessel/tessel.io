@@ -1,22 +1,42 @@
 extends layout
 <meta name="Description" content="Tessel community: hardware + the web.">
+  
 block content
   include ./partials/standard-nav
   section.block(style="margin-bottom: 20px")
     .row
       .large-12.columns.large-center
-        h1 Welcome to our community.
+        h1 Welcome to our community!
+        h4 Get in touch:
+    .row
+      
+      mixin community-hub(name, icon, description, link)
+        a(href=link)
+          .large-4.columns
+            .large-5.columns.left
+              img(src=icon style="max-width:100px")
+            .large-7.columns.right
+              h4 #{name}
+              p #{description}
 
-        h3 Upcoming Events
-        p We keep track of Tessel related 
-          b
-            a(href="https://forums.tessel.io/t/events-with-tessels/1138") upcoming events
-          |  on our forums. These include hack nights, talks, etc.
-
-        h3 Worldwide
-        p Here are some more places we know of where you can find folks hacking on Tessels:
+      +community-hub('Forums', 'https://s3.amazonaws.com/technicalmachine-assets/technical-io/press-page/branding/tessel-250.png', 'Your first stop for support and finding answers.', '//tessel.io/forums')
+      +community-hub('Slack', 'https://upload.wikimedia.org/wikipedia/en/7/76/Slack_Icon.png', 'Hang out with the team on our community chat.', '//tessel-slack.herokuapp.com')
+      +community-hub('Github', 'http://image005.flaticon.com/25/svg/25/25231.svg', 'Get involved with development of the Tessel Project.', '//github.com/tessel/project')
+      
+    .row
+      .large-12.columns.large-center
+        h4 Share a project or get inspired:
         
-        p
-          iframe(src="//batchgeo.com/map/d575014750b9bcbd6cc82ef451fbba89" frameborder="0" width="100%" height="550" style="border:1px solid #aaa;border-radius:10px;")
-        p Want to be added to this map? Removed from it? 
-          a(href="mailto:kelsey@technical.io") Let us know!
+        a(href="//tessel.io/projects")
+          img(src="http://i.imgur.com/pKaDqNr.png")
+        p Tessel community members show off their projects at <a href="//tessel.io/projects">tessel.io/projects</a>.
+        
+        h4 Join fellow Tesselators around the world:
+    .row
+      .large-9.columns.large-center
+        a(href="//tessel.meetup.com")
+          img(src="http://i.imgur.com/aMr8Q9O.png")
+      .large-3.columns
+        a(href="http://www.meetup.com/topics/tessel/")
+          img(src="http://photos2.meetupstatic.com/photos/event/4/2/6/highres_147421062.jpeg" style="margin-bottom: 20px")
+        p Do you host a meetup which (sometimes) involves Tessel? <a href="http://www.meetup.com/help/article/903789/">Add "Tessel" as a meetup topic</a> to be listed here.
