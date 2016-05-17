@@ -16,7 +16,10 @@
 }, {
   "q": "Can I use my own USB devices?",
   "a": "Yes. First-party modules will have high-level APIs and be tested to ensure driver support, but you can also add your own USB devices if the drivers are compatible and/or you dive a little deeper into the OpenWrt ecosystem."
+},{
+  "q": "Is Tessel a start-up?",
+  "a": "No– in fact, we're not a company at all. Originally, Tessel was produced by a start-up called Technical Machine, but it has since grown into an independent, all-volunteer organization called the <a href='//github.com/tessel/project'>Tessel Project</a>."
 }, {
   "q": "I have more questions! How can I contact you?",
-  "a": "For quick questions, we're <a href='//twitter.com/tesselproject'>@tesselproject</a> on Twitter. Longer questions are welcome on our <a href='//tessel.io/forums'>forums</a>, and questions about orders can be sent to <a href='mailto:support@tessel.io'>support at tessel.io</a>.</p>"
+  "a": "For quick questions, we're <a href='//twitter.com/tesselproject'>@tesselproject</a> on Twitter. Longer questions are welcome on our <a href='//tessel.io/forums'>forums</a>. Questions about orders should be directed to Seeed Studio.</p>"
 }]
