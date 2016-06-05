@@ -450,7 +450,7 @@ block content
                 | View on npm &rarr;
           div.large-8.columns
             h4(style="margin-top:-30px") #{ucfirst(val.name)}
-            p #{val.description}
+            p !{val.description}
             - var authorLink = "//github.com/" + val.author.github
             p Author: <a href=#{authorLink} target="_blank">#{val.author.name}</a>
             h3
