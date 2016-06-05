@@ -45,7 +45,7 @@ Using browserify to combined and compress js files. [docs](http://browserify.org
 
 #### data.json, faq.json
 
-Currently using this for a cms. Eventually we should move to something that does that. Gulp will watch for changes in json files so when you update the json the server will reload. This is allows us to use any of these attributes if we load them in as context for jade templates.
+Currently using this for a cms. Eventually we should move to something that does that. Gulp will watch for changes in json files so when you update the json the server will reload. This allows us to use any of these attributes if we load them in as context for jade templates.
 
 Keep track of the size of these files as they are loaded into memory on server start. Make sure they don't start to get absurdly large.
 
