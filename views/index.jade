@@ -150,13 +150,11 @@ block content
             .instructional Get Online
             #[span.fa.fa-angle-right.hide.js-angle-3.red]
             #[span.red.js-tessel-wifi.cursor-blink t2 wifi -n [ssid] -p [password]]&nbsp;
-          p Tessel 2 also has the capacity to support multiple languages– see samples of Rust and Python in the tabs below.
+          p Tessel 2 also has the capacity to support multiple languages– see samples of Rust and JavaScript in the tabs below.
 
         .column.large-11.code-sample.js-code-sample.js-run-example
           .code-tab.javascript.js-run.active(code="js-js")
             .text JavaScript
-          .code-tab.python.js-run(code="js-py")
-            .text Python
           .code-tab.rust.js-run(code="js-rs")
             .text Rust
           pre.active(code="js-js")
@@ -183,17 +181,6 @@ block content
                   })
                 }, 500); // The readings will happen every .5 seconds
               });
-          pre(code="js-py")
-            .filename ## ambient.py example
-            :highlight
-              import tessel
-              import ambient_attx4
-
-              port = tessel.port('a')
-              ambient = ambient_attx4.Ambient(port)
-
-              for sound_level in ambient:
-                  print "Sound: {}".format(sound_level)
           pre(code="js-rs")
             .filename /* ambient.rs example */
             :highlight
@@ -230,8 +217,6 @@ block content
       .column.large-11.code-sample.js-code-sample.js-run-example
         .code-tab.javascript.active(code="js-js")
           .text JavaScript
-        .code-tab.python(code="js-py")
-          .text Python
         .code-tab.rust(code="js-rs")
           .text Rust
         pre.active(code="js-js")
@@ -264,23 +249,6 @@ block content
                 camera.captureStream(2000, 'mjpg').pipe(req);
               });
             });
-        pre(code="js-py")
-          .filename
-            | ## ambient_camera.py example
-          :highlight
-            import camera_usb
-            import requests
-            import tessel
-            import ambient_attx4
-
-            ambient = ambient_attx4.Ambient(tessel.port('a'))
-            camera = camera_usb.find()
-
-            while True:
-              ambient.wait_for_sound_trigger(0.6)
-              video = camera.capture_stream(500, "mjpg")
-              requests.post('http://example.com/upload', data=video)
-
         pre(code="js-rs")
           .filename
             | /* ambient_camera.rs example */
