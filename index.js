@@ -571,7 +571,7 @@ app.get('/blog/?', function (req, res) {
       header: indexdata.header,
     });
   });
-})
+});
 
 app.get('/blog/:postid/:slug?', function (req, res) {
   require('./tumblr').getPosts()
@@ -592,82 +592,6 @@ app.get('/blog/:postid/:slug?', function (req, res) {
       header: indexdata.header,
     });
   });
-})
-
-// TODO: Delete after shipping T2
-app.get('/t2_finalize_order/:order_id_hash', function(req, res) {
-  var hashed_id = req.params.order_id_hash;
-  var order_id = hashids.decode(hashed_id);
-  moduleSelection.getExistingOrderDetails(order_id, function(err, order) {
-    if (err) {
-      res.end(err);
-    }
-    else {
-      console.log('the order', order);
-      moduleSelection.getAvailableModules(function(err, modules) {
-        if (err) {
-          res.end(err);
-        }
-        else {
-          var shippingInfo = order.shipping_address;
-          for (var prop in shippingInfo) {
-            if (shippingInfo[prop] === null) {
-              shippingInfo[prop] = '';
-            }
-          }
-
-          var countries = require(__dirname + '/countries.json');
-          res.render('finalize_order.jade', {
-            order: order,
-            shippingInfo: shippingInfo,
-            modules: modules,
-            countries: countries
-          });
-        }
-      });
-    }
-  });
-});
-
-// TODO: Delete after shipping T2
-app.post('/t2-update-order', function(req, res){
-  if (!req.body.orderId) {
-    res.send(400, "Invalid Response. Must include order id.");
-    return;
-  }
-  else if (!req.body.shippingInfo) {
-    res.send(400, "Invalid response. Must include shipping address.");
-    return
-  }
-  else {
-
-    // If no modules were sent, assume empty array
-    if (!req.body.modules) {
-      req.body.modules = [];
-    }
-
-    // Update the order
-    moduleSelection.updateOrder(req.body.orderId, req.body.modules, req.body.shippingInfo, function(err) {
-      // Something didn't work properly
-      if (err) {
-        console.error('ERROR UPDATING ORDER', req.body.orderId, err);
-        res.send(400, 'Error updating order.');
-      }
-      // Everything worked
-      else {
-
-        moduleSelection.getExistingOrderDetails(req.body.orderId, function(err, order) {
-          if (err) {
-            console.error('ERROR UPDATING ORDER AFTER FETCH', err);
-            res.send(400, 'Error updating order.');
-          }
-          else {
-            res.send(200, JSON.stringify({email:order.buyer.email}));
-          }
-        });
-      }
-    })
-  }
 });
 
 app.locals.ucfirst = function(value) {
