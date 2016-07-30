@@ -302,7 +302,7 @@ app.get('/slack', function(req, res) {
 });
 
 // All the docs redirects
-var gitbooksBase = 'https://tessel.gitbooks.io/docs/content/';
+var gitbooksBase = 'https://tessel.gitbooks.io/t2-docs/content/';
 
 app.get('/docs', function(req, res) {
   res.redirect(gitbooksBase);
