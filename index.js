@@ -318,68 +318,68 @@ app.get(originalBase + 'home', function (req, res) {
 });
 
 app.get(originalBase + 'hardwareAPI', function (req, res) {
-  res.redirect(gitbooksBase + 'API/Hardware_API');
+  res.redirect(gitbooksBase + 'API/Hardware_API.html');
 });
 
 app.get(originalBase + 'networkAPI', function (req, res) {
-  res.redirect(gitbooksBase + 'API/Network_API');
+  res.redirect(gitbooksBase + 'API/Network_API.html');
 });
 
 app.get(originalBase + 'modules', function (req, res) {
-  res.redirect(gitbooksBase + 'API/Modules');
+  res.redirect(gitbooksBase + 'API/Modules.html');
 });
 
 app.get(originalBase + 'cli', function (req, res) {
-  res.redirect(gitbooksBase + 'API/CLI');
+  res.redirect(gitbooksBase + 'API/CLI.html');
 });
 
 app.get(originalBase + 'compatibility', function (req, res) {
-  res.redirect(gitbooksBase + 'API/Languages');
+  res.redirect(gitbooksBase + 'API/Languages.html');
 });
 
 app.get(originalBase + 'communicationProtocols', function (req, res) {
-  res.redirect(gitbooksBase + 'Tutorials/Communication_Protocols');
+  res.redirect(gitbooksBase + 'Tutorials/Communication_Protocols.html');
 });
 
 app.get(originalBase + 'DIYModule', function (req, res) {
-  res.redirect(gitbooksBase + 'Tutorials/Making_Your_Own_Module');
+  res.redirect(gitbooksBase + 'Tutorials/Making_Your_Own_Module.html');
 });
 
 // Even weirder legacy redirects to places that aren't found in the gitbook version of T2 docs
 app.get(originalBase + 'source', function (req, res) {
-  res.redirect('/opensource');
+  res.redirect('/opensource.html');
 });
 
 app.get(originalBase + 'accelerometer', function (req, res) {
-  res.redirect(gitbooksBase + 'API/Modules');
+  res.redirect(gitbooksBase + 'API/Modules.html');
 });
 
 app.get(originalBase + 'ambient', function (req, res) {
-  res.redirect(gitbooksBase + 'API/Modules');
+  res.redirect(gitbooksBase + 'API/Modules.html');
 });
 
 app.get(originalBase + 'climate', function (req, res) {
-  res.redirect(gitbooksBase + 'API/Modules');
+  res.redirect(gitbooksBase + 'API/Modules.html');
 });
 
 app.get(originalBase + 'gps', function (req, res) {
-  res.redirect(gitbooksBase + 'API/Modules');
+  res.redirect(gitbooksBase + 'API/Modules.html');
 });
 
 app.get(originalBase + 'infrared', function (req, res) {
-  res.redirect(gitbooksBase + 'API/Modules');
+  res.redirect(gitbooksBase + 'API/Modules.html');
 });
 
 app.get(originalBase + 'relay', function (req, res) {
-  res.redirect(gitbooksBase + 'API/Modules');
+  res.redirect(gitbooksBase + 'API/Modules.html');
 });
 
 app.get(originalBase + 'rfid', function (req, res) {
-  res.redirect(gitbooksBase + 'API/Modules');
+  res.redirect(gitbooksBase + 'API/Modules.html');
 });
 
 app.get(originalBase + 'servo', function (req, res) {
-  res.redirect(gitbooksBase + 'API/Modules');
+  res.redirect(gitbooksBase + 'API/Modules.html');
 });
 
 //********* End legacy redirects for docs *********//
