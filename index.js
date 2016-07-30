@@ -263,10 +263,6 @@ app.get('/install', function(req, res) {
   res.redirect('http://start.tessel.io');
 });
 
-app.get('/docs', function(req, res) {
-  res.redirect('/docs/home');
-});
-
 app.get('/shop', function(req, res) {
   res.redirect('http://www.seeedstudio.com/depot/Tessel-m-153.html');
 });
@@ -305,251 +301,88 @@ app.get('/slack', function(req, res) {
   res.redirect('https://tessel-slack.herokuapp.com/');
 });
 
-// Pull the docs from GitHub
-var rawDocs = {
-  home: {
-    type: 'API',
-    clean: "Tessel 2 Docs",
-    url: 'https://raw.githubusercontent.com/tessel/t2-docs/master/README.md',
-    text: '',
-    updated: null,
-    newLink: '/docs/home'
-  },
-  hardwareAPI: {
-    type: 'API',
-    clean: "Hardware API",
-    url: 'https://raw.githubusercontent.com/tessel/t2-docs/master/hardware-api.md',
-    text: '',
-    updated: null,
-    newlink: '/docs/hardwareAPI'
-  },
-  networkAPI: {
-    type: 'API',
-    clean: "Network API",
-    url: 'https://raw.githubusercontent.com/tessel/t2-docs/master/network-api.md',
-    text: '',
-    updated: null,
-    newlink: '/docs/networkAPI'
-  },
-  modules: {
-    type: 'API',
-    clean: "Modules",
-    url: 'https://raw.githubusercontent.com/tessel/t2-docs/master/modules.md',
-    text: '',
-    updated: null,
-    newLink: '/docs/modules'
-  },
-  cli: {
-    type: 'API',
-    clean: "Tessel 2 CLI",
-    url: 'https://raw.githubusercontent.com/tessel/t2-docs/master/cli.md',
-    text: '',
-    updated: null,
-    newlink: '/docs/cli'
-  },
-  languages: {
-    type: 'API',
-    clean: "Supported Languages",
-    url: 'https://raw.githubusercontent.com/tessel/t2-docs/master/languages.md',
-    text: '',
-    updated: null,
-    newLink: '/docs/compatibility'
-  },
-  source: {
-    type: 'API',
-    clean: "Source & Design Files",
-    url: 'https://raw.githubusercontent.com/tessel/t2-docs/master/repos.md',
-    text: '',
-    updated: null,
-    newLink: '/docs/source'
-  },
-  accelerometer: {
-    type: 'module',
-    clean: "Accelerometer",
-    url: 'https://raw.githubusercontent.com/tessel/accel-mma84/master/README.md',
-    text: '',
-    updated: null,
-    newlink: ''
-  },
-  ambient: {
-    type: 'module',
-    clean: "Ambient",
-    url: 'https://raw.githubusercontent.com/tessel/ambient-attx4/master/README.md',
-    text: '',
-    updated: null,
-    newlink: ''
-  },
-  climate: {
-    type: 'module',
-    clean: "Climate",
-    url: 'https://raw.githubusercontent.com/tessel/climate-si7020/master/README.md',
-    text: '',
-    updated: null,
-    newlink: ''
-  },
-  gps: {
-    type: 'module',
-    clean: "GPS",
-    url: 'https://raw.githubusercontent.com/tessel/gps-a2235h/master/README.md',
-    text: '',
-    updated: null,
-    newlink: ''
-  },
-  infrared: {
-    type: 'module',
-    clean: "Infrared",
-    url: 'https://raw.githubusercontent.com/tessel/ir-attx4/master/README.md',
-    text: '',
-    updated: null,
-    newlink: ''
-  },
-  relay: {
-    type: 'module',
-    clean: "Relay",
-    url: 'https://raw.githubusercontent.com/tessel/relay-mono/master/README.md',
-    text: '',
-    updated: null,
-    newlink: ''
-  },
-  rfid: {
-    type: 'module',
-    clean: "RFID",
-    url: 'https://raw.githubusercontent.com/tessel/rfid-pn532/master/README.md',
-    text: '',
-    updated: null,
-    newlink: ''
-  },
-  servo: {
-    type: 'module',
-    clean: "Servo",
-    url: 'https://raw.githubusercontent.com/tessel/servo-pca9685/master/README.md',
-    text: '',
-    updated: null,
-    newlink: ''
-  },
+// All the docs redirects
+var gitbooksBase = 'https://tessel.gitbooks.io/docs/content/';
 
-  communicationProtocols: {
-    type: 'tutorials',
-    clean: 'Communication Protocols',
-    url: 'https://raw.githubusercontent.com/tessel/t2-docs/master/tutorials/communication-protocols.md',
-    text: '',
-    updated: null,
-    newlink: '/docs/communicationProtocols'
-  },
-  DIYModule: {
-    type: 'tutorials',
-    clean: 'Making a DIY Module',
-    url: 'https://raw.githubusercontent.com/tessel/t2-docs/master/tutorials/diy-module.md',
-    text: '',
-    updated: null,
-    newlink: '/docs/DIYModule'
-  }
-};
-
-var sideBarLists = {
-  'API': [],
-  'tutorials': [],
-  'module': []
-};
-Object.keys(rawDocs).forEach(function(item) {
-  var doc = rawDocs[item];
-  if (sideBarLists[doc.type])
-    sideBarLists[doc.type].push({
-      link: item,
-      clean: doc.clean
-    });
+app.get('/docs', function(req, res) {
+  res.redirect(gitbooksBase);
 });
 
-function replaceAll(find, replace, str) {
-  return str.replace(new RegExp(find, 'g'), replace);
-}
+//********* Begin legacy redirects for docs *********//
+// These legacy link redirects keep links posted around the internet functional with new Gitbooks version of docs
 
-var renderer = new marked.Renderer();
-var headingList = [];
+var originalBase = '/docs/';
 
-renderer.heading = function(text, level) {
-  var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
-  var link = "";
-  var divClass = "";
-  if (level <= 2) {
-    if (level == 2) {
-      headingList.push({
-        link: escapedText,
-        text: text
-      });
-    }
-    link = '<i class="fa fa-link fa-1"></i>';
-    divClass = 'class="heading-div"';
-  }
-  return '<div ' + divClass + '><a name="' + escapedText + '" class="docHeader-' + level + '" href="#' +
-    escapedText + '"><span>' + link + '</span></a><h' + level + ' class="cliHeader">' + text + '</h' + level + '></div>';
-};
-
-renderer.list = function(body, ordered) {
-  if (ordered) {
-    return '<ol class="list-div">' + body + '</ol>';
-  } else {
-    return '<ul class="list-div">' + body + '</ul>';
-  }
-};
-
-renderer.code = function(code, lang) {
-  if (lang == 'js') {
-    return '<pre><code class="lang-js"><div style="line-height:1.1em;">' + require('highlight.js').highlightAuto(code).value + '</div></code></pre>';
-  } else {
-    return '<code><cli>' + code + '</cli></code>';
-  }
-};
-
-app.get('/docs/:slug', function(req, res) {
-  var doc = req.params.slug;
-  if (!rawDocs[doc]) {
-    return res.status(404).send("Sorry page not found");
-  }
-  var forkPath = uri.parse(rawDocs[doc].url).pathname.split('/');
-  var forkUrl = '//github.com/' + forkPath[1] + '/' + forkPath[2];
-  // update on anything older than 1 hour
-  var d = new Date((new Date()) * 1 - 1000 * 3600 * 1);
-  // if any urls have blank code, request it
-  if ((rawDocs[doc].text === '' && rawDocs[doc].url) || (rawDocs[doc].updated < d.valueOf())) {
-    request.get(rawDocs[doc].url, function(err, data) {
-      if (err) {
-        return console.error('could not get', doc, rawDocs[doc].text, err);
-      }
-      // Turn markdown into html
-      headingList = [];
-      var text = marked(data.body, {
-        renderer: renderer
-      });
-      rawDocs[doc].heading = headingList;
-      // Replace internal links referring gh docs with links referring to imported docs
-      var myURL = rawDocs[doc].url.replace('/raw.githubusercontent.com/', '/github.com/').replace('/master/', '/blob/master/');
-      text = replaceAll(myURL, rawDocs[doc].newlink, text);
-
-      rawDocs[doc].text = text;
-      rawDocs[doc].updated = Date.now();
-      // console.log('doc', doc, headingList);
-      res.render('doc', {
-        navbar: indexdata.navbar,
-        link: forkUrl,
-        sideBar: sideBarLists,
-        expandedSide: rawDocs[doc].heading,
-        title: doc,
-        text: rawDocs[doc].text
-      });
-    });
-  } else {
-    res.render('doc', {
-      navbar: indexdata.navbar,
-      link: forkUrl,
-      sideBar: sideBarLists,
-      expandedSide: rawDocs[doc].heading,
-      title: doc,
-      text: rawDocs[doc].text
-    });
-  }
-
+app.get(originalBase + 'home', function (req, res) {
+  res.redirect(gitbooksBase);
 });
+
+app.get(originalBase + 'hardwareAPI', function (req, res) {
+  res.redirect(gitbooksBase + 'API/Hardware_API');
+});
+
+app.get(originalBase + 'networkAPI', function (req, res) {
+  res.redirect(gitbooksBase + 'API/Network_API');
+});
+
+app.get(originalBase + 'modules', function (req, res) {
+  res.redirect(gitbooksBase + 'API/Modules');
+});
+
+app.get(originalBase + 'cli', function (req, res) {
+  res.redirect(gitbooksBase + 'API/CLI');
+});
+
+app.get(originalBase + 'compatibility', function (req, res) {
+  res.redirect(gitbooksBase + 'API/Languages');
+});
+
+app.get(originalBase + 'communicationProtocols', function (req, res) {
+  res.redirect(gitbooksBase + 'Tutorials/Communication_Protocols');
+});
+
+app.get(originalBase + 'DIYModule', function (req, res) {
+  res.redirect(gitbooksBase + 'Tutorials/Making_Your_Own_Module');
+});
+
+// Even weirder legacy redirects to places that aren't found in the gitbook version of T2 docs
+app.get(originalBase + 'source', function (req, res) {
+  res.redirect('/opensource');
+});
+
+app.get(originalBase + 'accelerometer', function (req, res) {
+  res.redirect(gitbooksBase + 'API/Modules');
+});
+
+app.get(originalBase + 'ambient', function (req, res) {
+  res.redirect(gitbooksBase + 'API/Modules');
+});
+
+app.get(originalBase + 'climate', function (req, res) {
+  res.redirect(gitbooksBase + 'API/Modules');
+});
+
+app.get(originalBase + 'gps', function (req, res) {
+  res.redirect(gitbooksBase + 'API/Modules');
+});
+
+app.get(originalBase + 'infrared', function (req, res) {
+  res.redirect(gitbooksBase + 'API/Modules');
+});
+
+app.get(originalBase + 'relay', function (req, res) {
+  res.redirect(gitbooksBase + 'API/Modules');
+});
+
+app.get(originalBase + 'rfid', function (req, res) {
+  res.redirect(gitbooksBase + 'API/Modules');
+});
+
+app.get(originalBase + 'servo', function (req, res) {
+  res.redirect(gitbooksBase + 'API/Modules');
+});
+
+//********* End legacy redirects for docs *********//
 
 app.get('/forums', function(req, res) {
   res.redirect('http://forums.tessel.io');
