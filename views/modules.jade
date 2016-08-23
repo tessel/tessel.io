@@ -112,15 +112,6 @@ block content
             a(href="#module-ambient")
               span Ambient <small>Light + Sound</small>
           li
-            a(href="#module-audio")
-              span Audio
-          li
-            a(href="#module-ble")
-              span Bluetooth <small>Low Energy</small>
-          li
-            a(href="#module-camera")
-              span Camera
-          li
             a(href="#module-climate")
               span Climate
           li
@@ -130,14 +121,8 @@ block content
             a(href="#module-gps")
               span GPS
           li
-            a(href="#module-gprs")
-              span GPRS
-          li
             a(href="#module-infrared")
               span Infrared
-          li
-            a(href="#module-sdcard")
-              span MicroSD Card
           li
             a(href="#module-relay")
               span Relay
@@ -197,59 +182,6 @@ block content
               li The microphone is optimized for detecting the ambient noise level in a room or building a sound-activated device.
               li The ambient light sensor and can be used for detecting fine-grain brightness in a room.
             +to-fre('ambient')
-
-    .row#module-audio
-      .large-10.columns.large-centered
-        div.row.module-class-b
-          div.large-4.columns.move-down
-            a.photo(href="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/audio.jpg", style="position: relative; top: -200px")
-              img.module-rightalign(src="https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/audio.jpg", style="height: 200; max-width: none;")
-            a(href="http://www.seeedstudio.com/depot/Tessel-Audio-Module-p-2232.html", class="button tiny success") Order Now!
-            p
-              | <code>npm install audio-vs1053b</code><br>
-              a.library(href="https://github.com/tessel/audio-vs1053b")
-                | View library on Github &rarr;
-              a.datasheet(target="_blank", href="http://www.vlsi.fi/fileadmin/datasheets/vs1053.pdf")
-                |  VS1053B datasheet
-          div.large-8.columns
-            +module-title('audio', 'Audio')
-            p Decode audio files or streams and output; record audio.
-            +use-usb('Audio', 'audio', 'Audio')
-            ul
-              li Decodes MP3/AAC/WMA/MIDI/FLAC/Ogg Vorbis files
-              li Supports files and streams
-              li Supports both headphones and line-out
-              li Can record audio through an on-board microphone or line-in jack
-            +to-fre('audio')
-      
-    .row#module-ble
-      .large-10.columns.large-centered
-        div.row.module-class-b
-          +module-left('ble', 'ble-ble113a', 'BLE113', 'http://www.mouser.com/ds/2/52/BLE113_Datasheet-224874.pdf', 'http://www.seeedstudio.com/depot/Tessel-BLE-Module-p-2230.html')
-          div.large-8.columns
-            +module-title('ble', 'Bluetooth <small>Low Energy</small>')
-            p
-              | Allows your tesselation to work as a Bluetooth LE master <i>or</i> slave device.
-            p Connect to your phone, FitBit, or other low-powered device.
-            +prefer-usb('Bluetooth Low Energy', 'BLE', 'Bluetooth Low Energy')
-            ul
-              li Compatible with iOS 5+, Android 4.3+
-              li Supports master mode to connect to other BLE devices and Tessels
-            +to-fre('ble')
-
-    .row#module-camera
-      .large-10.columns.large-centered
-        div.row.module-class-b
-          +module-left('camera', 'camera-vc0706', 'VC0706', 'http://www.southernstars.com/skycube/files/VC0706.pdf', 'http://www.seeedstudio.com/depot/Tessel-Camera-Module-p-2229.html')
-          div.large-8.columns
-            +module-title('camera', 'Camera')
-            p
-              | Add the sense of sight to Tessel!<br />Take pictures of your projects, from your projects.
-              +use-usb('Camera', 'camera', 'Camera')
-            ul
-              li Supports 640x480, 320x240, and 160x120
-              li Still image camera.
-            +to-fre('camera')
 
     .row#module-climate
       .large-10.columns.large-centered
@@ -322,21 +254,6 @@ block content
               li
                 a(href="http://catalog.osram-os.com/catalogue/catalogue.do;jsessionid=7667A78B5A2190F007E2E148FD64A417?act=downloadFile&favOid=0200000200003577000200b6") IR LED
             +to-fre('ir')
-
-    .row#module-sdcard
-      .large-10.columns.large-centered
-        div.row.module-class-a
-          +module-left('microsd', 'sdcard', 'SD Card standard', 'http://www.circlemud.org/jelson/sdcard/SDCardStandardv1.9.pdf', 'http://www.seeedstudio.com/depot/Tessel-MicroSD-Module-p-2310.html')
-          div.large-8.columns
-            +module-title('sdcard', 'MicroSD Card')
-            p
-              | Reads high-density media from microSD cards.
-            p Store pictures or other data locally on your Tessel.
-            +prefer-usb('MicroSD Card', 'microSD', 'storage')
-            ul
-              li Reads / writes microSD cards
-              li Module ships with a 1GB card
-            +to-fre('microsd')
 
     .row#module-relay
       .large-10.columns.large-centered
