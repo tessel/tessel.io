@@ -58,19 +58,6 @@ block append head
         a.datasheet(target="_blank", href=datasheet)
           |  #{chip} datasheet
   
-  //- temporary mixin while Seeed puts up links for GPS and DIY modules        
-  mixin module-left-unavailable(module, package, chip, datasheet)
-    div.large-4.columns
-      a.photo(href='https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/' + module + '.jpg')
-        img(src='https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/' + module + '.jpg', height='200')
-      a(class="button tiny secondary") Temporarily unavailable
-      p
-        code npm install #{package}<br/>
-        a.library(href="https://github.com/tessel/" + package)
-          | View library on Github &rarr;
-        a.datasheet(target="_blank", href=datasheet)
-          |  #{chip} datasheet
-  
   mixin module-title(module, title)
     h4
       object
@@ -225,7 +212,7 @@ block content
     .row#module-gps
       .large-10.columns.large-centered
         div.row.module-class-b
-          +module-left-unavailable('gps', 'gps-a2235h', 'FGPMMOPA6C', 'http://www.adafruit.com/datasheets/GlobalTop-FGPMMOPA6C-Datasheet-V0A-Preliminary.pdf')
+          +module-left('gps', 'gps-a2235h', 'FGPMMOPA6C', 'http://www.adafruit.com/datasheets/GlobalTop-FGPMMOPA6C-Datasheet-V0A-Preliminary.pdf', 'http://www.seeedstudio.com/Tessel-GPS-p-2683.html')
           div.large-8.columns
             +module-title('gps', 'GPS')
             p
