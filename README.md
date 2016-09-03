@@ -1,4 +1,5 @@
 # tessel.io website
+[![Code of Conduct](https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg?style=flat)](https://github.com/tessel/project/blob/master/CONDUCT.md)
 
 This is the website codebase for [tessel.io](//tessel.io). Contributions welcome.
 
