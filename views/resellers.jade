@@ -3,10 +3,10 @@ extends layout
 
 mixin reseller(name, region, link, image, items)
   div(style="padding-top:10px;")
-    b 
+    b
       a(href="#{link}", target="_blank")
         h3 #{name} (#{region})
-    p 
+    p
       a(href="#{link}", target="_blank")
         img(style="padding:5px; width:200px", src=image)
     ul
@@ -21,17 +21,17 @@ block content
       .large-12.columns.large-center
         h1 Resellers and Bulk Pricing
         p Interested in becoming a reseller? <a href="https://www.seeedstudio.com/depot/index.php?main_page=distributors">Contact Seeed</a>.
-        
+
         p
           +reseller('Seeed Studio', '中国 China/Global', 'http://www.seeedstudio.com/depot/Tessel-m-153.html?ref=pinfo', 'http://www.seeedstudio.com/blog/wp-content/uploads/2015/03/2014%E6%96%B0LOGO011-e1426747545587.jpg', [{name: 'Tessel 2', link: 'https://www.seeedstudio.com/item_detail.html?p_id=2622'}, {name: 'Servo Module', link: 'http://www.seeedstudio.com/depot/Tessel-Servo-Module-p-2311.html'}, {name: 'GPS Module', link: 'http://www.seeedstudio.com/depot/Tessel-GPS-p-2683.html'}, {name: 'Relay Module', link: 'http://www.seeedstudio.com/depot/Tessel-Relay-Module-p-2309.html'}, {name: 'RFID Module', link: 'http://www.seeedstudio.com/depot/Tessel-RFID-Module-p-2228.html'}, {name: 'Climate Module', link: 'http://www.seeedstudio.com/depot/Tessel-Climate-Module-p-2225.html'}, {name: 'Infrared Module', link: 'http://www.seeedstudio.com/depot/Tessel-IR-Module-p-2224.html'}, {name: 'Accelerometer Module', link: 'http://www.seeedstudio.com/depot/Tessel-Accelerometer-Module-p-2223.html'}, {name: 'Ambient Module', link: 'http://www.seeedstudio.com/depot/Tessel-Ambient-Module-p-2220.html'}])
 
-          +reseller('Sparkfun', 'USA/Global', 'https://www.sparkfun.com/products/13841', 'https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Sparkfun_logo.svg/1280px-Sparkfun_logo.svg.png', [{name: 'Tessel 2', link: 'https://www.sparkfun.com/products/13841'}, {name: 'Johnny-Five Inventor\'s Kit', link: 'https://www.sparkfun.com/products/13847'}])
-          
+          +reseller('SparkFun', 'USA/Global', 'https://www.sparkfun.com/products/13841', 'https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Sparkfun_logo.svg/1280px-Sparkfun_logo.svg.png', [{name: 'Tessel 2', link: 'https://www.sparkfun.com/products/13841'}, {name: 'Johnny-Five Inventor\'s Kit', link: 'https://www.sparkfun.com/products/13847'}])
+
           //- UNCOMMENT ONCE TELEC FIXED
           //- +reseller('Switch Science', '日本 Japan', 'https://www.switch-science.com/catalog/list/558/', 'switch_science.gif')
-          
+
 
 
         h3 Bulk Pricing
-        
+
         p Planning to make a large order? <a href="http://www.seeedstudio.com/depot/Tessel-m-153.html?ref=pinfo">Seeed's site has a price breaks at 10+</a>; further price breaks can be had for 50+ and 100+. Email team at tessel.io if interested in higher quantities.
