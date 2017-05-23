@@ -62,7 +62,7 @@ In production, set the env variables `CELERY_URL` and `CELERY_TOKEN`.
 
 In development, set the `TEST_CELERY_URL`, `TEST_CELERY_TOKEN`, and `TEST_CELERY_ID` variables.
 
-##Deployment
+## Deployment
 
 ### Automated Deployment
 
