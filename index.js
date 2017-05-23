@@ -427,6 +427,14 @@ app.get('/blog/:postid/:slug?', function (req, res) {
   });
 });
 
+// 404 route
+app.get('*', function(req, res){
+  res.render('error', {
+    navbar: indexdata.navbar,
+    title: 'Page not found | Tessel'
+  });
+});
+
 app.locals.ucfirst = function(value) {
   return value.charAt(0).toUpperCase() + value.slice(1);
 };
