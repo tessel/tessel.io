@@ -3,3 +3,5 @@ bower_components
 node_modules
 build
 deploy/**/*.retry
+.env
+.vscode/settings.json

@@ -58,10 +58,10 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'build/public')));
 app.use(express.favicon('public/favicon.ico'));
+app.use(app.router);
 
 app.locals.encoder = new require('node-html-encoder').Encoder('entity');
 
@@ -424,6 +424,14 @@ app.get('/blog/:postid/:slug?', function (req, res) {
       navbar: indexdata.navbar,
       header: indexdata.header,
     });
+  });
+});
+
+// 404 route
+app.get('*', function(req, res){
+  res.render('error', {
+    navbar: indexdata.navbar,
+    title: 'Page not found | Tessel'
   });
 });
 
