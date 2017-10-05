@@ -1,0 +1,625 @@
+{
+  "tenpin":
+  [
+    {
+      "name": "accelerometer",
+      "package": "accel-mma84",
+      "chip": "MMA8452Q",
+      "datasheet": "http://www.freescale.com/files/sensors/doc/data_sheet/MMA8452Q.pdf",
+      "image": "https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/accelerometer.jpg",
+      "buy": "http://www.seeedstudio.com/depot/Tessel-Accelerometer-Module-p-2223.html",
+      "description": "Detect orientation and movement of your Tessel by measuring gravity / acceleration. 3-axis digital accelerometer; 12-bit resolution; selectable ±2g/±4g/±8g scales",
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ]
+    },
+    {
+      "name": "ambient",
+      "package": "ambient-attx4",
+      "chip": "ATTX4",
+      "datasheet": "http://www.atmel.com/Images/doc8006.pdf",
+      "image": "https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/amambient-attx4.jpg",
+      "buy": "http://www.seeedstudio.com/depot/Tessel-Ambient-Module-p-2220.html",
+      "description": "The Ambient sensor can detect ambient light and sound levels. Clap to turn on the TV (paired with infrared) or know from a webapp if the lights are on at home. The microphone is optimized for detecting the ambient noise level in a room or building a sound-activated device. The ambient light sensor and can be used for detecting fine-grain brightness in a room.",
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ]
+    },
+    {
+      "name": "climate",
+      "package": "climate-s17020",
+      "chip": "SI7020",
+      "datasheet": "http://www.silabs.com/Support%20Documents/TechnicalDocs/Si7020.pdf",
+      "image": "https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/climate.jpg",
+      "buy": "http://www.seeedstudio.com/depot/Tessel-Climate-Module-p-2225.html",
+      "description": "Detect humidity and temperature from your environment. Measure 0 to 70 &deg;C (32 to 160 &deg;F) with &plusmn;1&deg; accuracy; Measure 0% to 80% relative humidity",
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ]
+    },
+    {
+      "name": "diy",
+      "package": "climate-s17020",
+      "chip": "DIY",
+      "datasheet": "//tessel.io/diy",
+      "image": "https://s3.amazonaws.com/technicalmachine-assets/storefront/products/DIY-pack.jpg",
+      "buy": "coming soon",
+      "description": "Build your own module! This single- or double-wide module comes with a guide on how to connect anything to Tessel. Protoboard module exposes SPI, I2C, UART, and GPIO; Ground and 3.3V rails make it easy to power components; For larger projects, available in a double-wide size (like the RFID module)",
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ]
+    },
+    {
+      "name": "gps",
+      "package": "gps-a2235h",
+      "chip": "FGPMMOPA6C",
+      "datasheet": "http://www.adafruit.com/datasheets/GlobalTop-FGPMMOPA6C-Datasheet-V0A-Preliminary.pdf",
+      "image": "https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/gps.jpg",
+      "buy": "coming soon",
+      "description": "Detect your global position. Helps you figure out where you are - and where you're going. Up to 1.8m accuracy; 66 search channels; 22 tracking channels; -165dBM sensitivity; Max 10Hz update rate",
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ]
+    },
+    {
+      "name": "infrared",
+      "package": "ir-attx4",
+      "chip": "ATTX4",
+      "datasheet": "http://www.atmel.com/Images/doc8006.pdf",
+      "image": "https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/ir.jpg",
+      "buy": "http://www.seeedstudio.com/depot/Tessel-IR-Module-p-2224.html",
+      "description": "The Infrared (IR) Module can send and detect IR signals. Use a Tessel as a remote for your TV, radio, or even another Tessel. Transmits and receives from 30+ feet (line of sight); Detects max 38kHz; <a href='http://www.vishay.com/docs/82491/tsop382.pdf'>IR Receiver</a>; <a href='http://catalog.osram-os.com/catalogue/catalogue.do;jsessionid=7667A78B5A2190F007E2E148FD64A417?act=downloadFile&favOid=0200000200003577000200b6'>IR LED</a>",
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ]
+    },
+    {
+      "name": "relay",
+      "package": "relay-mono",
+      "chip": "IM48DGR",
+      "datasheet": "http://www.mouser.com/ds/2/418/ENG_SS_108-98001_S[1]-205061.pdf",
+      "image": "https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/relay.jpg",
+      "buy": "http://www.seeedstudio.com/depot/Tessel-Relay-Module-p-2309.html",
+      "description": "Control high-current devices, such as power cords and appliances. Rated for 240V and 5A; AC or DC current; Secure and remove wires with the help of a ballpoint pen. No more loose wires or screwdrivers.",
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ]
+    },
+    {
+      "name": "rfid",
+      "package": "rfid-pn532",
+      "chip": "PN532",
+      "datasheet": "http://www.adafruit.com/datasheets/pn532ds.pdf",
+      "image": "https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/rfid.jpg",
+      "buy": "http://www.seeedstudio.com/depot/Tessel-RFID-Module-p-2228.html",
+      "description": "Read RFID cards/NFC. 13.56 MHx; Support CharlieCards, Clipper Cards, and other metro cards; Comes with a Mifare Classic RFID card",
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ]
+    },
+    {
+      "name": "servo",
+      "package": "servo-pca9685",
+      "chip": "PCA9385",
+      "datasheet": "http://www.circlemud.org/jelson/sdcard/SDCardStandardv1.9.pdf",
+      "image": "https://s3.amazonaws.com/technicalmachine-assets/product+pics/2014+05+15+production+modules/servo.jpg",
+      "buy": "http://www.seeedstudio.com/depot/Tessel-Servo-Module-p-2311.html",
+      "description": "Control up to 16 hobbyist/RC servos. Make it move! Control locks, wheels, cords, or anything else you can think of. Standard PWM output is compatible with servos of all sizes; Comes with an <a href='/datasheets/YinYanES3001.pdf'>ES3001 YinYan Servo</a> and a 5V external power jack (US-style plug)",
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ]
+    }
+  ],
+  "usb":
+  [
+    {
+      "name": "Audio",
+      "package": "tessel-av",
+      "buy":
+      [
+        {
+          "name": "Sabrent Headphone and Microphone USB Adapter",
+          "vendor": "Amazon Prime",
+          "link": "http://amzn.to/1M7tLIL",
+          "price": "$6"
+        },
+        {
+          "name": "Kinobo 'Akiro' Wired USB Microphone",
+          "vendor": "Amazon Prime",
+          "link": "http://amzn.to/1M7tOo3",
+          "price": "$12"
+        },
+        {
+          "name": "Kinobo 'Makio' Mini USB Microphone",
+          "vendor": "Amazon Prime",
+          "link": "http://amzn.to/1HZbaOk",
+          "price": "$6"
+        }
+      ],
+      "description": "Camera, webcam, video, audio, and still images all wrapped up and supported in one. Should work with any USB webcam and/or USB speakers.",
+      "supported":
+      [
+        "Tessel 2"
+      ]
+    },
+    {
+      "name": "Camera",
+      "package": "tessel-av",
+      "buy":
+      [
+        {
+          "name": "Creative Live! Cam Sync HD 720P Webcam (integrated microphone)",
+          "vendor": "Amazon Prime",
+          "link": "http://amzn.to/1HZKV8H",
+          "price": "$17"
+        }
+      ],
+      "description": "Camera, webcam, video, audio, and still images all wrapped up and supported in one. Should be <a href='http://www.ideasonboard.org/uvc/'>UVC-compatible</a>, and is intended to work with any USB webcam and/or USB speakers.",
+      "supported":
+      [
+        "Tessel 2"
+      ]
+    },
+    {
+      "name": "Bluetooth Low Energy",
+      "package": "noble",
+      "buy":
+      [
+        {
+          "name": "Plugable Bluetooth 4.0 USB Adapter",
+          "vendor": "Amazon Prime",
+          "link": "http://amzn.to/1Tz7yoa",
+          "price": "$12"
+        }
+      ],
+      "description": "",
+      "supported":
+      [
+        "Tessel 2"
+      ]
+    },
+    {
+      "name": "3G",
+      "package": "",
+      "buy":
+      [
+        {
+          "name": "Huawei E303 3G GSM USB Modem",
+          "vendor": "Amazon Prime",
+          "link": "https://www.amazon.com/Megafon-M150-2-Huawei-E3372h-Unlocked/dp/B0165W2H1Q/ref=as_li_ss_tl?ie=UTF8&qid=1492540898&sr=8-22&keywords=3g+dongle&linkCode=ll1&tag=tessel&linkId=13b5a669af6f38ee3ffb2943da18ace6",
+          "price": "21"
+        }
+      ],
+      "description": "Use Tessel anywhere.",
+      "supported":
+      [
+        "Tessel 2"
+      ]
+    },
+    {
+      "name": "storage",
+      "package": "",
+      "buy":
+      [
+        {
+          "name": "Kingston 4GB Micro SD Card with USB Reader",
+          "vendor": "Amazon Prime",
+          "link": "http://amzn.to/1HZLdML",
+          "price": "$8"
+        },
+        {
+          "name": "Kingston 16GB Flash Drive USB 2.0",
+          "vendor": "Amazon Prime",
+          "link": "http://amzn.to/1IX8Bv6",
+          "price": "$8"
+        }
+      ],
+      "description": "Extra storage space on tessel, SD and Flash",
+      "supported":
+      [
+        "Tessel 2"
+      ]
+    }
+  ],
+  "community":
+  [
+    {
+      "name": "button",
+      "package": "tessel-gpio-button",
+      "image": "https://halckemy.s3.amazonaws.com/uploads/cover_image/file/27037/cover_68747470733a2f2f6c68352e676f6f676c6575736572636f6e74656e742e636f6d2f2d564658455559716c6232772f5643487758364a49736e492f41414141414141414b616b2f5853346571584a35526d4d2f773931332d683531342d6e6f2f32303134303932335f3135313231352e6a7067.jpeg",
+      "buy":
+      [
+        "https://www.sparkfun.com/categories/145?page=all"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "http://www.hackster.io/ifoundthemeaningoflife/tessel-button",
+      "description": "Add a button to your Tessel. Press and release events; add several buttons if you want!",
+      "author":
+      {
+        "name": "Kelsey Breseman",
+        "github": "frijol"
+      }
+    },
+    {
+      "name": "color sensor",
+      "package": "rgb-tcs34725",
+      "image": "https://halckemy.s3.amazonaws.com/uploads/cover_image/file/27351/cover_687474703a2f2f7777772e61646166727569742e636f6d2f696d616765732f393730783732382f313333342d30302e6a7067.jpeg",
+      "buy":
+      [
+        "http://www.adafruit.com/product/1334"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "http://www.hackster.io/3133/rgb-tcs34725",
+      "description": "This RGB Color Sensor is like an eyedropper tool for the real world. Find the red, green, blue, or clear levels of anything you point it at. The API gives you access to the raw RGBC data, color temperatures, and lux intensity.",
+      "author":
+      {
+        "name": "Jon McKay",
+        "github": "johnnyman727"
+      }
+    },
+    {
+      "name": "Gesture sensor: APDS-9960",
+      "package": "apds-gesture",
+      "image": "https://s3.amazonaws.com/technicalmachine-assets/technical-io/apds-gesture.png",
+      "buy":
+      [
+        "https://www.sparkfun.com/products/12787"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "https://github.com/jiahuang/apds-gesture",
+      "description": "A gesture sensor. It can detect swiping motions in 4 directions. Also has an RGB sensor; Can detect near and far gestures",
+      "author":
+      {
+        "name": "Jia Huang",
+        "github": "juahuang"
+      }
+    },
+    {
+      "name": "matrix keypad",
+      "package": "tessel-matrix-keypad",
+      "image": "https://halckemy.s3.amazonaws.com/uploads/cover_image/file/27353/cover_original-101-1415773198727-IMG_3764.JPG",
+      "buy":
+      [
+        "http://www.amazon.com/Universial-Switch-Keypad-Keyboard-Arduino/dp/B008A30NW4",
+        "http://www.electrodragon.com/product/4x4-matrix-16-key-membrane-switch-keypad-keyboard-new-for-arduinoavrpicarm/#prettyPhoto",
+        "http://www.vetco.net/catalog/product_info.php?products_id=14280&gclid=CK3bvoev9MECFXELMgodEncA1w"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "http://www.hackster.io/_nw_/tessel-matrix-keypad",
+      "description": "Take basic keyboard input over Tessel for new interactions. Press and release evernts.",
+      "author":
+      {
+        "name": "Nathan White",
+        "github": "nw"
+      }
+    },
+    {
+      "name": "trellis keypad",
+      "package": "trellis-tessel",
+      "image": "https://hackster.imgix.net/uploads/cover_image/file/44878/IMAG0989.jpg?w=1600&h=1200&fit=crop&s=1f5c1fdb401aee728e7490b5eb9f7a05",
+      "buy":
+      [
+        "http://tessel.hackster.io/nmoadev/trellis-tessel"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "https://tessel.hackster.io/nmoadev/trellis-tessel",
+      "description": "Adafruit's Trellis 4x4 backlit keypad. This module provides a simple interface to the HT16K33 RAM Mapped LED driver that is the heart of the Adafruit Trellis system. Straight-forward button/LED access with row-column coordinates; Button press and release events; Brightness and blink control",
+      "author":
+      {
+        "name": "nmoadev",
+        "github": "nmoadev"
+      }
+    },
+    {
+      "name": "led backpack-ht16k33",
+      "package": "backpack-ht16k33",
+      "image": "https://halckemy.s3.amazonaws.com/uploads/cover_image/file/28437/cover_green88smile_t.jpg",
+      "buy":
+      [
+        "https://www.adafruit.com/products/870"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "http://www.hackster.io/adkron/backpack-ht16k33",
+      "description": "8x8 Matrix LED Display. Small LED matrix display. Intuitive API makes it easy to see outputs.",
+      "author":
+      {
+        "name": "Amos King",
+        "github": "adkron"
+      }
+    },
+    {
+      "name": "lego",
+      "package": "lego-ir",
+      "image": "https://hackster.imgix.net/uploads/cover_image/file/50708/slack_for_ios_upload.jpg",
+      "buy":
+      [
+        "http://shop.lego.com/en-US/LEGO-Power-Functions-IR-Receiver-8884;jsessionid=4E7D59C0FA32FC153FBE0B26B77E2E3D.lego-ps15?fromListing=listing"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "https://tessel.hackster.io/andrewcashmore/lego-ir",
+      "description": "If you have a <a href='https://tessel.io/modules#module-infrared'>Tessel infrared module</a>, you can use this software module to connect to LEGO infrared control! Works with the LEGO Power Functions infrared receiver. Control your LEGO creations from the internet!",
+      "author":
+      {
+        "name": "Andrew Cashmore",
+        "github": "andrewcashmore"
+      }
+    },
+    {
+      "name": "motion detector",
+      "package": "pir",
+      "image": "https://halckemy.s3.amazonaws.com/uploads/cover_image/file/26963/cover_68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f2d5a636d67374e506566414d2f552d4c61664e5165326c492f41414141414141414a6e6f2f6a6c4357654262445778552f773838322d683439362d6e6f2f32303134303830315f3131333735332e6a7067.jpeg",
+      "buy":
+      [
+        "http://www.adafruit.com/products/189"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "http://www.hackster.io/ifoundthemeaningoflife/pir",
+      "description": "Detect motion– know when something's happening. Infrared-based technology; Events fired on motion",
+      "author":
+      {
+        "name": "Kelsey Breseman",
+        "github": "frijol"
+      }
+    },
+    {
+      "name": "motor driver tb6612",
+      "package": "motor-driver-tb6612",
+      "image": "https://halckemy.s3.amazonaws.com/uploads/cover_image/file/27350/cover_68747470733a2f2f63646e2e737061726b66756e2e636f6d2f2f6173736574732f70617274732f332f312f352f372f30393435372d3031622e6a7067.jpeg",
+      "buy":
+      [
+        "https://www.sparkfun.com/products/9457"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "http://www.hackster.io/jon-mckay/motor-driver-tb6612",
+      "description": "Drive one or two small motors with Tessel. Use bigger motors than the Servo module is meant for.",
+      "author":
+      {
+        "name": "Jon McKay",
+        "github": "johnnyman727"
+      }
+    },
+    {
+      "name": "RGB LED lights",
+      "package": "npx",
+      "image": "https://halckemy.s3.amazonaws.com/uploads/cover_image/file/27416/cover_original-98-1418321164094-10632618_814932298563047_2714299564692894432_n.jpg",
+      "buy":
+      [
+        "http://www.adafruit.com/category/168"
+      ],
+      "supported":
+      [
+        "Tessel 1"
+      ],
+      "project": "http://www.hackster.io/harleykwyn/npx",
+      "description": "Use Adafruit's individually addressable LED lights easily with this abstracted library. Easily create animations; Getting-started examples included; Works best with LED strips",
+      "author":
+      {
+        "name": "Kwyn Meagher",
+        "github": "harleykwyn"
+      }
+    },
+    {
+      "name": "OLED Display",
+      "package": "tessel-digole12864",
+      "image": "https://halckemy.s3.amazonaws.com/uploads/cover_image/file/27402/cover_original-119-1417631739357-hero_shot.png",
+      "buy":
+      [
+        "http://www.digole.com/index.php?productID=540"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "http://www.hackster.io/moflome/tessel-digole12864",
+      "description": "OLED is a relatively new display technology, the same used in OLED TVs. Emits bright light (no backlight needed). 128x64px",
+      "author":
+      {
+        "name": "Mobile Flow LLC",
+        "github": "moflo"
+      }
+    },
+    {
+      "name": "Proximity Sensor HCSR04",
+      "package": "proximity-hcsr04",
+      "image": "https://halckemy.s3.amazonaws.com/uploads/cover_image/file/27356/cover_original-51-1414803906646-IMG_4850.png",
+      "buy":
+      [
+        "http://www.robotshop.com/en/hc-sr04-ultrasonic-range-finder.html"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "http://www.hackster.io/jon-mckay/proximity-hcsr04",
+      "description": "Sense distance in centimeters with the ultrasound proximity sensor. Control volume with a wave of your hand. Great for robotics projects; Extremely intuitive interaction",
+      "author":
+      {
+        "name": "Jon McKay",
+        "github": "johnnyman727"
+      }
+    },
+    {
+      "name": "Proximity Sensor SEN10737p",
+      "package": "tessel-sen10737p",
+      "image": "https://halckemy.s3.amazonaws.com/uploads/cover_image/file/32771/cover_IMG_1720.JPG",
+      "buy":
+      [
+        "http://www.seeedstudio.com/depot/Grove-Ultrasonic-Ranger-p-960.html"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "http://www.hackster.io/mitchdenny/tessel-sen10737p",
+      "description": "Sense distance in centimeters with the ultrasound proximity sensor. Control volume with a wave of your hand. Great for robotics projects; Extremely intuitive interaction",
+      "author":
+      {
+        "name": "Mitch Denny",
+        "github": "mitchdenny"
+      }
+    },
+    {
+      "name": "pulse sensor",
+      "package": "pulsesensor",
+      "image": "https://halckemy.s3.amazonaws.com/uploads/cover_image/file/29135/cover_original-11-1407951390327-20140806_133454.jpg",
+      "buy":
+      [
+        "http://www.adafruit.com/products/1093?&main_page=product_info&products_id=1093",
+        "http://pulsesensor.com/"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "http://www.hackster.io/ifoundthemeaningoflife/pulsesensor",
+      "description": "Sense your pulse and fire events with each heartbeat. Non-invasive; Easy setup; Great way to get started with biosensing",
+      "author":
+      {
+        "name": "Kelsey Breseman",
+        "github": "frijol"
+      }
+    },
+    {
+      "name": "Nokia Screen",
+      "package": "tessel-nokia5110",
+      "image": "https://halckemy.s3.amazonaws.com/uploads/cover_image/file/27413/cover_original-93-1416582175766-screen_connected.jpg",
+      "buy":
+      [
+        "https://www.sparkfun.com/products/10168"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "http://www.hackster.io/kevinsidwar/tessel-nokia5110",
+      "description": "A basic graphic LCD screen, this cheap display lets you add UI to your Tessel project. 48 rows x 84 columns; Black and white; Connection instructions included",
+      "author":
+      {
+        "name": "Kevin Sidwar",
+        "github": "sidwarkd"
+      }
+    },
+    {
+      "name": "Text to speech Emic2",
+      "package": "emic2",
+      "image": "https://camo.githubusercontent.com/3acbbf57b84c7a2992f5684b84754ee7f7107a10/687474703a2f2f676f6f2e676c2f5653565a5373",
+      "buy":
+      [
+        "https://www.sparkfun.com/products/11711",
+        "https://www.adafruit.com/products/924"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "https://github.com/pirumpi/emic2",
+      "description": "Text to speech with a simple JS API.",
+      "author":
+      {
+        "name": "Carlos Martin",
+        "github": "pirumpi"
+      }
+    },
+    {
+      "name": "thermal printer",
+      "package": "tessel-thermalprinter",
+      "image": "https://hackster.imgix.net/uploads/cover_image/file/49349/printer.jpg",
+      "buy":
+      [
+        "https://www.adafruit.com/products/597"
+      ],
+      "supported":
+      [
+        "Tessel 1",
+        "Tessel 2"
+      ],
+      "project": "https://www.hackster.io/zaccolley/thermal-printer-module-for-tessel",
+      "description": "A thermal printer, also known as a receipt printer. Print text, barcodes, bitmap graphics, and QR codes. Black and white.",
+      "author":
+      {
+        "name": "Zac Colley",
+        "github": "zaccolley"
+      }
+    },
+    {
+      "name": "thermocouple",
+      "package": "thermocouple-max31855",
+      "image": "https://camo.githubusercontent.com/9c570e495f00d761f646d751258a4f60e4fc8497/68747470733a2f2f6c68362e676f6f676c6575736572636f6e74656e742e636f6d2f2d726f755437387045325f552f564b4730665f52463351492f41414141414141414c70512f425f734171574e4d6174452f773932362d683532312d6e6f2f32303134313232395f3131303633372e6a7067",
+      "buy":
+      [
+        "http://www.adafruit.com/products/269"
+      ],
+      "supported":
+      [
+        "Tessel 1"
+      ],
+      "project": "https://github.com/tessel/thermocouple-max31855",
+      "description": "A thermocouple for getting precise temperature, including immersed in liquids.",
+      "author":
+      {
+        "name": "Tim Ryan",
+        "github": "tcr"
+      }
+    }
+  ]
+}

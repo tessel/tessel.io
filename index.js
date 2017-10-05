@@ -214,7 +214,7 @@ app.get('/press', function(req, res) {
 
 app.get('/modules', function(req, res) {
   // Request module data
-  request('https://raw.githubusercontent.com/tessel/hardware-modules/master/modules.json', function (error, response, body) {
+  request('https://raw.githubusercontent.com/tessel/tessel.io/master/modules.json', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       // Parse as JSON
       var moduleData = JSON.parse(body);
