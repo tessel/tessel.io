@@ -3,7 +3,7 @@ extends layout
 block append head
   <meta name="Description" content="Tessel boards extend their capabilities by plugging in modules. It's as easy as connect, npm install, and a few lines of code to get started.">
   link(rel='stylesheet', href='/stylesheets/style.css')
-    
+
   style.
     #module-toc ul { margin: 30px 0; }
     #module-toc { padding-bottom: 10px; }
@@ -16,17 +16,17 @@ block append head
       #module-list h4 { font-size: 26px !important; }
       #module-list h4 img { height: 36px !important; width: 36px !important; }
     }
-  
+
     .module-rightalign { position: absolute; right: 0; }
     .module-leftalign { position: absolute; left: 0; }
-  
+
     @media (max-width: 768px) {
       .module-rightalign { position: static; margin-bottom: -200px; }
     }
-  
+
     #module-list > .row, #module-toc { border-bottom: 1px solid #bbb; }
     #module-list > .row { margin-bottom: 0; padding-top: 60px; padding-bottom: 60px }
-  
+
     #module-list .button { font-size: 14px; margin-bottom: 30px; margin-top: -6px; }
     #module-list a.photo { display: block; margin: 0 auto; }
     #module-list div.large-4 { text-align: center; }
@@ -40,11 +40,11 @@ block append head
     #module-list ul { margin-top: 0; }
     #module-list li { color: #666; margin-left: 30px; }
     #module-list pre code { overflow: auto; font-weight: normal; border-radius: 6px; padding: 14px 18px; line-height: 1.3; font-size: 14px; backgground: #def; }
-  
+
     .move-down{ padding-top: 200px }
     .stretch-photo{ position: relative; top: -200px }
     .stretch-image{ height: 200; max-width: none;}
-  
+
   //- mixin for the left column of module rows. Be careful, not all rows use this
   mixin module-left(module, package, chip, datasheet, shoplink)
     div.large-4.columns
@@ -57,13 +57,13 @@ block append head
           | View library on Github &rarr;
         a.datasheet(target="_blank", href=datasheet)
           |  #{chip} datasheet
-  
+
   mixin module-title(module, title)
     h4
       object
         img.icon(src="https://s3.amazonaws.com/technicalmachine-assets/technical-io/modules/" + module + ".png")
       | &nbsp;!{title}
-  
+
   mixin to-fre(module)
     h3
       a(href="http://tessel.github.io/t2-start/modules/" + module + ".html", target="_blank") See how it's used &rarr;
@@ -72,13 +72,13 @@ block append head
     p
       b Note that the #{title} Module will not work with Tessel 2. For #{func} on Tessel 2, use the
         a(href="#usb")  USB #{ucfirst(usbmodule)} Module.
-  
+
   mixin prefer-usb(title, func, usbmodule)
     p
-      b For #{func} on Tessel 2, the 
-        a(href="#usb")  USB #{ucfirst(usbmodule)} Module 
+      b For #{func} on Tessel 2, the
+        a(href="#usb")  USB #{ucfirst(usbmodule)} Module
         | is preferred.
-  
+
 block content
   include ./partials/standard-nav
   section.block
@@ -87,10 +87,10 @@ block content
         h2 Modules
         p Tessel boards extend their capabilities by plugging in modules. It's as easy as connect, <code>npm install</code>, and a few lines of code to get started.
           | Try combinations of modules to make new devices!
-          
+
         p
           a(href="#tessel-modules")
-            b Ten-pin modules: 
+            b Ten-pin modules:
         ul.small-block-grid-1.large-block-grid-3
           li
             a(href="#module-accelerometer")
@@ -129,17 +129,17 @@ block content
                 span #{ucfirst(val.name)}
         p
           a(href="#third-party")
-            b Community-created modules: 
+            b Community-created modules:
         ul.small-block-grid-1.large-block-grid-3
           each val in moduleData.community
             li
               a(href="#" + val.package)
                 span #{ucfirst(val.name)}
-  
+
   section.block#module-list(style="background: white;")
     .row#tessel-modules
       p
-        b Ten-pin modules: 
+        b Ten-pin modules:
         | Fully supported plug-and-play modules.
     .row#module-accelerometer
       .large-10.columns.large-centered
@@ -183,7 +183,7 @@ block content
               li Measure 0 to 70 &deg;C (32 to 160 &deg;F) with &plusmn;1&deg; accuracy
               li Measure 0% to 80% relative humidity
             +to-fre('climate')
-    
+
     .row#module-diy
       .large-10.columns.large-centered
         div.row.module-class-b
@@ -200,8 +200,8 @@ block content
             +module-title('diy', 'DIY Module')
             p
               | Build your own module!
-            p This single- or double-wide module comes with a 
-              a(href="/diy") guide 
+            p This single- or double-wide module comes with a
+              a(href="/diy") guide
               | showing you how to connect anything to a Tessel.
             ul
               li Protoboard module exposes SPI, I2C, UART, and GPIO
@@ -312,12 +312,12 @@ block content
             +to-fre('servo')
     .row#usb
       p
-        b USB Modules: 
+        b USB Modules:
         | Tessel 2 runs Node natively, so works with existing Node libraries for off-the-shelf USB components.
-        p Submit a USB module you've discovered or created via pull request to <a href="https://github.com/tessel/hardware-modules/blob/master/modules.json">modules.json</a> in the tessel/hardware-modules repo.
-      
+        p Submit a USB module you've discovered or created via pull request to <a href="https://github.com/tessel/tessel.io/blob/master/modules.json">modules.json</a> in the tessel/hardware-modules repo.
+
     each val in moduleData.usb
-      .row              
+      .row
         .large-10.columns.large-centered
           div(id=val.package).row.module-class-b
             div.large-4.columns
@@ -336,10 +336,10 @@ block content
 
     .row#third-party
       p
-        b Community-created modules: 
+        b Community-created modules:
         | Community contributed npm libraries for these third-party add-ons make it easy to add capabilities!
-        p Submit a module you've created via pull request to <a href="https://github.com/tessel/hardware-modules/blob/master/modules.json">modules.json</a> in the tessel/hardware-modules repo.
-      
+        p Submit a module you've created via pull request to <a href="https://github.com/tessel/tessel.io/blob/master/modules.json">modules.json</a> in the tessel/hardware-modules repo.
+
     each val in moduleData.community
       .row
         .large-10.columns.large-centered
