@@ -19,6 +19,10 @@ Production env is stored in the password management. It should live in `/mnt/sec
 
 ### Running the server locally
 
+**Using Node.js && npm**
+
+Check the package.json file for the supported versions of Node.js and npm to build this project.
+
 ```
 npm install
 npm run build
@@ -26,6 +30,20 @@ npm run dev
 ```
 
 Be sure to install livereload plug-in to your chrome browser while developing.
+
+**Using Docker**
+
+Get the Docker tooling for your platform of choice:
+
+- [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
+- [Docker for Windows 10](https://docs.docker.com/docker-for-windows/install/)
+- [Docker for Linux](https://docs.docker.com/install/#server) (Links to options for CentOS, Debian, Fedora, Ubuntu)
+
+Run `docker-compose up -d` to build the Docker image and start the Node.js server in the background. This could take some time as it will install all the npm dependencies and run `npm run build` within the container.
+
+Open `http://localhost:5000` to see the site running locally. Run `docker-compose logs -f app` to follow the server logs from the container.
+
+When changing any of the server code, i.e. `index.js`, run `docker-compose restart` to restart the application. However, this is not required when changing anything within the `views/` directory as it is linked to the running container and will pick up changes without restarting or rebuilding.
 
 ### Tools used in this repo
 
@@ -53,14 +71,6 @@ Keep track of the size of these files as they are loaded into memory on server s
 #### aws.json
 
 To upload compressed images assets to AWS, fill out `aws.json` in accordance with <https://www.npmjs.com/package/gulp-s3>.
-
-#### Celery
-
-Ensure you have a `.env` file.
-
-In production, set the env variables `CELERY_URL` and `CELERY_TOKEN`.
-
-In development, set the `TEST_CELERY_URL`, `TEST_CELERY_TOKEN`, and `TEST_CELERY_ID` variables.
 
 ## Deployment
 
