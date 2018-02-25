@@ -7,11 +7,17 @@
     "bower-install": "bower install --config.interactive=false --allow-root",
     "gulp": "gulp",
     "start": "node index.js",
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm",
+    "alias": "now alias --token=$NOW_TOKEN"
   },
   "engines": {
     "node": "^4.4.3",
     "npm": "^3.8.6"
+  },
+  "now": {
+    "name": "tessel-website",
+    "alias": "now.tessel.io"
   },
   "dependencies": {
     "async": "0.9.0",

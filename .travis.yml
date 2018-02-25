@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- "node"
+cache: npm
+script: npm run deploy
+after_script: npm run alias
+branches:
+  only:
+    - master
+env:
+  global:
+    secure: tD/BNvii21JXUAu+0PWsVFcZYbucvGRnPZD/gsGY5ZhatE2I+BsR6GpaMeRILs2+M7FfM+S9T/RycKLXuQ17cyUqieTAvf+9HJULZpFwQtOjAG75/6ZC199BIrmbhdA2pnXkAZeyyiWTP+CB7lKTh2d0eSFfadQ3IMGRrdabDUDP9mBaEtP2gk2xi1sSRVYvYPIIWWUyq8278RW9GVa5HGff14ztqiKK13AtzivYAI1LmJX2YR70w8JtLLB1XfLsgk55ryRuXQrIhs4apocXy3e/QwHEyPutAUKNvpNVhdAemoqx7CTdT1G6vErhpiA+w+KTZad9qyRBIZT9c1ZBzIivbrHdhdqIYnpU3RKTtS9q8ELTQbWG4Y/GXRDCCw1I+9qpd1GHmYS50pZxyCqH056VJP2WkQAT54RQrfvXSXsgxSX/3DBl6V35h6l+bn04bPTc726VWAMzegSHXXqTv1NPR9X+G9EWTyiGGmZC5Pks3TbrnIUC0NExVobyn0e1XlbuLmf9GOak/a4jehE37AE138lpC4c9BvgiIiVsZDoCpqyEunQC5WymJH/v/GZMk6A+SRtVQPEDwFd6OpsrJNrD+FgMpLTUuBHHSMfhdTgsHLb52MYx2CPhRWn5y5wosR+uIZkrTz8bMc23G2Bm0kr5f4jDjdn6V4gVtqbMmCA=
