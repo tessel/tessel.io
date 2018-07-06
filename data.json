@@ -273,9 +273,9 @@
     "alt": "Plotly is a partner of Tessel",
     "link_url": "https://plot.ly/"
   }, {
-    "name": "Keen.io",
-    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/partners/Keen-IO.png",
-    "alt": "Keen.io is a partner of Tessel",
+    "name": "Keen",
+    "img_url": "https://s3.amazonaws.com/technicalmachine-assets/launch/partners/Keen.png",
+    "alt": "Keen is a partner of Tessel",
     "link_url": "https://keen.io/"
   }]
 }
