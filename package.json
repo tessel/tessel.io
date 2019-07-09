@@ -39,7 +39,7 @@
     "numeral": "1.5.3",
     "nvd3": "1.8.1",
     "raf": "2.0.4",
-    "request": "2.53.0",
+    "request": "^2.88.0",
     "serve-favicon": "^2.5.0",
     "try-celery": "0.0.3",
     "urlcode-json": "0.0.5"

@@ -139,10 +139,18 @@ app.get('/thanks', function(req, res) {
   celery.request('orders?number='+orderNum, function(error, response, body){
 
     if (error) {
-      console.error(error, ordernumber)
+      console.error(error, ordernumber);
+      res.render('error', {
+        navbar: indexdata.navbar,
+      });
+      return;
     }
 
-    var emailOnOrder = body.data.length ? body.data[0].buyer.email : null;
+    var emailOnOrder = null;
+
+    if (body.data.length && body.data[0].buyer) {
+      emailOnOrder = body.data[0].buyer.email;
+    }
 
     // If the confirmation email and order email differ
     if (emailOnOrder != confirmationEmail) {
@@ -151,7 +159,7 @@ app.get('/thanks', function(req, res) {
       res.render('error', {
         navbar: indexdata.navbar,
       });
-    return
+      return;
     }
 
     var orderid = body.data.length ? body.data[0]._id : null;
