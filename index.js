@@ -3,6 +3,12 @@
  */
 
 var express = require('express'),
+  morgan = require('morgan'),
+  bodyParser = require('body-parser'),
+  compression = require('compression'),
+  methodOverride = require('method-override'),
+  errorHandler = require('errorhandler'),
+  favicon = require('serve-favicon'),
   routes = require('./routes'),
   http = require('http'),
   path = require('path'),
@@ -41,10 +47,11 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.engine('html', require('ejs').renderFile);
 
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(express.compress());
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride());
+app.use(compression());
 
 // Tumblr redirecting
 app.use(function (req, res, next) {
@@ -58,14 +65,13 @@ app.use(function (req, res, next) {
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'build/public')));
-app.use(express.favicon('public/favicon.ico'));
-app.use(app.router);
+app.use(favicon('public/favicon.ico'));
 
 app.locals.encoder = new require('node-html-encoder').Encoder('entity');
 
 if ('development' == app.get('env')) {
   // development-only
-  app.use(express.errorHandler());
+  app.use(errorHandler());
   app.locals.pretty = true;
 }
 
