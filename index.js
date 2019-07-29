@@ -3,10 +3,15 @@
  */
 
 var express = require('express'),
+  morgan = require('morgan'),
+  bodyParser = require('body-parser'),
+  compression = require('compression'),
+  methodOverride = require('method-override'),
+  errorHandler = require('errorhandler'),
+  favicon = require('serve-favicon'),
   routes = require('./routes'),
   http = require('http'),
   path = require('path'),
-  fs = require('fs'),
   request = require('request'),
   uri = require('url'),
   marked = require('marked'),
@@ -14,7 +19,6 @@ var express = require('express'),
   hl = require('highlight.js'),
   https = require('https'),
   _ = require('lodash'),
-  moduleSelection = require('./module-selection.js'),
   Hashids = require('hashids'),
   hashids = new Hashids(process.env.URL_HASH_KEY)
   ;
@@ -43,10 +47,11 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.engine('html', require('ejs').renderFile);
 
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(express.compress());
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride());
+app.use(compression());
 
 // Tumblr redirecting
 app.use(function (req, res, next) {
@@ -60,14 +65,13 @@ app.use(function (req, res, next) {
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'build/public')));
-app.use(express.favicon('public/favicon.ico'));
-app.use(app.router);
+app.use(favicon('public/favicon.ico'));
 
 app.locals.encoder = new require('node-html-encoder').Encoder('entity');
 
 if ('development' == app.get('env')) {
   // development-only
-  app.use(express.errorHandler());
+  app.use(errorHandler());
   app.locals.pretty = true;
 }
 
@@ -135,10 +139,18 @@ app.get('/thanks', function(req, res) {
   celery.request('orders?number='+orderNum, function(error, response, body){
 
     if (error) {
-      console.error(error, ordernumber)
+      console.error(error, ordernumber);
+      res.render('error', {
+        navbar: indexdata.navbar,
+      });
+      return;
     }
 
-    var emailOnOrder = body.data.length ? body.data[0].buyer.email : null;
+    var emailOnOrder = null;
+
+    if (body.data.length && body.data[0].buyer) {
+      emailOnOrder = body.data[0].buyer.email;
+    }
 
     // If the confirmation email and order email differ
     if (emailOnOrder != confirmationEmail) {
@@ -147,7 +159,7 @@ app.get('/thanks', function(req, res) {
       res.render('error', {
         navbar: indexdata.navbar,
       });
-    return
+      return;
     }
 
     var orderid = body.data.length ? body.data[0]._id : null;
